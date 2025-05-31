@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Alex Godinez">
+<meta name="dcterms.date" content="2025-05-30">
+
+<title>3&nbsp; AI-Powered ETL &amp; RAG System for Large-Scale Literature Analytics and Methodological Gap Analysis – Portfolio</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./02-data-collection.html" rel="next">
+<link href="./update.html" rel="prev">
+<link href="./pic/00/cover.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-proposal.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">AI-Powered ETL &amp; RAG System for Large-Scale Literature Analytics and Methodological Gap Analysis</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Portfolio</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./update.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Project Update</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-proposal.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">AI-Powered ETL &amp; RAG System for Large-Scale Literature Analytics and Methodological Gap Analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-data-collection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Collection</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-literature-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Literature Review</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">References</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-a-etl-rag.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">appendix-a-etl-rag.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-c-hardware.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Appendix C: Computational Hardware</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-d-neo4j-queries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Knowledge Graph Queries and Supporting Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-e-db-queries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Database Queries</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#overall-goal" id="toc-overall-goal" class="nav-link active" data-scroll-target="#overall-goal"><span class="header-section-number">4</span> Overall Goal</a></li>
+  <li><a href="#application-scenario" id="toc-application-scenario" class="nav-link" data-scroll-target="#application-scenario"><span class="header-section-number">5</span> Application Scenario</a></li>
+  <li><a href="#personal-motivation-investment" id="toc-personal-motivation-investment" class="nav-link" data-scroll-target="#personal-motivation-investment"><span class="header-section-number">6</span> Personal Motivation &amp; Investment</a></li>
+  <li><a href="#why-its-interesting" id="toc-why-its-interesting" class="nav-link" data-scroll-target="#why-its-interesting"><span class="header-section-number">7</span> Why It’s Interesting</a></li>
+  <li><a href="#timeline" id="toc-timeline" class="nav-link" data-scroll-target="#timeline"><span class="header-section-number">8</span> Timeline</a></li>
+  <li><a href="#interdisciplinary-collaboration-and-cross-domain-utility" id="toc-interdisciplinary-collaboration-and-cross-domain-utility" class="nav-link" data-scroll-target="#interdisciplinary-collaboration-and-cross-domain-utility"><span class="header-section-number">9</span> Interdisciplinary Collaboration and Cross-Domain Utility</a>
+  <ul>
+  <li><a href="#interdisciplinary-impact-example" id="toc-interdisciplinary-impact-example" class="nav-link" data-scroll-target="#interdisciplinary-impact-example"><span class="header-section-number">9.1</span> Interdisciplinary Impact Example</a></li>
+  </ul></li>
+  <li><a href="#societal-impact-and-real-world-applications" id="toc-societal-impact-and-real-world-applications" class="nav-link" data-scroll-target="#societal-impact-and-real-world-applications"><span class="header-section-number">10</span> Societal Impact and Real-World Applications</a></li>
+  <li><a href="#ethical-considerations-and-responsible-ai-implementation" id="toc-ethical-considerations-and-responsible-ai-implementation" class="nav-link" data-scroll-target="#ethical-considerations-and-responsible-ai-implementation"><span class="header-section-number">11</span> Ethical Considerations and Responsible AI Implementation</a></li>
+  <li><a href="#sec-proposal-lit-review" id="toc-sec-proposal-lit-review" class="nav-link" data-scroll-target="#sec-proposal-lit-review"><span class="header-section-number">12</span> Literature Review</a>
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">12.1</span> Introduction</a></li>
+  <li><a href="#technical-background" id="toc-technical-background" class="nav-link" data-scroll-target="#technical-background"><span class="header-section-number">12.2</span> Technical Background</a></li>
+  <li><a href="#empirical-evidence-and-performance-evaluation-of-rag-systems" id="toc-empirical-evidence-and-performance-evaluation-of-rag-systems" class="nav-link" data-scroll-target="#empirical-evidence-and-performance-evaluation-of-rag-systems"><span class="header-section-number">12.3</span> Empirical Evidence and Performance Evaluation of RAG Systems</a></li>
+  <li><a href="#applications-in-systematic-reviews-and-evidence-synthesis" id="toc-applications-in-systematic-reviews-and-evidence-synthesis" class="nav-link" data-scroll-target="#applications-in-systematic-reviews-and-evidence-synthesis"><span class="header-section-number">12.4</span> Applications in Systematic Reviews and Evidence Synthesis</a></li>
+  <li><a href="#applications-in-public-health-and-epidemiology" id="toc-applications-in-public-health-and-epidemiology" class="nav-link" data-scroll-target="#applications-in-public-health-and-epidemiology"><span class="header-section-number">12.5</span> Applications in Public Health and Epidemiology</a></li>
+  <li><a href="#identification-of-methodological-gaps-using-retrieval-augmented-generation" id="toc-identification-of-methodological-gaps-using-retrieval-augmented-generation" class="nav-link" data-scroll-target="#identification-of-methodological-gaps-using-retrieval-augmented-generation"><span class="header-section-number">12.6</span> Identification of Methodological Gaps using Retrieval-Augmented Generation</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="header-section-number">12.7</span> Discussion</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">12.8</span> Conclusion</a></li>
+  <li><a href="#future-directions" id="toc-future-directions" class="nav-link" data-scroll-target="#future-directions"><span class="header-section-number">12.9</span> Future Directions</a></li>
+  </ul></li>
+  <li><a href="#data-management" id="toc-data-management" class="nav-link" data-scroll-target="#data-management"><span class="header-section-number">13</span> Data Management</a>
+  <ul>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources"><span class="header-section-number">13.0.1</span> Sources:</a></li>
+  <li><a href="#volume" id="toc-volume" class="nav-link" data-scroll-target="#volume"><span class="header-section-number">13.0.2</span> Volume:</a></li>
+  <li><a href="#formats" id="toc-formats" class="nav-link" data-scroll-target="#formats"><span class="header-section-number">13.0.3</span> Formats:</a></li>
+  </ul></li>
+  <li><a href="#expected-results" id="toc-expected-results" class="nav-link" data-scroll-target="#expected-results"><span class="header-section-number">14</span> Expected Results</a>
+  <ul>
+  <li><a href="#automated-literature-workflow" id="toc-automated-literature-workflow" class="nav-link" data-scroll-target="#automated-literature-workflow"><span class="header-section-number">14.0.1</span> 1. <strong>Automated Literature Workflow</strong></a></li>
+  <li><a href="#identification-of-methodological-gaps" id="toc-identification-of-methodological-gaps" class="nav-link" data-scroll-target="#identification-of-methodological-gaps"><span class="header-section-number">14.0.2</span> 2. <strong>Identification of Methodological Gaps</strong></a></li>
+  <li><a href="#innovative-geospatial-analysis" id="toc-innovative-geospatial-analysis" class="nav-link" data-scroll-target="#innovative-geospatial-analysis"><span class="header-section-number">14.0.3</span> 3. <strong>Innovative Geospatial Analysis</strong></a></li>
+  <li><a href="#final-presentation-and-documentation" id="toc-final-presentation-and-documentation" class="nav-link" data-scroll-target="#final-presentation-and-documentation"><span class="header-section-number">14.0.4</span> 4. <strong>Final Presentation and Documentation</strong></a></li>
+  </ul></li>
+  <li><a href="#example-data-extraction-functions" id="toc-example-data-extraction-functions" class="nav-link" data-scroll-target="#example-data-extraction-functions"><span class="header-section-number">15</span> Example data extraction functions</a>
+  <ul>
+  <li><a href="#module-fast_pubmed.py" id="toc-module-fast_pubmed.py" class="nav-link" data-scroll-target="#module-fast_pubmed.py"><span class="header-section-number">15.1</span> Module: <code>fast_pubmed.py</code></a></li>
+  <li><a href="#module-fast_openalex.py" id="toc-module-fast_openalex.py" class="nav-link" data-scroll-target="#module-fast_openalex.py"><span class="header-section-number">15.2</span> Module: <code>fast_openalex.py</code></a></li>
+  <li><a href="#module-etl_elsevier.py" id="toc-module-etl_elsevier.py" class="nav-link" data-scroll-target="#module-etl_elsevier.py"><span class="header-section-number">15.3</span> Module: <code>etl_elsevier.py</code></a></li>
+  <li><a href="#module-async_unpaywall.py" id="toc-module-async_unpaywall.py" class="nav-link" data-scroll-target="#module-async_unpaywall.py"><span class="header-section-number">15.4</span> Module: <code>async_unpaywall.py</code></a></li>
+  <li><a href="#module-docling_extract_formulas_mp_multi.py" id="toc-module-docling_extract_formulas_mp_multi.py" class="nav-link" data-scroll-target="#module-docling_extract_formulas_mp_multi.py"><span class="header-section-number">15.5</span> Module <code>docling_extract_formulas_mp_multi.py</code></a></li>
+  <li><a href="#module-fast_zotero.py" id="toc-module-fast_zotero.py" class="nav-link" data-scroll-target="#module-fast_zotero.py"><span class="header-section-number">15.6</span> Module: <code>fast_zotero.py</code></a></li>
+  <li><a href="#module-field_extraction.py" id="toc-module-field_extraction.py" class="nav-link" data-scroll-target="#module-field_extraction.py"><span class="header-section-number">15.7</span> Module: <code>field_extraction.py</code></a></li>
+  <li><a href="#module-topic_modeling_culda.py" id="toc-module-topic_modeling_culda.py" class="nav-link" data-scroll-target="#module-topic_modeling_culda.py"><span class="header-section-number">15.8</span> Module: <code>topic_modeling_culda.py</code></a></li>
+  <li><a href="#module-kg_pipeline.py" id="toc-module-kg_pipeline.py" class="nav-link" data-scroll-target="#module-kg_pipeline.py"><span class="header-section-number">15.9</span> Module: <code>kg_pipeline.py</code></a></li>
+  <li><a href="#module-dictionaries.py" id="toc-module-dictionaries.py" class="nav-link" data-scroll-target="#module-dictionaries.py"><span class="header-section-number">15.10</span> Module: <code>dictionaries.py</code></a></li>
+  <li><a href="#complete-pipeline-execution-notebook" id="toc-complete-pipeline-execution-notebook" class="nav-link" data-scroll-target="#complete-pipeline-execution-notebook"><span class="header-section-number">15.11</span> Complete Pipeline Execution Notebook</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">AI-Powered ETL &amp; RAG System for Large-Scale Literature Analytics and Methodological Gap Analysis</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Alex Godinez </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 30, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>#01-proposal.qmd</p>
+<p><strong>Working Title</strong>:<br>
+“AI-Powered ETL &amp; RAG System for Large-Scale Academic Literature Analytics and Methodological Gap Analysis in Geospatial Epidemiology and Life Cycle Assesments”</p>
+<hr>
+<section id="overall-goal" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Overall Goal</h1>
+<p>I aim to create an <strong>end-to-end automated pipeline</strong> to:</p>
+<ol type="1">
+<li><strong>Extract, Transform, and Load (ETL)</strong>:
+<ul>
+<li><strong>Collect</strong> academic articles using PubMed and OpenAlex, retrieving PDFs in bulk through Unpaywall.</li>
+<li><strong>Extract</strong> structured text, tables, domain-specific metrics, and methodologies from articles.</li>
+<li><strong>Store and manage</strong> metadata systematically in Zotero.</li>
+<li><strong>Generate</strong> structured datasets for detailed analytical use.</li>
+</ul></li>
+<li><strong>Retrieval-Augmented Generation (RAG)</strong>:
+<ul>
+<li><strong>Embed</strong> literature into a semantic vector database (Qdrant) to enable advanced semantic search.</li>
+<li><strong>Generate</strong> insightful summaries using large language models.</li>
+<li><strong>Identify</strong> research gaps, specifically targeting underrepresented geospatial and machine learning methods in the study of ozone exposure and heart disease.</li>
+</ul></li>
+</ol>
+<p>The core objective is to leverage this pipeline to first identify methodological gaps, then directly apply novel or underutilized analytical techniques to the CDC’s ozone and heart disease datasets, thus bridging theory with impactful application.</p>
+<hr>
+</section>
+<section id="application-scenario" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Application Scenario</h1>
+<p>The ETL &amp; RAG system will facilitate a systematic review of research intersecting:</p>
+<ul>
+<li>Ozone exposure and health outcomes (heart disease).</li>
+<li>Geospatial epidemiological techniques.</li>
+<li>Machine learning methodologies.</li>
+</ul>
+<p>Through semantic querying, the pipeline will explicitly reveal:</p>
+<ul>
+<li>Commonly applied geospatial analysis techniques (spatial regression, kriging, hotspot analysis).</li>
+<li>Prevalent machine learning methods (Random Forest, XGBoost, Neural Networks).</li>
+<li>Underrepresented or novel methodologies within existing literature.</li>
+</ul>
+<p>The identified methodological gaps will guide my selection of innovative or less-explored techniques, which will subsequently be implemented on publicly available CDC datasets involving ozone exposure and heart disease outcomes. This demonstrates the practical value of the developed ETL and RAG tools in directly informing and enhancing geospatial epidemiological research.</p>
+<hr>
+</section>
+<section id="personal-motivation-investment" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Personal Motivation &amp; Investment</h1>
+<p>Manual literature reviews and data extraction are notoriously time-consuming. Recognizing these limitations, I personally invested in specialized hardware (multiple GPUs, 512 GB RAM, upgraded motherboard) to handle large-scale PDF processing, geospatial analysis, ML model training, and computationally intensive inference tasks. This investment reduces reliance on restrictive and bureaucratic access to university cluster computing (such as single GPU allocations or indirect access protocols) and costly API services (Azure Document Intelligence, OpenAI API), ensuring economic sustainability for long-term, large-scale usage.</p>
+<hr>
+</section>
+<section id="why-its-interesting" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Why It’s Interesting</h1>
+<ul>
+<li><strong>Interdisciplinary Impact</strong>: Applicable to diverse research domains beyond epidemiology.</li>
+<li><strong>Innovation Alignment</strong>: Potentially valuable to institutions such as UAlbany’s AI Plus Institute.</li>
+<li><strong>Flexible Framework</strong>: Easily adaptable for analyzing unstructured datasets outside academic literature.</li>
+</ul>
+<hr>
+</section>
+<section id="timeline" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Timeline</h1>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>Weeks</strong></th>
+<th><strong>Tasks</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1–2</td>
+<td>PDF collection, text extraction, dataset synthesis</td>
+</tr>
+<tr class="even">
+<td>3–4</td>
+<td>Identify methodological gaps via RAG pipeline</td>
+</tr>
+<tr class="odd">
+<td>5–6</td>
+<td>Apply identified methods to CDC geospatial datasets</td>
+</tr>
+<tr class="even">
+<td>7–8</td>
+<td>Final analyses and interactive Quarto presentation</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="interdisciplinary-collaboration-and-cross-domain-utility" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Interdisciplinary Collaboration and Cross-Domain Utility</h1>
+<p>Retrieval-Augmented Generation (RAG) facilitates interdisciplinary research by connecting knowledge domains through new data incorporation during generation (<span class="citation" data-cites="luu_bioinspiredllm_2023">Luu and Buehler (<a href="#ref-luu_bioinspiredllm_2023" role="doc-biblioref">2023</a>)</span>). RAG-powered academic search tools enable complex, natural language queries, improving cross-field literature synthesis over traditional methods (<span class="citation" data-cites="j_bolanos_artificial_2024">J. Bolaños et al. (<a href="#ref-j_bolanos_artificial_2024" role="doc-biblioref">2024</a>)</span>). RAG’s integration into LLMs enhances their adaptability for diverse research applications <span class="citation" data-cites="lee_bring_2024">(<a href="#ref-lee_bring_2024" role="doc-biblioref">Lee and Kim 2024</a>)</span>, demonstrated by systems that retrieve precise COVID-19 health information (<span class="citation" data-cites="upadhyayEnhancingHealthInformation2025">Upadhyay and Viviani (<a href="#ref-upadhyayEnhancingHealthInformation2025" role="doc-biblioref">2025</a>)</span>) or integrate findings on sustainable biomaterials.</p>
+<p>Knowledge graph-based methods promote interdisciplinary collaboration by mapping research concepts across domains via graph mining in literature analytics (<span class="citation" data-cites="j_bolanos_artificial_2024">J. Bolaños et al. (<a href="#ref-j_bolanos_artificial_2024" role="doc-biblioref">2024</a>)</span>). Platforms like NetMe 2.0 create interactive knowledge graphs from biomedical literature, allowing shared exploration of connections by diverse specialists (<span class="citation" data-cites="di_maria_netme_2024">Di Maria et al. (<a href="#ref-di_maria_netme_2024" role="doc-biblioref">2024</a>)</span>). Aligning LLMs with domain knowledge graphs improves multi-hop reasoning across distinct corpora (<span class="citation" data-cites="dernbach_glam_2024">Dernbach et al. (<a href="#ref-dernbach_glam_2024" role="doc-biblioref">2024</a>)</span>). Logic-Augmented Generation allows experts from multiple fields to collaboratively build and reconcile knowledge (<span class="citation" data-cites="gangemi_logic_2025">Gangemi and Giovanni Nuzzolese (<a href="#ref-gangemi_logic_2025" role="doc-biblioref">2025</a>)</span>). LLM-driven ontology creation also integrates varied datasets from different domains, such as urban systems, to improve interdisciplinary data sharing (<span class="citation" data-cites="tupayachi_towards_2024">Tupayachi et al. (<a href="#ref-tupayachi_towards_2024" role="doc-biblioref">2024</a>)</span>).</p>
+<section id="interdisciplinary-impact-example" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="interdisciplinary-impact-example"><span class="header-section-number">9.1</span> Interdisciplinary Impact Example</h2>
+<p>Beyond its application in geospatial epidemiology, the inherent flexibility of the AI-Powered ETL &amp; RAG system architecture makes it directly applicable to other complex, data-intensive research domains such as Life Cycle Assessment (LCA) for agricultural systems, particularly concerning cover crop GWP and the compilation of Life Cycle Inventories (LCI). The existing ETL pipeline (including fast_pubmed.py, fast_openalex.py) can be readily aimed at literature pertaining to LCA, GWP, and cover crop management. The core field_extraction.py module, configurable via etl_config.json and the project’s GUI (config_tab.py), is already equipped with extraction fields highly pertinent to LCA/LCI. Specifically, pre-defined fields such as “LCA System Boundaries”, “Environmental Impact Categories”, “Management Practices and Operational Details”, and the structured “Metrics” field (designed to capture {“Metric”: “name”, “Value”: “value”, “Unit”: “unit”}) are directly suited for systematically extracting quantitative LCI data (fertilizer inputs, fuel consumption, emission values, crop yields) and qualitative contextual information from a large corpus of relevant scientific articles.</p>
+<p>The system’s capacity for knowledge structuration further enhances its utility for LCA/GWP research. The extensive existing knowledge base, comprising over 25 dictionaries with approximately 10,000 synonyms managed via dictionaries_gui.py (from dictionaries_config.json), includes relevant lexicons like “AGRONOMIC_MGMT_PRACTICES_SYNONYMS”, “ENVIRONMENTAL_IMPACT_CATEGORIES”, “COVER_CROP_SYNONYMS”, and “SOIL_TYPE_SYNONYMS”. These require only clicking a few checkboxes for LCA-specific terminology (specific LCI flow names, impact assessment methods, GWP characterization factors) within the GUI rather than development from scratch. The extracted and semantically unified data, including detailed LCI parameters and GWP values, is then processed by kg_pipeline.py to construct a domain-specific knowledge graph. This KG can serve as a queryable, literature-derived database of LCI components and GWP factors, enabling systematic comparison of different cover crop systems, validation of LCI data, and benchmarking of GWP model results, such as those from the previously developed Random Forest analysis for GWP_Total.</p>
+<p>This application to LCA/GWP research effectively demonstrates the system’s broader “Interdisciplinary Impact” and its function as a “Flexible Framework” capable of large-scale, structured data extraction and analysis from scientific literature across diverse domains. By selecting fields within the GUI to prioritize LCA-relevant fields and refining the domain-specific dictionaries, the pipeline can efficiently build a comprehensive knowledge base to support detailed LCA studies and contextualize empirical GWP findings. This not only addresses specific research needs within agricultural systems analysis but also validates the core design principles of the ETL+RAG system for robust and adaptable automated literature analytics.</p>
+</section>
+</section>
+<section id="societal-impact-and-real-world-applications" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Societal Impact and Real-World Applications</h1>
+<p>AI-driven literature review systems provide societal benefits in public health and epidemiology by accelerating research timelines. For example, AI reduced data extraction time for a diabetic retinopathy review from 1,310 minutes to 5 minutes (<span class="citation" data-cites="gue_evaluating_2024">Gue et al. (<a href="#ref-gue_evaluating_2024" role="doc-biblioref">2024</a>)</span>), and an LLM completed a literature review in 17 hours compared to 100 hours for humans (<span class="citation" data-cites="tsai_comparative_2024">Tsai, Huang, and Kuo (<a href="#ref-tsai_comparative_2024" role="doc-biblioref">2024</a>)</span>). This efficiency supports quicker synthesis of findings that can influence policy development (<span class="citation" data-cites="j_bolanos_artificial_2024">J. Bolaños et al. (<a href="#ref-j_bolanos_artificial_2024" role="doc-biblioref">2024</a>)</span>). AI screening also minimizes costs while preserving high recall in evidence synthesis. These systems maintain high accuracy, with GPT-4 achieving 99% reviewer accuracy in systematic review tasks (<span class="citation" data-cites="fleurence_generative_2024">Fleurence et al. (<a href="#ref-fleurence_generative_2024" role="doc-biblioref">2024a</a>)</span>). Retrieval-Augmented Generation (RAG) contributes by enhancing AI output reliability and factuality. A RAG system achieved 86% diagnostic accuracy and 95% accuracy in citing sources, aiding hallucination detection (<span class="citation" data-cites="tozuka_application_2024">Tozuka et al. (<a href="#ref-tozuka_application_2024" role="doc-biblioref">2024</a>)</span>). RAG is a recognized strategy to mitigate hallucinations, improve factuality (<span class="citation" data-cites="huangSurveyHallucinationLarge2024">Huang et al. (<a href="#ref-huangSurveyHallucinationLarge2024" role="doc-biblioref">2024</a>)</span>; <span class="citation" data-cites="aditya_understanding_2024">Aditya (<a href="#ref-aditya_understanding_2024" role="doc-biblioref">2024</a>)</span>), and enhance topical relevance with factual accuracy in health information retrieval <span class="citation" data-cites="upadhyayEnhancingHealthInformation2025">(<a href="#ref-upadhyayEnhancingHealthInformation2025" role="doc-biblioref">Upadhyay and Viviani 2025</a>)</span>.</p>
+</section>
+<section id="ethical-considerations-and-responsible-ai-implementation" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Ethical Considerations and Responsible AI Implementation</h1>
+<p>Automated literature extraction and synthesis systems raise specific ethical issues requiring careful management. Transparency, risk classification, and fairness-accountability-transparency-ethics (FATE) measures are necessary, aligning with regulations like the EU AI Act (<span class="citation" data-cites="j_bolanos_artificial_2024">J. Bolaños et al. (<a href="#ref-j_bolanos_artificial_2024" role="doc-biblioref">2024</a>)</span>). Systems require explicit bias mitigation strategies to prevent skewed evidence bases from automated screening (<span class="citation" data-cites="tsai_comparative_2024">Tsai, Huang, and Kuo (<a href="#ref-tsai_comparative_2024" role="doc-biblioref">2024</a>)</span>). The use of generative AI for scholarly tasks underscores the need for formal ethical guidelines and researcher training (<span class="citation" data-cites="yuan_leveraging_2024">Yuan et al. (<a href="#ref-yuan_leveraging_2024" role="doc-biblioref">2024</a>)</span>). Factual inaccuracies and hallucinations in foundation models present threats to scientific rigor if not addressed (<span class="citation" data-cites="fleurence_generative_2024">Fleurence et al. (<a href="#ref-fleurence_generative_2024" role="doc-biblioref">2024a</a>)</span>). Additionally, these systems pose privacy and data protection challenges due to the risk of large models memorizing and reproducing sensitive data, necessitating compliance with HIPAA, GDPR, and the EU AI Act.</p>
+</section>
+<section id="sec-proposal-lit-review" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Literature Review</h1>
+<div id="fig-graph-abstract" class="quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-graph-abstract-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/ETL_RAG.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-graph-abstract-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.1: Graphical Abstract
+</figcaption>
+</figure>
+</div>
+<section id="introduction" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">12.1</span> Introduction</h2>
+<p>Retrieval-Augmented Generation (RAG) is a machine-learning framework combining information retrieval with deep-learning models, such as transformer-based large language models <span class="citation" data-cites="rawsonNgaAraWhakamana2024">(<a href="#ref-rawsonNgaAraWhakamana2024" role="doc-biblioref">Rawson 2024</a>)</span>. This approach enhances factual accuracy, coherence, and context relevance of generated responses by incorporating retrieved information into the generation process <span class="citation" data-cites="liAugmentingLargeLanguage2024">(<a href="#ref-liAugmentingLargeLanguage2024" role="doc-biblioref">Li and Lai 2024</a>)</span>. Within geospatial epidemiology, particularly concerning ozone exposure and heart disease, RAG offers a tool for synthesizing spatial and temporal data from environmental and health datasets. By integrating parametric memory of large language models with non-parametric external knowledge bases, RAG supports researchers. For example, RAG can help identify critical knowledge gaps and underrepresented methodologies <span class="citation" data-cites="barnettSevenFailurePoints2024">(<a href="#ref-barnettSevenFailurePoints2024" role="doc-biblioref">Barnett et al. 2024</a>)</span>, and improve the factual accuracy of health information <span class="citation" data-cites="upadhyayEnhancingHealthInformation2025">(<a href="#ref-upadhyayEnhancingHealthInformation2025" role="doc-biblioref">Upadhyay and Viviani 2025</a>)</span>, advancing the understanding of chronic disease risk factors.</p>
+</section>
+<section id="technical-background" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="technical-background"><span class="header-section-number">12.2</span> Technical Background</h2>
+<p>RAG combines deep learning with traditional information retrieval, integrating parametric and non-parametric memory systems to enhance text generation accuracy. The parametric component involves transformer-based neural models, such as sequence-to-sequence architectures (BART, T5, LLaMA), that store learned information within model weights and can be fine-tuned for specific tasks <span class="citation" data-cites="rawsonNgaAraWhakamana2024 fengRetrievalGenerationSynergyAugmented2024">(<a href="#ref-rawsonNgaAraWhakamana2024" role="doc-biblioref">Rawson 2024</a>; <a href="#ref-fengRetrievalGenerationSynergyAugmented2024" role="doc-biblioref">Feng et al. 2024</a>)</span>. Non-parametric memory relies on external databases indexed as dense vector representations, queried using neural retrievers like Dense Passage Retriever (DPR) or dual-encoder architectures, enabling retrieval of contextually relevant information without model retraining <span class="citation" data-cites="rawsonNgaAraWhakamana2024 sakarMaximizingRAGEfficiency2024">(<a href="#ref-rawsonNgaAraWhakamana2024" role="doc-biblioref">Rawson 2024</a>; <a href="#ref-sakarMaximizingRAGEfficiency2024" role="doc-biblioref">Şakar and Emekci 2024</a>)</span>. Transformer-based architectures are employed in RAG pipelines for their language modeling capabilities, facilitating coherent and contextually informed responses. The combination of transformer generators and retrieval encoders improves accuracy, relevance, and freshness of generated content by leveraging external, updateable knowledge bases <span class="citation" data-cites="fanSurveyRAGMeeting2024 wangSearchingBestPractices2024">(<a href="#ref-fanSurveyRAGMeeting2024" role="doc-biblioref">Fan et al. 2024</a>; <a href="#ref-wangSearchingBestPractices2024" role="doc-biblioref">Wang et al. 2024</a>)</span>. RAG systems bridge gaps between static, trained model knowledge and evolving external data sources, often outperforming traditional NLP methods in factual precision and resource efficiency <span class="citation" data-cites="liAugmentingLargeLanguage2024 upadhyayEnhancingHealthInformation2025">(<a href="#ref-liAugmentingLargeLanguage2024" role="doc-biblioref">Li and Lai 2024</a>; <a href="#ref-upadhyayEnhancingHealthInformation2025" role="doc-biblioref">Upadhyay and Viviani 2025</a>)</span>.</p>
+</section>
+<section id="empirical-evidence-and-performance-evaluation-of-rag-systems" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="empirical-evidence-and-performance-evaluation-of-rag-systems"><span class="header-section-number">12.3</span> Empirical Evidence and Performance Evaluation of RAG Systems</h2>
+<p>Empirical evaluation of RAG assesses its enhancement of factual accuracy, retrieval effectiveness, and efficiency in text generation. Studies like <span class="citation" data-cites="fatehaliAutomatedLiteratureReview2024">Fateh Ali et al. (<a href="#ref-fatehaliAutomatedLiteratureReview2024" role="doc-biblioref">2024</a>)</span> compared RAG-based pipelines against conventional NLP approaches, including transformer-only models and frequency-based topic modeling, finding RAG superior based on higher ROUGE-1 (0.364) and ROUGE-2 (0.123) scores. <span class="citation" data-cites="upadhyayEnhancingHealthInformation2025">Upadhyay and Viviani (<a href="#ref-upadhyayEnhancingHealthInformation2025" role="doc-biblioref">2025</a>)</span> demonstrated RAG’s effectiveness in health-information retrieval, nearly doubling performance metrics like CAM NDCG (0.2146 vs.&nbsp;0.1119) and CAM MAP (0.1079 vs.&nbsp;0.0455) compared to non-RAG systems. A central hypothesis is that integrating retrieval with generation boosts the accuracy, reliability, and contextual relevance of outputs.</p>
+<p>Studies employed experimental designs comparing RAG models with multiple baselines, including transformer-based models (T5, GPT-3.5), frequency-based methods (spaCy), and traditional IR techniques (BM25). Data sources included academic corpora, scientific literature collections, and clinical notes, selected for relevance, quality, and representativeness <span class="citation" data-cites="liAugmentingLargeLanguage2024 rawsonNgaAraWhakamana2024 shah-mohammadiUtilizingRAGGPT42024">(<a href="#ref-liAugmentingLargeLanguage2024" role="doc-biblioref">Li and Lai 2024</a>; <a href="#ref-rawsonNgaAraWhakamana2024" role="doc-biblioref">Rawson 2024</a>; <a href="#ref-shah-mohammadiUtilizingRAGGPT42024" role="doc-biblioref">Shah-Mohammadi and Finkelstein 2024</a>)</span>. Common evaluation metrics included ROUGE scores, precision, recall, F1-scores, CAM-MAP, and CAM-NDCG, assessing textual relevance, accuracy, and coherence.</p>
+<p>Quantitative results from empirical studies indicate RAG’s improved performance in generating contextually accurate and relevant outputs. For example, <span class="citation" data-cites="kreimeyerUsingRetrievalAugmentedGeneration2024">Kreimeyer et al. (<a href="#ref-kreimeyerUsingRetrievalAugmentedGeneration2024" role="doc-biblioref">2024</a>)</span> reported RAG reproducing over 80% of expert-curated information in oncology literature, indicating reliability and precision. <span class="citation" data-cites="guProbabilisticMedicalPredictions2024">Gu et al. (<a href="#ref-guProbabilisticMedicalPredictions2024" role="doc-biblioref">2024</a>)</span> demonstrated RAG’s efficiency gains by reducing manual systematic review extraction time from 1.310 minutes to 5 minutes, without sacrificing data quality. These studies highlight RAG’s strengths but also emphasize managing retrieval parameters (e.g., chunk size, embedding strategies) to avoid retrieval inaccuracies or context misalignment <span class="citation" data-cites="barnettSevenFailurePoints2024">(<a href="#ref-barnettSevenFailurePoints2024" role="doc-biblioref">Barnett et al. 2024</a>)</span>.</p>
+</section>
+<section id="applications-in-systematic-reviews-and-evidence-synthesis" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="applications-in-systematic-reviews-and-evidence-synthesis"><span class="header-section-number">12.4</span> Applications in Systematic Reviews and Evidence Synthesis</h2>
+<p>RAG streamlines evidence collection in systematic reviews by combining parametric and non-parametric memory systems. These systems pair neural sequence-to-sequence generators with dense-vector indices queried by neural retrievers, automating the identification and extraction of relevant literature <span class="citation" data-cites="rawsonNgaAraWhakamana2024 sakarMaximizingRAGEfficiency2024">(<a href="#ref-rawsonNgaAraWhakamana2024" role="doc-biblioref">Rawson 2024</a>; <a href="#ref-sakarMaximizingRAGEfficiency2024" role="doc-biblioref">Şakar and Emekci 2024</a>)</span>. This automation reduces the manual workload associated with literature screening and data extraction. For instance, GPT-3.5 Turbo with RAG reduced data extraction time in systematic reviews from 1,310 minutes to 5 minutes, maintaining high concordance with human reviewers for extracting structured data <span class="citation" data-cites="guProbabilisticMedicalPredictions2024">(<a href="#ref-guProbabilisticMedicalPredictions2024" role="doc-biblioref">Gu et al. 2024</a>)</span>.</p>
+<p>RAG also enhances the accuracy and consistency of data extraction processes. In health information retrieval tasks, RAG-driven models demonstrated improved topical relevance and factual accuracy, with improved performance metrics such as CAM-MAP and CAM-NDCG compared to traditional information retrieval methods <span class="citation" data-cites="upadhyayEnhancingHealthInformation2025">(<a href="#ref-upadhyayEnhancingHealthInformation2025" role="doc-biblioref">Upadhyay and Viviani 2025</a>)</span>. Furthermore, RAG with quantized LLMs improves data extraction accuracy (exceeding 93%) while reducing computational resource demands <span class="citation" data-cites="ranjanmaharanaRetrievalAugmentedGeneration2024">(<a href="#ref-ranjanmaharanaRetrievalAugmentedGeneration2024" role="doc-biblioref">Ranjan Maharana and Joshi 2024</a>)</span>. These approaches improve efficiency and can mitigate human biases, aiding uniformity in evidence synthesis.</p>
+<p>Advanced RAG implementations in systematic reviews leverage semantic search capabilities through dense-vector indices and neural retrieval methods. This approach often retrieves literature with greater contextual understanding than conventional keyword-based searches. When such retrieval is combined with large language models for generation, it can support the identification of relevant and potentially overlooked literature. Recent empirical studies illustrate that integrating RAG into literature review processes yields better summarization accuracy, with measurable improvements in ROUGE metrics compared to other NLP methods <span class="citation" data-cites="fatehaliAutomatedLiteratureReview2024">(<a href="#ref-fatehaliAutomatedLiteratureReview2024" role="doc-biblioref">Fateh Ali et al. 2024</a>)</span>. This demonstrates RAG’s capability to provide accurate, contextually relevant summaries for high-quality evidence synthesis.</p>
+</section>
+<section id="applications-in-public-health-and-epidemiology" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="applications-in-public-health-and-epidemiology"><span class="header-section-number">12.5</span> Applications in Public Health and Epidemiology</h2>
+<p>RAG applications in Public Health and Epidemiology enhance information synthesis and decision-making. RAG systems ground responses in current, domain-specific evidence by incorporating information from diverse sources like clinical guidelines and surveillance data, improving factual accuracy <span class="citation" data-cites="rawsonNgaAraWhakamana2024 liAugmentingLargeLanguage2024">(<a href="#ref-rawsonNgaAraWhakamana2024" role="doc-biblioref">Rawson 2024</a>; <a href="#ref-liAugmentingLargeLanguage2024" role="doc-biblioref">Li and Lai 2024</a>)</span>. This capability aids public health professionals in synthesizing evolving information for interventions. Examples include updating knowledge bases for health worker training <span class="citation" data-cites="alghadbanTransformingHealthcareEducation2023">(<a href="#ref-alghadbanTransformingHealthcareEducation2023" role="doc-biblioref">Al Ghadban et al. 2023</a>)</span>, streamlining surveillance via clinical note data extraction <span class="citation" data-cites="shah-mohammadiUtilizingRAGGPT42024">(<a href="#ref-shah-mohammadiUtilizingRAGGPT42024" role="doc-biblioref">Shah-Mohammadi and Finkelstein 2024</a>)</span>, and processing large document sets for key point summarization with tools like ‘Cognitive Reviewer’ <span class="citation" data-cites="barnettSevenFailurePoints2024">(<a href="#ref-barnettSevenFailurePoints2024" role="doc-biblioref">Barnett et al. 2024</a>)</span>. RAG also automates accurate structured dataset creation from literature <span class="citation" data-cites="ranjanmaharanaRetrievalAugmentedGeneration2024">(<a href="#ref-ranjanmaharanaRetrievalAugmentedGeneration2024" role="doc-biblioref">Ranjan Maharana and Joshi 2024</a>)</span>. Policy experts recognize RAG for improving accuracy in evidence synthesis <span class="citation" data-cites="fleurenceGenerativeAIHealth2024a">(<a href="#ref-fleurenceGenerativeAIHealth2024a" role="doc-biblioref">Fleurence et al. 2024b</a>)</span>.</p>
+<p>In health communication and public engagement, RAG contributes to generating clear, accurate, and personalized health information. For instance, RAG integrated into models for breast-cancer nursing care questions yielded high user-rated accuracy and empathy <span class="citation" data-cites="xuEvaluationIntegrationRetrievalaugmented2024">(<a href="#ref-xuEvaluationIntegrationRetrievalaugmented2024" role="doc-biblioref">R. Xu et al. 2024</a>)</span>. RAG-driven systems are also used to train frontline health workers by providing traceable, guideline-based information adaptable to evolving clinical knowledge <span class="citation" data-cites="alghadbanTransformingHealthcareEducation2023">(<a href="#ref-alghadbanTransformingHealthcareEducation2023" role="doc-biblioref">Al Ghadban et al. 2023</a>)</span>. By enhancing topical relevance and factual accuracy in consumer health information retrieval and constraining hallucinations, RAG contributes to reliable health education and efforts against misinformation <span class="citation" data-cites="upadhyayEnhancingHealthInformation2025">(<a href="#ref-upadhyayEnhancingHealthInformation2025" role="doc-biblioref">Upadhyay and Viviani 2025</a>)</span>.</p>
+</section>
+<section id="identification-of-methodological-gaps-using-retrieval-augmented-generation" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="identification-of-methodological-gaps-using-retrieval-augmented-generation"><span class="header-section-number">12.6</span> Identification of Methodological Gaps using Retrieval-Augmented Generation</h2>
+<p>RAG can be a meta-analytic tool to identify methodological gaps by processing scientific literature. RAG deployments map ‘failure points’ in various workflows, pinpointing areas with weak or insufficient methodologies <span class="citation" data-cites="barnettSevenFailurePoints2024">(<a href="#ref-barnettSevenFailurePoints2024" role="doc-biblioref">Barnett et al. 2024</a>)</span>. For example, by analyzing large datasets, RAG reveals under-explored techniques like low-resource quantized LLMs, offering efficiency and accuracy benefits overlooked in conventional dataset-building <span class="citation" data-cites="ranjanmaharanaRetrievalAugmentedGeneration2024">(<a href="#ref-ranjanmaharanaRetrievalAugmentedGeneration2024" role="doc-biblioref">Ranjan Maharana and Joshi 2024</a>)</span>. This capability allows surveying current methods and identifying areas lacking detailed research.</p>
+<p>RAG application in benchmarking and comparative analysis exposes inconsistencies and under-researched areas. When used for evaluations, such as in multilingual medical question answering, RAG reveals performance drops in contexts like non-English languages, underscoring methodological blind spots or areas where methods lack robustness <span class="citation" data-cites="alonsoMedExpQAMultilingualBenchmarking2024">(<a href="#ref-alonsoMedExpQAMultilingualBenchmarking2024" role="doc-biblioref">Alonso, Oronoz, and Agerri 2024</a>)</span>. Highlighting performance discrepancies helps recognize variations in methodological effectiveness or under-defined methods, surfacing research gaps <span class="citation" data-cites="barnettSevenFailurePoints2024">(<a href="#ref-barnettSevenFailurePoints2024" role="doc-biblioref">Barnett et al. 2024</a>)</span>.</p>
+<p>Insights from RAG application guide selecting and refining future research methodologies. RAG spotlights actionable improvements; for example, quantized LLMs reducing computational demand while improving accuracy suggests a methodological shift <span class="citation" data-cites="ranjanmaharanaRetrievalAugmentedGeneration2024">(<a href="#ref-ranjanmaharanaRetrievalAugmentedGeneration2024" role="doc-biblioref">Ranjan Maharana and Joshi 2024</a>)</span>. RAG systems also recommend analytical strategies, such as guiding target selection in drug design or suggesting techniques to overcome limitations in traditional methods, informing future research <span class="citation" data-cites="zhangBiSpecPairwiseAI2024 xuAutomatingBibliometricAnalysis2024">(<a href="#ref-zhangBiSpecPairwiseAI2024" role="doc-biblioref">Zhang, Wang, and Sun 2024</a>; <a href="#ref-xuAutomatingBibliometricAnalysis2024" role="doc-biblioref">H. Xu et al. 2024</a>)</span>.</p>
+</section>
+<section id="discussion" class="level2" data-number="12.7">
+<h2 data-number="12.7" class="anchored" data-anchor-id="discussion"><span class="header-section-number">12.7</span> Discussion</h2>
+<p>The development of this automated Extract, Transform, Load (ETL) and Retrieval-Augmented Generation (RAG) pipeline was undertaken as a direct response to the inherent challenges of identifying a novel and impactful research topic within a complex domain like geospatial epidemiology. As highlighted in our course’s “Advice on Research,” selecting a research problem carefully, focusing on fundamentals, and finding a unique perspective in potentially crowded areas are crucial early steps. This system was engineered to provide a systematic and efficient methodology for this discovery process, using the intersection of ozone exposure, heart disease, and geospatial/machine learning techniques as its initial proving ground.</p>
+<p>The pipeline’s architecture is tailored to facilitate an iterative research discovery workflow, as outlined in the project’s data collection and integration strategy. The rapid ETL phase, capable of processing hundreds of articles in minutes using modules like fast_pubmed.py and GPU-accelerated Docling <span class="citation" data-cites="auerDoclingTechnicalReport2024">(<a href="#ref-auerDoclingTechnicalReport2024" role="doc-biblioref">Auer et al. 2024</a>)</span>, allows for an initial broad sweep of the literature. Subsequently, the integration of Latent Dirichlet Allocation (LDA) via topic_modeling_culda.py enables the automated categorization of this literature and, crucially, the identification of “weakly populated or contradictory clusters,” which serve as indicators of potential knowledge gaps or under-explored methodological niches. This aligns with the goal of finding less “crowded” research areas. The system then leverages these insights to refine search queries, allowing for a more targeted collection of literature to deepen understanding around these identified gaps. This iterative process of broad collection, gap identification via topic modeling and LLM interpretation, and refined collection is central to the system’s utility in topic formulation.</p>
+<p>Furthermore, the RAG component, with its knowledge graph integration (Neo4j, kg_pipeline.py, inspired by <span class="citation" data-cites="tuMitigatingGrandChallenges2024">Tu et al. (<a href="#ref-tuMitigatingGrandChallenges2024" role="doc-biblioref">2024</a>)</span>) and novel Reciprocal-Rank Fusion (RRF) for precise retrieval, allows for nuanced exploration of these identified gaps. It enables users to query the enriched, gap-focused corpus to understand existing methodologies and pinpoint specific underrepresented geospatial or machine learning approaches. The high metadata similarity scores (Levenshtein &gt;0.90) and stringent QA processes aim to ensure that the insights derived are based on accurate data, supporting the selection of a research question that is both relevant and methodologically sound. The system’s current application to the literature on ozone exposure and heart disease, with the intent to link findings to CDC datasets, serves as a practical demonstration of how this pipeline can navigate from a broad area of interest to a specific, data-informed research question, thereby operationalizing the principles of effective research topic selection. The pipeline doesn’t just automate literature review; it structures the exploratory phase of research itself.</p>
+</section>
+<section id="conclusion" class="level2" data-number="12.8">
+<h2 data-number="12.8" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">12.8</span> Conclusion</h2>
+<p>The primary contribution of this work is the development and practical demonstration of an automated ETL+RAG pipeline designed as a robust tool for systematically identifying research gaps and formulating novel research questions in complex scientific fields such as geospatial epidemiology. This system directly addresses the challenge of selecting a meaningful research topic by providing an efficient, scalable, and transparent framework for navigating and analyzing vast quantities of academic literature. By integrating rapid data ingestion, advanced PDF content extraction, iterative topic modeling for gap identification, and sophisticated RAG capabilities, the pipeline operationalizes key advice for effective research, enabling a structured approach to move from broad exploration to specific, actionable research directions.</p>
+<p>The value of this pipeline lies in its capacity to empower researchers, particularly those embarking on new projects or exploring interdisciplinary areas, to efficiently discover under-explored methodological niches or substantive knowledge gaps. In the context of this project, it has laid the groundwork for pinpointing underrepresented geospatial and machine learning techniques in the study of ozone exposure and heart disease. More broadly, this process-oriented tool offers a significant advancement over traditional manual methods, demonstrating how AI can be leveraged not just for data analysis, but for the foundational stage of research discovery itself, fostering methodologically sound and impactful inquiry.</p>
+</section>
+<section id="future-directions" class="level2" data-number="12.9">
+<h2 data-number="12.9" class="anchored" data-anchor-id="future-directions"><span class="header-section-number">12.9</span> Future Directions</h2>
+<p>Future development of this ETL+RAG pipeline will focus on enhancing its efficacy as a research discovery tool and broadening its application. A key priority is the refinement of the quality assurance (QA) process to reduce the “occasional false negatives” and improve the precision of gap identification. This involves exploring more dynamic error detection and advanced hallucination mitigation strategies for the LLM components <span class="citation" data-cites="huangSurveyHallucinationLarge2024 fanSurveyRAGMeeting2024">(<a href="#ref-huangSurveyHallucinationLarge2024" role="doc-biblioref">Huang et al. 2024</a>; <a href="#ref-fanSurveyRAGMeeting2024" role="doc-biblioref">Fan et al. 2024</a>)</span>.</p>
+<p>From a research process perspective, the immediate next step involves applying the methodologies identified by the pipeline to the large-scale CDC datasets on ozone and heart disease. This will involve implementing relevant machine learning approaches (e.g., Random Forest, geospatial cross-validation) to analyze these datasets, thereby empirically validating the research gap identified by the pipeline and completing the class project’s analytical component. The insights from this application will also serve as a feedback loop for further refining the pipeline’s gap identification capabilities.</p>
+<p>Further enhancements to the pipeline itself will include exploring computational efficiencies, such as the integration of quantized LLMs <span class="citation" data-cites="ranjanmaharanaRetrievalAugmentedGeneration2024">(<a href="#ref-ranjanmaharanaRetrievalAugmentedGeneration2024" role="doc-biblioref">Ranjan Maharana and Joshi 2024</a>)</span> and optimized retrieval mechanisms <span class="citation" data-cites="wangSearchingBestPractices2024">(<a href="#ref-wangSearchingBestPractices2024" role="doc-biblioref">Wang et al. 2024</a>)</span>, to manage costs and improve processing speeds for even larger literature corpora. Incorporating more sophisticated uncertainty-aware retrieval <span class="citation" data-cites="dholeRetrieveNotRetrieve2025">(<a href="#ref-dholeRetrieveNotRetrieve2025" role="doc-biblioref">Dhole 2025</a>)</span> and explicit bias detection mechanisms <span class="citation" data-cites="liAugmentingLargeLanguage2024">(<a href="#ref-liAugmentingLargeLanguage2024" role="doc-biblioref">Li and Lai 2024</a>)</span> will also be critical. Finally, the modular design of the pipeline lends itself to expansion. Future work will aim to test its generalizability by applying it to identify methodological gaps in other epidemiological areas and diverse scientific domains, potentially fine-tuning domain-specific LLMs to enhance its utility for a wider range of research discovery tasks.</p>
+<hr>
+</section>
+</section>
+<section id="data-management" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> Data Management</h1>
+<section id="sources" class="level3" data-number="13.0.1">
+<h3 data-number="13.0.1" class="anchored" data-anchor-id="sources"><span class="header-section-number">13.0.1</span> Sources:</h3>
+<ul>
+<li><strong>PubMed</strong> (biomedical focus)</li>
+<li><strong>OpenAlex</strong> (multidisciplinary coverage)</li>
+</ul>
+</section>
+<section id="volume" class="level3" data-number="13.0.2">
+<h3 data-number="13.0.2" class="anchored" data-anchor-id="volume"><span class="header-section-number">13.0.2</span> Volume:</h3>
+<ul>
+<li>Initially targeting up to <strong>1,000 PDFs</strong>, expandable with resources.</li>
+</ul>
+</section>
+<section id="formats" class="level3" data-number="13.0.3">
+<h3 data-number="13.0.3" class="anchored" data-anchor-id="formats"><span class="header-section-number">13.0.3</span> Formats:</h3>
+<ul>
+<li>PDFs with metadata (DOI, authors, journal information).</li>
+<li>Extracted content stored as structured Feather files.</li>
+<li>Semantic embeddings stored in Qdrant vector databases for efficient querying.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="expected-results" class="level1" data-number="14">
+<h1 data-number="14"><span class="header-section-number">14</span> Expected Results</h1>
+<section id="automated-literature-workflow" class="level3" data-number="14.0.1">
+<h3 data-number="14.0.1" class="anchored" data-anchor-id="automated-literature-workflow"><span class="header-section-number">14.0.1</span> 1. <strong>Automated Literature Workflow</strong></h3>
+<ul>
+<li>Complete Python-based ETL and RAG pipeline enabling seamless, automated literature ingestion, extraction, summarization, and gap analysis.</li>
+</ul>
+</section>
+<section id="identification-of-methodological-gaps" class="level3" data-number="14.0.2">
+<h3 data-number="14.0.2" class="anchored" data-anchor-id="identification-of-methodological-gaps"><span class="header-section-number">14.0.2</span> 2. <strong>Identification of Methodological Gaps</strong></h3>
+<ul>
+<li>Clear delineation of underused geospatial and machine learning methodologies within ozone and heart disease epidemiological literature.</li>
+</ul>
+</section>
+<section id="innovative-geospatial-analysis" class="level3" data-number="14.0.3">
+<h3 data-number="14.0.3" class="anchored" data-anchor-id="innovative-geospatial-analysis"><span class="header-section-number">14.0.3</span> 3. <strong>Innovative Geospatial Analysis</strong></h3>
+<ul>
+<li>Practical application of identified novel or lesser-utilized methods to CDC datasets.</li>
+<li>Publication-quality analytical outcomes demonstrating the practical utility of identified methodologies.</li>
+</ul>
+</section>
+<section id="final-presentation-and-documentation" class="level3" data-number="14.0.4">
+<h3 data-number="14.0.4" class="anchored" data-anchor-id="final-presentation-and-documentation"><span class="header-section-number">14.0.4</span> 4. <strong>Final Presentation and Documentation</strong></h3>
+<ul>
+<li>An interactive Quarto-based report demonstrating literature-derived insights, identified research gaps, and innovative geospatial analytical outcomes.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="example-data-extraction-functions" class="level1" data-number="15">
+<h1 data-number="15"><span class="header-section-number">15</span> Example data extraction functions</h1>
+<p>In this section, I provide sample code snippets that I’ve developed for the ETL pipeline. Each function targets a specific stage: PubMed metadata fetching, PDF retrieval from Unpaywall, Docling-based text extraction, Zotero integration, etc. <strong>All code generated with the assistance of AI</strong></p>
+<section id="module-fast_pubmed.py" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="module-fast_pubmed.py"><span class="header-section-number">15.1</span> Module: <code>fast_pubmed.py</code></h2>
+<p><strong>Description:</strong><br>
+A drop-in turbo-replacement for the two original helpers:</p>
+<ul>
+<li><code>pubmed_search_chunked</code></li>
+<li><code>fetch_pubmed_metadata</code></li>
+</ul>
+<p><strong>Key features:</strong> - &lt; 1 s single <code>esearch</code> to collect up-to-10,000 PMIDs. - Thread-pooled, rate-limited bulk-<code>efetch</code> (≤ 3 req/s/IP – NCBI TOS). - Parses the same rich metadata as previously used: Authors, Date, Journal, Volume, Issue, Pages, plus Title / DOI / Abstract. - Robust logging with granular exception capture; a bad article never aborts the batch. - No hard-wired globals; everything is configurable via keyword args.</p>
+<p><a href="https://github.com/agodinezmm2007/gui_proj/blob/main/scripts/fast_pubmed.py">View the full script (<code>fast_pubmed.py</code>) on GitHub</a></p>
+</section>
+<section id="module-fast_openalex.py" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="module-fast_openalex.py"><span class="header-section-number">15.2</span> Module: <code>fast_openalex.py</code></h2>
+<p><strong>Description:</strong><br>
+A Python module for rapidly querying and retrieving scholarly records from the OpenAlex API, designed to complement PubMed searches by capturing literature not indexed in PubMed. Utilizing asynchronous I/O and parallel processing, this tool fetches article metadata at scale, parsing and formatting results into a convenient DataFrame for immediate integration into the analysis pipeline.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li><strong>High-Speed Retrieval:</strong> Uses asynchronous API requests (<code>aiohttp</code>) and concurrent fetching to maximize throughput while respecting rate limits.</li>
+<li><strong>Efficient Pagination:</strong> Automatically handles pagination and cursor-based retrieval, fetching results swiftly and transparently.</li>
+<li><strong>Robust Parsing and Cleaning:</strong> Extracts and cleans metadata such as DOI, abstracts, authorship, publication dates, journal information, and page ranges, ensuring standardized, analysis-ready outputs.</li>
+<li><strong>Easy Integration:</strong> Provides a simple wrapper (<code>search_works_df</code>) that returns results in a Pandas DataFrame consistent with existing data processing workflows.</li>
+<li><strong>Polite API Interaction:</strong> Adheres strictly to recommended OpenAlex rate limits, ensuring reliable, long-term API access without throttling.</li>
+<li><strong>Configurable &amp; Flexible:</strong> Easily adjustable query parameters, such as items per page, concurrency level, and query-per-second rate, allow for custom optimizations.</li>
+</ul>
+<p>Ideal for comprehensive literature reviews, systematic analyses, and dataset augmentation tasks that require accessing a broader scope of scholarly publications beyond traditional indexing services like PubMed.</p>
+<p><a href="https://github.com/agodinezmm2007/gui_proj/blob/main/scripts/fast_openalex.py">View the full script (<code>fast_openalex.py</code>) on GitHub</a></p>
+</section>
+<section id="module-etl_elsevier.py" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="module-etl_elsevier.py"><span class="header-section-number">15.3</span> Module: <code>etl_elsevier.py</code></h2>
+<p><strong>Description:</strong><br>
+A Python module for retrieving scholarly articles from Elsevier’s Scopus database, integrating with the existing ETL workflow. It uses asynchronous requests (aiohttp) to fetch article metadata, enriches records via Crossref, and handles data parsing, error management, and structured data outputs.</p>
+<p><strong>Main Functionalities:</strong></p>
+<p>The module retrieves metadata from Scopus using paginated requests while adhering to Elsevier’s API rate limits and parsing key metadata such as DOI, Scopus ID, titles, and journal information. It concurrently enriches this data with additional details from Crossref, including authors, abstracts, and PDF links, incorporating error handling, retries, and standardized field formatting. Configuration settings—including API credentials, endpoints, rate limits, concurrency, and logging—are managed externally via a JSON file (<code>etl_config.json</code>), which supports flexible adjustments and provides detailed logging for error tracking. The final enriched metadata is structured into Pandas DataFrames with standardized columns optimized for downstream ETL workflows.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li><strong>Asynchronous Requests:</strong> Utilizes asyncio/aiohttp for scalable, concurrent API requests, improving throughput.</li>
+<li><strong>Flexible Configuration:</strong> All configurations (API keys, search parameters, file paths) managed via external JSON for flexibility.</li>
+<li><strong>Robust Parsing &amp; Data Integrity:</strong> Implements metadata parsing with safeguards to maintain data quality.</li>
+<li><strong>Comprehensive Logging:</strong> Detailed logging provides real-time insights into data fetching, processing status, and error handling.</li>
+</ul>
+<p>Ideal for comprehensive literature reviews, systematic analyses, and dataset augmentation tasks that require accessing a broader scope of scholarly publications beyond traditional indexing services like PubMed.</p>
+<p><a href="https://github.com/agodinezmm2007/gui_proj/blob/main/scripts/etl_elsevier.py">View the full script (<code>fast_openalex.py</code>) on GitHub</a></p>
+</section>
+<section id="module-async_unpaywall.py" class="level2" data-number="15.4">
+<h2 data-number="15.4" class="anchored" data-anchor-id="module-async_unpaywall.py"><span class="header-section-number">15.4</span> Module: <code>async_unpaywall.py</code></h2>
+<p><strong>Description:</strong><br>
+A helper function for quickly retrieving full-text PDFs from the Unpaywall API given DOI identifiers. Ideal for automated bulk PDF downloads in an ETL workflow.</p>
+<p><strong>Key features:</strong></p>
+<ul>
+<li>Uses Python’s asynchronous libraries (<code>asyncio</code> + <code>aiohttp</code>) for concurrent fetching.</li>
+<li>Adheres to Unpaywall’s API limits (≤ 8 requests per second).</li>
+<li>Supports optional proxy rotation for reliability.</li>
+<li>Automatically sanitizes PDF filenames, preventing file-system errors.</li>
+<li>handles HTTP failures, missing PDFs, and other edge cases with logging.</li>
+</ul>
+<p><a href="https://github.com/agodinezmm2007/gui_proj/blob/main/scripts/async_unpaywall.py">View the full script (<code>async_unpaywall.py</code>) on GitHub</a></p>
+</section>
+<section id="module-docling_extract_formulas_mp_multi.py" class="level2" data-number="15.5">
+<h2 data-number="15.5" class="anchored" data-anchor-id="module-docling_extract_formulas_mp_multi.py"><span class="header-section-number">15.5</span> Module <code>docling_extract_formulas_mp_multi.py</code></h2>
+<p><strong>Description:</strong><br>
+A multiprocessing-optimized PDF extraction module using Docling’s layout analysis capabilities, enriched with GPU acceleration. It converts PDFs into structured text, accurately extracting elements such as tables, equations, and formatted text.</p>
+<p><strong>Key features:</strong></p>
+<ul>
+<li>Multi-process parallelization with GPU allocation for optimized throughput.</li>
+<li>Extracts full document text as Markdown, handling complex formatting and special characters.</li>
+<li>Specialized extraction for embedded LaTeX formulas and structured table data.</li>
+<li>error handling and logging ensure resilience against problematic PDFs.</li>
+<li>Integrated token-counting for downstream NLP workflows.</li>
+</ul>
+<p><a href="https://github.com/agodinezmm2007/gui_proj/blob/main/scripts/docling_multi_mp_gui.py">View the full script (<code>docling_extract_formulas_mp_multi.py</code>) on GitHub</a></p>
+</section>
+<section id="module-fast_zotero.py" class="level2" data-number="15.6">
+<h2 data-number="15.6" class="anchored" data-anchor-id="module-fast_zotero.py"><span class="header-section-number">15.6</span> Module: <code>fast_zotero.py</code></h2>
+<p><strong>Description:</strong><br>
+A helper module designed forintegration with Zotero citation management workflows. Enables batch creation of Zotero items, parallelized PDF uploads, and automatic citation formatting via local <code>citeproc</code> rendering.</p>
+<p><strong>Key features:</strong></p>
+<ul>
+<li>batch creation of Zotero items (up to 50 items per API call).</li>
+<li>Parallelized PDF attachment uploads via thread pooling.</li>
+<li>Local citation rendering using the CSL (<code>citeproc</code>) engine for instant citation generation without API latency.</li>
+<li>Optional fallback to Zotero’s built-in citation rendering API if local citation rendering encounters issues.</li>
+<li>customizable citation-style handling through a configurable local CSL style registry.</li>
+</ul>
+<p><a href="https://github.com/agodinezmm2007/gui_proj/blob/main/scripts/fast_zotero.py">View the full script (<code>fast_zotero.py</code>) on GitHub</a></p>
+<p><a href="https://github.com/agodinezmm2007/gui_proj/tree/main/ETL_CSL">Access the CSL styles on GitHub</a></p>
+</section>
+<section id="module-field_extraction.py" class="level2" data-number="15.7">
+<h2 data-number="15.7" class="anchored" data-anchor-id="module-field_extraction.py"><span class="header-section-number">15.7</span> Module: <code>field_extraction.py</code></h2>
+<p><strong>Description:</strong><br>
+A extraction module that enhances a Feather-format DataFrame by retrieving structured metadata fields through iterative Large Language Model (LLM) calls. It uses techniques for JSON parsing, LLM response caching, tokenization, parallelized processing, and merging strategies to maintain data integrity and avoid duplication.</p>
+<p><strong>Key features:</strong></p>
+<ul>
+<li><strong>Robust JSON Parsing:</strong> Cleans and interprets LLM-generated JSON output, handling common formatting errors.</li>
+<li><strong>Intelligent LLM Caching:</strong> Avoids redundant API calls by caching LLM responses based on prompt content hashes.</li>
+<li><strong>Parallel Processing:</strong> Employs thread pools for efficient concurrent handling of multiple data rows and text chunks.</li>
+<li><strong>Dynamic Text Chunking:</strong> Splits long texts into manageable segments to stay within LLM token limits, ensuring comprehensive extraction.</li>
+<li><strong>Field Unification:</strong> Carefully merges newly extracted data with existing metadata, ensuring consistency and preventing duplication, especially within structured fields such as numeric metrics.</li>
+<li><strong>Comprehensive Logging:</strong> Detailed logging and exception handling provide transparency and facilitate troubleshooting.</li>
+</ul>
+<p>This module is particularly optimized for workflows involving complex metadata extraction scenarios, such as academic literature reviews, where accuracy, scalability, and structured data consistency are crucial.</p>
+<p><a href="https://github.com/agodinezmm2007/gui_proj/blob/main/scripts/field_extraction.py">View the full script (<code>field_extraction.py</code>) on GitHub</a></p>
+</section>
+<section id="module-topic_modeling_culda.py" class="level2" data-number="15.8">
+<h2 data-number="15.8" class="anchored" data-anchor-id="module-topic_modeling_culda.py"><span class="header-section-number">15.8</span> Module: <code>topic_modeling_culda.py</code></h2>
+<p><strong>Description:</strong><br>
+A Python module for performing topic modeling on large document collections using parallelized workflows. It combines text preprocessing with Latent Dirichlet Allocation (LDA) modeling, supporting both scikit-learn and Gensim frameworks. The module emphasizes computational efficiency through parallel processing, optimized BLAS thread usage, and structured hyperparameter searches to achieve the highest-quality topic coherence.</p>
+<p><strong>Key features:</strong></p>
+<ul>
+<li><strong>Robust Preprocessing:</strong> Efficiently cleans text by removing references, standardizing formats, tokenizing, removing stopwords, and lemmatizing.</li>
+<li><strong>Parallel Processing:</strong> Utilizes multiprocessing and threading for rapid tokenization, preprocessing, and dominant-topic extraction, significantly speeding up operations on large datasets.</li>
+<li><strong>Flexible LDA Implementation:</strong> integrates scikit-learn’s LDA models with fallback support for Gensim models, ensuring consistent performance and reliability.</li>
+<li><strong>Hyperparameter Optimization:</strong> Uses exhaustive grid search across critical LDA parameters (e.g., number of topics, bigram/trigram thresholds), optimizing for coherence scores.</li>
+<li><strong>Dominant Topic Identification:</strong> Efficiently extracts and summarizes the most significant topics per document, indicating their contribution and top keywords.</li>
+<li><strong>Detailed Logging and Error Handling:</strong> Provides logging at each processing step, simplifying debugging and ensuring transparency of the modeling process.</li>
+</ul>
+<p>Ideal for research-intensive tasks such as systematic literature reviews, thematic content analysis, or exploratory text analysis, this module enhances productivity and result quality through its structured approach.</p>
+<p><strong>Source code:</strong><br>
+<a href="https://github.com/agodinezmm2007/gui_proj/blob/main/scripts/topic_modeling_gui.py">View the full script (<code>topic_modeling_culda.py</code>) on GitHub</a></p>
+</section>
+<section id="module-kg_pipeline.py" class="level2" data-number="15.9">
+<h2 data-number="15.9" class="anchored" data-anchor-id="module-kg_pipeline.py"><span class="header-section-number">15.9</span> Module: <code>kg_pipeline.py</code></h2>
+<p><strong>Description:</strong><br>
+The <code>kg_pipeline.py</code> script serves as a integration module that transforms structured article metadata and analytical results into a Knowledge Graph (KG) within a Neo4j database. It handles entity and relationship management, ensures data integrity via constraints, and uses unified terminology dictionaries for consistent entity naming.</p>
+<p><strong>Main functionalities include:</strong></p>
+<ul>
+<li><strong>Neo4j Integration</strong>:
+<ul>
+<li>Establishes connection and handles transactional updates to Neo4j.</li>
+<li>Uses merge operations to add/update entities such as Articles, Study Types, Soil Types, Cover Crops, and more.</li>
+</ul></li>
+<li><strong>Entity Unification</strong>:
+<ul>
+<li>Applies extensive synonym unification via <code>dictionaries.py</code> to standardize terminology across various fields, ensuring consistency and accuracy in the knowledge graph.</li>
+</ul></li>
+<li><strong>Dynamic Schema Management</strong>:
+<ul>
+<li>Automatically sets up Neo4j constraints to maintain schema integrity and database performance.</li>
+</ul></li>
+<li><strong>Error Handling &amp; Logging</strong>:
+<ul>
+<li>Comprehensive logging and exception handling facilitate easy debugging and robust data integrity verification during the KG construction process.</li>
+</ul></li>
+<li><strong>Integration with Topic Modeling</strong>:
+<ul>
+<li>Incorporates dominant topics and associated metadata, linking textual analysis results directly within the KG.</li>
+</ul></li>
+</ul>
+<p><strong>Source code:</strong><br>
+<a href="https://github.com/agodinezmm2007/gui_proj/blob/main/scripts/kg_pipeline_gui.py">View the full script (<code>kg_pipeline.py</code>) on GitHub</a></p>
+</section>
+<section id="module-dictionaries.py" class="level2" data-number="15.10">
+<h2 data-number="15.10" class="anchored" data-anchor-id="module-dictionaries.py"><span class="header-section-number">15.10</span> Module: <code>dictionaries.py</code></h2>
+<p><strong>Description:</strong><br>
+This module contains dictionaries used for unifying terminology across numerous categories in the ETL pipeline. With thousands of terms and synonyms across 30+ dictionaries, it supports consistency and accuracy of entity representation within the knowledge graph.</p>
+<p><strong>Key Dictionaries Include</strong>: - <strong>Study Types</strong> - <strong>Environmental Impact Categories</strong> - <strong>Management Practices</strong> - <strong>Cover Crops</strong> - <strong>Tillage Practices</strong> - <strong>Metric Names</strong> - <strong>Machine Learning Methods</strong> - and many more.</p>
+<p>These unified dictionaries provide synonym resolution capabilities to handle variations in terminology commonly encountered across scientific literature.</p>
+<p><strong>Source code:</strong><br>
+<a href="https://github.com/agodinezmm2007/gui_proj/blob/main/scripts/dictionaries_gui.py">View the full dictionaries (<code>dictionaries.py</code>) on GitHub</a></p>
+</section>
+<section id="complete-pipeline-execution-notebook" class="level2" data-number="15.11">
+<h2 data-number="15.11" class="anchored" data-anchor-id="complete-pipeline-execution-notebook"><span class="header-section-number">15.11</span> Complete Pipeline Execution Notebook</h2>
+<p>You can view and execute the entire ETLpipeline at the following link:</p>
+<p><strong><a href="https://github.com/agodinezmm2007/gui_proj">View the complete repository (<code>gui_proj</code>) on GitHub</a></strong></p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-aditya_understanding_2024" class="csl-entry" role="listitem">
+Aditya, G. 2024. <span>“Understanding and <span>Addressing</span> <span>AI</span> <span>Hallucinations</span> in <span>Healthcare</span> and <span>Life</span> <span>Sciences</span>.”</span> <em>International Journal of Health Sciences</em> 7 (3): 1–11. <a href="https://doi.org/10.47941/ijhs.1862">https://doi.org/10.47941/ijhs.1862</a>.
+</div>
+<div id="ref-alghadbanTransformingHealthcareEducation2023" class="csl-entry" role="listitem">
+Al Ghadban, Yasmina, Huiqi Lu, Uday Adavi, Ankita Sharma, Sridevi Gara, Neelanjana Das, B. R. Kumar, Renu John, Devarsetty Praveen, and Jane E. Hirst. 2023. <span>“Transforming <span>Healthcare Education</span>: <span>Harnessing Large Language Models</span> for <span>Frontline Health Worker Capacity Building</span> Using <span>Retrieval-Augmented Generation</span>.”</span> <em>medRxiv (Cold Spring Harbor Laboratory)</em>, December. <a href="https://doi.org/10.1101/2023.12.15.23300009">https://doi.org/10.1101/2023.12.15.23300009</a>.
+</div>
+<div id="ref-alonsoMedExpQAMultilingualBenchmarking2024" class="csl-entry" role="listitem">
+Alonso, Iñigo, Maite Oronoz, and Rodrigo Agerri. 2024. <span>“<span>MedExpQA</span>: <span>Multilingual</span> Benchmarking of <span>Large Language Models</span> for <span>Medical Question Answering</span>.”</span> <em>Artificial Intelligence in Medicine</em> 155 (July): 102938–38. <a href="https://doi.org/10.1016/j.artmed.2024.102938">https://doi.org/10.1016/j.artmed.2024.102938</a>.
+</div>
+<div id="ref-auerDoclingTechnicalReport2024" class="csl-entry" role="listitem">
+Auer, Christoph, Maksym Lysak, Ahmed Nassar, Michele Dolfi, Nikolaos Livathinos, Panos Vagenas, Cesar Berrospi Ramis, et al. 2024. <span>“Docling <span>Technical Report</span>.”</span> arXiv. <a href="https://doi.org/10.48550/arXiv.2408.09869">https://doi.org/10.48550/arXiv.2408.09869</a>.
+</div>
+<div id="ref-barnettSevenFailurePoints2024" class="csl-entry" role="listitem">
+Barnett, Scott, Stefanus Kurniawan, Srikanth Thudumu, Zach Brannelly, and Mohamed Abdelrazek. 2024. <span>“Seven <span>Failure Points When Engineering</span> a <span>Retrieval Augmented Generation System</span>,”</span> April. <a href="https://doi.org/10.1145/3644815.3644945">https://doi.org/10.1145/3644815.3644945</a>.
+</div>
+<div id="ref-dernbach_glam_2024" class="csl-entry" role="listitem">
+Dernbach, Stefan, Khushbu Agarwal, Alejandro Zuniga, Michael Henry, and Sutanay Choudhury. 2024. <span>“<span>GLaM</span>: <span>Fine</span>-<span>Tuning</span> <span>Large</span> <span>Language</span> <span>Models</span> for <span>Domain</span> <span>Knowledge</span> <span>Graph</span> <span>Alignment</span> via <span>Neighborhood</span> <span>Partitioning</span> and <span>Generative</span> <span>Subgraph</span> <span>Encoding</span>.”</span> <em>Proceedings of the AAAI Symposium Series</em> 3 (1): 82–89. <a href="https://doi.org/10.1609/aaaiss.v3i1.31186">https://doi.org/10.1609/aaaiss.v3i1.31186</a>.
+</div>
+<div id="ref-dholeRetrieveNotRetrieve2025" class="csl-entry" role="listitem">
+Dhole, Kaustubh D. 2025. <span>“To <span>Retrieve</span> or <span>Not</span> to <span>Retrieve</span>? <span>Uncertainty Detection</span> for <span>Dynamic Retrieval Augmented Generation</span>.”</span> arXiv. <a href="https://doi.org/10.48550/arXiv.2501.09292">https://doi.org/10.48550/arXiv.2501.09292</a>.
+</div>
+<div id="ref-di_maria_netme_2024" class="csl-entry" role="listitem">
+Di Maria, Antonio, Lorenzo Bellomo, Fabrizio Billeci, Alfio Cardillo, Salvatore Alaimo, Paolo Ferragina, Alfredo Ferro, and Alfredo Pulvirenti. 2024. <span>“<span>NetMe</span> 2.0: A Web-Based Platform for Extracting and Modeling Knowledge from Biomedical Literature as a Labeled Graph.”</span> <em>Bioinformatics</em> 40 (5). <a href="https://doi.org/10.1093/bioinformatics/btae194">https://doi.org/10.1093/bioinformatics/btae194</a>.
+</div>
+<div id="ref-fanSurveyRAGMeeting2024" class="csl-entry" role="listitem">
+Fan, Wenqi, Yujuan Ding, Liangbo Ning, Shijie Wang, Hengyun Li, Dawei Yin, Tat-Seng Chua, and Qing Li. 2024. <span>“A <span>Survey</span> on <span>RAG Meeting LLMs</span>: <span>Towards Retrieval-Augmented Large Language Models</span>.”</span> <em>Proceedings of the 28th ACM SIGKDD Conference on Knowledge Discovery and Data Mining</em>, August, 6491–501. <a href="https://doi.org/10.1145/3637528.3671470">https://doi.org/10.1145/3637528.3671470</a>.
+</div>
+<div id="ref-fatehaliAutomatedLiteratureReview2024" class="csl-entry" role="listitem">
+Fateh Ali, Nurshat, Md. Mahdi Mohtasim, Shakil Mosharrof, and T. Gopi Krishna. 2024. <span>“Automated <span>Literature Review Using NLP Techniques</span> and <span>LLM-Based Retrieval-Augmented Generation</span>.”</span> <em>2022 International Conference on Innovations in Science, Engineering and Technology (ICISET)</em>, October, 1–6. <a href="https://doi.org/10.1109/iciset62123.2024.10939517">https://doi.org/10.1109/iciset62123.2024.10939517</a>.
+</div>
+<div id="ref-fengRetrievalGenerationSynergyAugmented2024" class="csl-entry" role="listitem">
+Feng, Zhangyin, Xiaocheng Feng, Dezhi Zhao, Maojin Yang, and Bing Qin. 2024. <span>“Retrieval-<span>Generation Synergy Augmented Large Language Models</span>.”</span> <em>ICASSP 2022 - 2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</em>, March, 11661–65. <a href="https://doi.org/10.1109/icassp48485.2024.10448015">https://doi.org/10.1109/icassp48485.2024.10448015</a>.
+</div>
+<div id="ref-fleurenceGenerativeAIHealth2024a" class="csl-entry" role="listitem">
+Fleurence, Rachael, Jiang Bian, Xiaoyan Wang, Hua Xu, Dalia Dawoud, Mitch Higashi, and Jagpreet Chhatwal. 2024b. <span>“Generative <span>AI</span> for <span>Health Technology Assessment</span>: <span>Opportunities</span>, <span>Challenges</span>, and <span>Policy Considerations</span> - an <span>ISPOR Working Group Report</span>.”</span> <em>Value in Health</em>, November. <a href="https://doi.org/10.1016/j.jval.2024.10.3846">https://doi.org/10.1016/j.jval.2024.10.3846</a>.
+</div>
+<div id="ref-fleurence_generative_2024" class="csl-entry" role="listitem">
+———. 2024a. <span>“Generative <span>AI</span> for <span>Health</span> <span>Technology</span> <span>Assessment</span>: <span>Opportunities</span>, <span>Challenges</span>, and <span>Policy</span> <span>Considerations</span> - an <span>ISPOR</span> <span>Working</span> <span>Group</span> <span>Report</span>.”</span> <em>Value in Health</em>, November. <a href="https://doi.org/10.1016/j.jval.2024.10.3846">https://doi.org/10.1016/j.jval.2024.10.3846</a>.
+</div>
+<div id="ref-gangemi_logic_2025" class="csl-entry" role="listitem">
+Gangemi, Aldo, and Andrea Giovanni Nuzzolese. 2025. <span>“Logic Augmented Generation.”</span> <em>Journal of Web Semantics</em>, January, 100859–59. <a href="https://doi.org/10.1016/j.websem.2024.100859">https://doi.org/10.1016/j.websem.2024.100859</a>.
+</div>
+<div id="ref-guProbabilisticMedicalPredictions2024" class="csl-entry" role="listitem">
+Gu, Bowen, Rishi Desai, Kueiyu Joshua Lin, and Jie Yang. 2024. <span>“Probabilistic Medical Predictions of Large Language Models.”</span> <em>Npj Digital Medicine</em> 7 (1). <a href="https://doi.org/10.1038/s41746-024-01366-4">https://doi.org/10.1038/s41746-024-01366-4</a>.
+</div>
+<div id="ref-gue_evaluating_2024" class="csl-entry" role="listitem">
+Gue, Celeste Ci Ying, Noorul Dharajath Abdul Rahim, William Rojas-Carabali, Rupesh Agrawal, Palvannan Rk, John Abisheganaden, and Wan Fen Yip. 2024. <span>“Evaluating the <span>OpenAI</span>’s <span>GPT</span>-3.5 <span>Turbo</span>’s Performance in Extracting Information from Scientific Articles on Diabetic Retinopathy.”</span> <em>Systematic Reviews</em> 13 (1): 135. <a href="https://doi.org/10.1186/s13643-024-02523-2">https://doi.org/10.1186/s13643-024-02523-2</a>.
+</div>
+<div id="ref-huangSurveyHallucinationLarge2024" class="csl-entry" role="listitem">
+Huang, Lei, Weijiang Yu, Weitao Ma, Weihong Zhong, Zhangyin Feng, Haotian Wang, Qianglong Chen, et al. 2024. <span>“A <span>Survey</span> on <span>Hallucination</span> in <span>Large Language Models</span>: <span>Principles</span>, <span>Taxonomy</span>, <span>Challenges</span>, and <span>Open Questions</span>.”</span> <em>ACM Transactions on Office Information Systems</em>, November. <a href="https://doi.org/10.1145/3703155">https://doi.org/10.1145/3703155</a>.
+</div>
+<div id="ref-j_bolanos_artificial_2024" class="csl-entry" role="listitem">
+J. Bolaños, F., Angelo A. Salatino, Francesco Osborne, and Enrico Motta. 2024. <span>“Artificial Intelligence for Literature Reviews: Opportunities and Challenges.”</span> <em>Artificial Intelligence Review</em> 57 (10). <a href="https://doi.org/10.1007/s10462-024-10902-3">https://doi.org/10.1007/s10462-024-10902-3</a>.
+</div>
+<div id="ref-kreimeyerUsingRetrievalAugmentedGeneration2024" class="csl-entry" role="listitem">
+Kreimeyer, Kory, Jenna VanLiere Canzoniero, Maria Fatteh, Valsamo Anagnostou, and Taxiarchis Botsis. 2024. <span>“Using <span>Retrieval-Augmented Generation</span> to <span>Capture Molecularly-Driven Treatment Relationships</span> for <span>Precision Oncology</span>.”</span> <em>Studies in Health Technology and Informatics</em>, August. <a href="https://doi.org/10.3233/shti240575">https://doi.org/10.3233/shti240575</a>.
+</div>
+<div id="ref-lee_bring_2024" class="csl-entry" role="listitem">
+Lee, Ha-rin, and Seohyun Kim. 2024. <span>“Bring <span>Retrieval</span> <span>Augmented</span> <span>Generation</span> to <span>Google</span> <span>Gemini</span> via <span>External</span> <span>API</span>: <span>An</span> <span>Evaluation</span> with <span>BIG</span>-<span>Bench</span> <span>Dataset</span>.”</span> <em>Research Square (Research Square)</em>, May. <a href="https://doi.org/10.21203/rs.3.rs-4394715/v1">https://doi.org/10.21203/rs.3.rs-4394715/v1</a>.
+</div>
+<div id="ref-liAugmentingLargeLanguage2024" class="csl-entry" role="listitem">
+Li, Po-hao, and Ya-yun Lai. 2024. <span>“Augmenting <span>Large Language Models</span> with <span>Reverse Proxy Style Retrieval Augmented Generation</span> for <span>Higher Factual Accuracy</span>,”</span> May. <a href="https://doi.org/10.31219/osf.io/ma6cq">https://doi.org/10.31219/osf.io/ma6cq</a>.
+</div>
+<div id="ref-luu_bioinspiredllm_2023" class="csl-entry" role="listitem">
+Luu, Rachel K, and Markus J Buehler. 2023. <span>“<span>BioinspiredLLM</span>: <span>Conversational</span> <span>Large</span> <span>Language</span> <span>Model</span> for the <span>Mechanics</span> of <span>Biological</span> and <span>Bio</span>-<span>Inspired</span> <span>Materials</span>.”</span> <em>Advanced Science (Weinheim, Baden-Wurttemberg, Germany)</em> 11 (10): e2306724. <a href="https://doi.org/10.1002/advs.202306724">https://doi.org/10.1002/advs.202306724</a>.
+</div>
+<div id="ref-ranjanmaharanaRetrievalAugmentedGeneration2024" class="csl-entry" role="listitem">
+Ranjan Maharana, Piyush, and Kavita Joshi. 2024. <span>“Retrieval Augmented Generation for Building Datasets from Scientific Literature,”</span> November. <a href="https://doi.org/10.26434/chemrxiv-2024-qjx32">https://doi.org/10.26434/chemrxiv-2024-qjx32</a>.
+</div>
+<div id="ref-rawsonNgaAraWhakamana2024" class="csl-entry" role="listitem">
+Rawson, Zane. 2024. <span>“The <span>Ng<span>ā</span> Ara Whakamana Process</span>: <span>Conceptualising</span> and <span>Designing</span> a <span>Process</span> to <span>Engage</span> with <span class="nocase">M<span class="nocase">ā</span>ori Trust Factors</span> in the <span>Development</span> of <span>IT Artefacts</span>,”</span> December. <a href="https://doi.org/10.26686/wgtn.28028579">https://doi.org/10.26686/wgtn.28028579</a>.
+</div>
+<div id="ref-sakarMaximizingRAGEfficiency2024" class="csl-entry" role="listitem">
+Şakar, Tolga, and Hakan Emekci. 2024. <span>“Maximizing <span>RAG</span> Efficiency: <span>A</span> Comparative Analysis of <span>RAG</span> Methods.”</span> <em>Natural Language Processing.</em>, October, 1–25. <a href="https://doi.org/10.1017/nlp.2024.53">https://doi.org/10.1017/nlp.2024.53</a>.
+</div>
+<div id="ref-shah-mohammadiUtilizingRAGGPT42024" class="csl-entry" role="listitem">
+Shah-Mohammadi, Fatemeh, and Joseph Finkelstein. 2024. <span>“Utilizing <span>RAG</span> and <span>GPT-4</span> for <span>Extraction</span> of <span>Substance Use Information</span> from <span>Clinical Notes</span>.”</span> <em>Studies in Health Technology and Informatics</em> 321 (November): 94–98. <a href="https://doi.org/10.3233/SHTI241070">https://doi.org/10.3233/SHTI241070</a>.
+</div>
+<div id="ref-tozuka_application_2024" class="csl-entry" role="listitem">
+Tozuka, Ryota, Hisashi Johno, Akitomo Amakawa, Junichi Sato, Manabu Muto, Shogo Seki, Atsushi Komaba, and Hiroshi Onishi. 2024. <span>“Application of <span>NotebookLM</span>, a Large Language Model with Retrieval-Augmented Generation, for Lung Cancer Staging.”</span> <em>Japanese Journal of Radiology</em>, November. <a href="https://doi.org/10.1007/s11604-024-01705-1">https://doi.org/10.1007/s11604-024-01705-1</a>.
+</div>
+<div id="ref-tsai_comparative_2024" class="csl-entry" role="listitem">
+Tsai, Hsiao-Ching, Yueh-Fen Huang, and Chih-Wei Kuo. 2024. <span>“Comparative <span>Analysis</span> of <span>Automatic</span> <span>Literature</span> <span>Review</span> <span>Using</span> <span>Mistral</span> <span>Large</span> <span>Language</span> <span>Model</span> and <span>Human</span> <span>Reviewers</span>.”</span> <em>Research Square (Research Square)</em>, March. <a href="https://doi.org/10.21203/rs.3.rs-4022248/v1">https://doi.org/10.21203/rs.3.rs-4022248/v1</a>.
+</div>
+<div id="ref-tuMitigatingGrandChallenges2024" class="csl-entry" role="listitem">
+Tu, Qingshi, Jing Guo, Nan Li, Jianchuan Qi, and Ming Xu. 2024. <span>“Mitigating <span>Grand Challenges</span> in <span>Life Cycle Inventory Modeling</span> Through the <span>Applications</span> of <span>Large Language Models</span>.”</span> <em>Environmental Science &amp; Technology</em> 58 (44): 19595–603. <a href="https://doi.org/10.1021/acs.est.4c07634">https://doi.org/10.1021/acs.est.4c07634</a>.
+</div>
+<div id="ref-tupayachi_towards_2024" class="csl-entry" role="listitem">
+Tupayachi, Jose, Haowen Xu, Olufemi A. Omitaomu, Mustafa Can Camur, Aliza Sharmin, and Xueping Li. 2024. <span>“Towards <span>Next</span>-<span>Generation</span> <span>Urban</span> <span>Decision</span> <span>Support</span> <span>Systems</span> Through <span>AI</span>-<span>Powered</span> <span>Construction</span> of <span>Scientific</span> <span>Ontology</span> <span>Using</span> <span>Large</span> <span>Language</span> <span>Models</span>—<span>A</span> <span>Case</span> in <span>Optimizing</span> <span>Intermodal</span> <span>Freight</span> <span>Transportation</span>.”</span> <em>Smart Cities</em> 7 (5): 2392–2421. <a href="https://doi.org/10.3390/smartcities7050094">https://doi.org/10.3390/smartcities7050094</a>.
+</div>
+<div id="ref-upadhyayEnhancingHealthInformation2025" class="csl-entry" role="listitem">
+Upadhyay, Rishabh, and Marco Viviani. 2025. <span>“Enhancing <span>Health Information Retrieval</span> with <span>RAG</span> by Prioritizing Topical Relevance and Factual Accuracy.”</span> <em>Deleted Journal</em> 28 (1). <a href="https://doi.org/10.1007/s10791-025-09505-5">https://doi.org/10.1007/s10791-025-09505-5</a>.
+</div>
+<div id="ref-wangSearchingBestPractices2024" class="csl-entry" role="listitem">
+Wang, Xiaohua, Zhenhua Wang, Xuan Gao, Feiran Zhang, Yixin Wu, Zhibo Xu, Tianyuan Shi, et al. 2024. <span>“Searching for <span>Best Practices</span> in <span>Retrieval-Augmented Generation</span>.”</span> <em>Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing</em>, January, 17716–36. <a href="https://doi.org/10.18653/v1/2024.emnlp-main.981">https://doi.org/10.18653/v1/2024.emnlp-main.981</a>.
+</div>
+<div id="ref-xuAutomatingBibliometricAnalysis2024" class="csl-entry" role="listitem">
+Xu, Haowen, Xueping Li, Jose Tupayachi, Jianming Lian, and Olufemi A. Omitaomu. 2024. <span>“Automating <span>Bibliometric Analysis</span> with <span>Sentence Transformers</span> and <span>Retrieval-Augmented Generation</span> (<span>RAG</span>): <span>A Pilot Study</span> in <span>Semantic</span> and <span>Contextual Search</span> for <span>Customized Literature Characterization</span> for <span>High-Impact Urban Research</span>,”</span> October, 43–49. <a href="https://doi.org/10.1145/3681780.3697252">https://doi.org/10.1145/3681780.3697252</a>.
+</div>
+<div id="ref-xuEvaluationIntegrationRetrievalaugmented2024" class="csl-entry" role="listitem">
+Xu, Ruiyu, Ying Hong, Feifei Zhang, and Hongmei Xu. 2024. <span>“Evaluation of the Integration of Retrieval-Augmented Generation in Large Language Model for Breast Cancer Nursing Care Responses.”</span> <em>Scientific Reports</em> 14 (1): 30794. <a href="https://doi.org/10.1038/s41598-024-81052-3">https://doi.org/10.1038/s41598-024-81052-3</a>.
+</div>
+<div id="ref-yuan_leveraging_2024" class="csl-entry" role="listitem">
+Yuan, Shuai, Fu Li, Matthew H. E. M. Browning, Mondira Bardhan, Kuiran Zhang, Olivia McAnirlin, Muhammad Mainuddin Patwary, and Aaron Reuben. 2024. <span>“Leveraging and Exercising Caution with <span>ChatGPT</span> and Other Generative Artificial Intelligence Tools in Environmental Psychology Research.”</span> <em>Frontiers in Psychology</em> 15 (April). <a href="https://doi.org/10.3389/fpsyg.2024.1295275">https://doi.org/10.3389/fpsyg.2024.1295275</a>.
+</div>
+<div id="ref-zhangBiSpecPairwiseAI2024" class="csl-entry" role="listitem">
+Zhang, Xin, Huiyu Wang, and Chunyun Sun. 2024. <span>“<span>BiSpec Pairwise AI</span>: Guiding the Selection of Bispecific Antibody Target Combinations with Pairwise Learning and <span>GPT</span> Augmentation.”</span> <em>Journal of Cancer Research and Clinical Oncology</em> 150 (5): 237. <a href="https://doi.org/10.1007/s00432-024-05740-3">https://doi.org/10.1007/s00432-024-05740-3</a>.
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./update.html" class="pagination-link" aria-label="Project Update">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Project Update</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./02-data-collection.html" class="pagination-link" aria-label="Data Collection">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Collection</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Written by Alex Godinez</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

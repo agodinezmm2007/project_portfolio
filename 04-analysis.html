@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>6&nbsp; Analysis – Portfolio</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./03-literature-review.html" rel="prev">
+<link href="./pic/00/cover.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-analysis.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Analysis</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Portfolio</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./update.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Project Update</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-proposal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">AI-Powered ETL &amp; RAG System for Large-Scale Literature Analytics and Methodological Gap Analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-data-collection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Collection</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-literature-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Literature Review</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-analysis.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">References</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-a-etl-rag.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">appendix-a-etl-rag.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-c-hardware.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Appendix C: Computational Hardware</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-d-neo4j-queries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Knowledge Graph Queries and Supporting Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-e-db-queries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Database Queries</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#proposed-research-question" id="toc-proposed-research-question" class="nav-link active" data-scroll-target="#proposed-research-question"><span class="header-section-number">7</span> Proposed Research Question:</a>
+  <ul>
+  <li><a href="#graph-neural-networks-gnns" id="toc-graph-neural-networks-gnns" class="nav-link" data-scroll-target="#graph-neural-networks-gnns"><span class="header-section-number">7.1</span> Graph Neural Networks (GNNs)</a></li>
+  <li><a href="#convolutional-neural-networks-cnns" id="toc-convolutional-neural-networks-cnns" class="nav-link" data-scroll-target="#convolutional-neural-networks-cnns"><span class="header-section-number">7.2</span> Convolutional Neural Networks (CNNs)</a></li>
+  </ul></li>
+  <li><a href="#data-methodology" id="toc-data-methodology" class="nav-link" data-scroll-target="#data-methodology"><span class="header-section-number">8</span> Data &amp; Methodology</a>
+  <ul>
+  <li><a href="#data-preprocessing-and-cleaning" id="toc-data-preprocessing-and-cleaning" class="nav-link" data-scroll-target="#data-preprocessing-and-cleaning"><span class="header-section-number">8.1</span> Data Preprocessing and Cleaning</a></li>
+  <li><a href="#construction-of-the-county-year-analytical-dataset" id="toc-construction-of-the-county-year-analytical-dataset" class="nav-link" data-scroll-target="#construction-of-the-county-year-analytical-dataset"><span class="header-section-number">8.2</span> Construction of the County-Year Analytical Dataset</a></li>
+  <li><a href="#validation-metrics" id="toc-validation-metrics" class="nav-link" data-scroll-target="#validation-metrics"><span class="header-section-number">8.3</span> Validation Metrics</a>
+  <ul class="collapse">
+  <li><a href="#metrics-for-regression-tasks-predicting-cvd_mortality_rate" id="toc-metrics-for-regression-tasks-predicting-cvd_mortality_rate" class="nav-link" data-scroll-target="#metrics-for-regression-tasks-predicting-cvd_mortality_rate"><span class="header-section-number">8.3.1</span> Metrics for Regression Tasks (Predicting cvd_mortality_rate)</a></li>
+  </ul></li>
+  <li><a href="#preliminary-analysis" id="toc-preliminary-analysis" class="nav-link" data-scroll-target="#preliminary-analysis"><span class="header-section-number">8.4</span> Preliminary analysis</a>
+  <ul class="collapse">
+  <li><a href="#preliminary-random-forest-analysis-data-preprocessing" id="toc-preliminary-random-forest-analysis-data-preprocessing" class="nav-link" data-scroll-target="#preliminary-random-forest-analysis-data-preprocessing"><span class="header-section-number">8.4.1</span> Preliminary Random Forest Analysis Data-preprocessing</a></li>
+  <li><a href="#model-performance-and-evaluation" id="toc-model-performance-and-evaluation" class="nav-link" data-scroll-target="#model-performance-and-evaluation"><span class="header-section-number">8.4.2</span> Model Performance and Evaluation</a></li>
+  <li><a href="#preliminary-results" id="toc-preliminary-results" class="nav-link" data-scroll-target="#preliminary-results"><span class="header-section-number">8.4.3</span> Preliminary Results</a></li>
+  <li><a href="#summary-of-preliminary-random-forest-findings" id="toc-summary-of-preliminary-random-forest-findings" class="nav-link" data-scroll-target="#summary-of-preliminary-random-forest-findings"><span class="header-section-number">8.4.4</span> Summary of Preliminary Random Forest Findings</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#limitations-future-directions" id="toc-limitations-future-directions" class="nav-link" data-scroll-target="#limitations-future-directions"><span class="header-section-number">9</span> Limitations &amp; Future Directions</a></li>
+  <li><a href="#cnngnn-preperation" id="toc-cnngnn-preperation" class="nav-link" data-scroll-target="#cnngnn-preperation"><span class="header-section-number">10</span> CNN/GNN Preperation</a>
+  <ul>
+  <li><a href="#stratification" id="toc-stratification" class="nav-link" data-scroll-target="#stratification"><span class="header-section-number">10.1</span> Stratification</a></li>
+  </ul></li>
+  <li><a href="#model-development-training" id="toc-model-development-training" class="nav-link" data-scroll-target="#model-development-training"><span class="header-section-number">11</span> Model Development &amp; Training</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">12</span> Results</a></li>
+  <li><a href="#interpretation-and-discussion" id="toc-interpretation-and-discussion" class="nav-link" data-scroll-target="#interpretation-and-discussion"><span class="header-section-number">13</span> Interpretation and Discussion</a>
+  <ul>
+  <li><a href="#metrics-for-classification-tasks" id="toc-metrics-for-classification-tasks" class="nav-link" data-scroll-target="#metrics-for-classification-tasks"><span class="header-section-number">13.0.1</span> Metrics for Classification Tasks</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Analysis</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>#04-analysis,qmd</p>
+<p>The data preparation steps for this analysis are detailed in the Jupyter notebook notebooks/data_preparation.ipynb, and the Random Forest model implementation and evaluation can be found in notebooks/random_forest.ipynb. These notebooks are available in the project’s source repository.</p>
+<section id="proposed-research-question" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Proposed Research Question:</h1>
+<p>“Can convolutional neural networks (CNNs) and graph neural networks (GNNs) effectively model the spatiotemporal relationships between ozone exposure and cardiovascular disease (CVD) outcomes at the county level in the United States, and do these models provide improved prediction accuracy or interpretability compared to traditional statistical or machine learning approaches?”</p>
+<section id="graph-neural-networks-gnns" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="graph-neural-networks-gnns"><span class="header-section-number">7.1</span> Graph Neural Networks (GNNs)</h2>
+<ul>
+<li>Use GNN to model counties as nodes in a graph, with edges based on adjacency or other meaningful spatial relationships.</li>
+<li>Define counties as nodes and their adjacency (or distance-based proximity) as edges.</li>
+<li>Node features would be time series of ozone metrics, past CVD rates, and other covariates for each county</li>
+<li>Graph Convolutional Networks (GCN), Graph Attention Networks (GAT), GraphSAGE for static graph snapshots per year, or spatiotemporal GNNs like STGCN, DCRNN, GraphWaveNet if you structure data as time-series on nodes.</li>
+<li>Perform comparative analyses with traditional models (linear regression, random forests, etc.).</li>
+</ul>
+<p><strong>Questions Answered:</strong></p>
+<ul>
+<li>Can GNNs effectively model the spatiotemporal dependencies in ozone exposure and CVD mortality, leveraging the spatial relationships between counties?</li>
+<li>Do GNNs improve the prediction of county-level CVD mortality rates compared to non-spatial models or traditional spatial statistics?</li>
+<li>Can GNNs help identify counties or regions where the influence of neighboring counties’ ozone levels is particularly important for local CVD rates?</li>
+</ul>
+</section>
+<section id="convolutional-neural-networks-cnns" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="convolutional-neural-networks-cnns"><span class="header-section-number">7.2</span> Convolutional Neural Networks (CNNs)</h2>
+<ul>
+<li>Rasterize the merged data (ozone, CVD rates, covariates) onto a regular spatial grid for each year. This creates a sequence of “images” or multi-channel images</li>
+<li>2D CNNs (if each year’s spatial map is an image), 3D CNNs (if using sequences of years as volumes), or ConvLSTM/CNN-RNN hybrids to capture spatiotemporal features</li>
+</ul>
+<p><strong>Questions Answered:</strong></p>
+<ul>
+<li>Can CNNs learn meaningful spatial patterns from gridded ozone and CVD data to predict CVD mortality hotspots or future rates?</li>
+<li>How do local spatial configurations of ozone exposure (as captured by convolutional filters) relate to CVD patterns?</li>
+<li>Do CNNs offer advantages in predictive accuracy over other methods for this gridded spatiotemporal data?</li>
+</ul>
+<p><strong>Identifying High-Risk Areas:</strong></p>
+<ul>
+<li>Which counties consistently show high CVD mortality in conjunction with high ozone levels, even after accounting for other factors? (small population counties but for analytical reason).</li>
+</ul>
+<p><strong>analytical plan (CNN or GNN architectures, datasets to use).</strong></p>
+<p><strong>Quantifying Ozone Impact:</strong></p>
+<ul>
+<li>What is the estimated increase in CVD mortality risk associated with an increase in annual mean/median/max ozone? (GLMs, Mixed Models, GAMs for effect size; ML for prediction importance).</li>
+</ul>
+<p><strong>Exploring Non-Linearity:</strong></p>
+<ul>
+<li>Is there a threshold effect for ozone, or does the risk increase differently at different ozone levels? (GAMs, tree-based ML, NNs).</li>
+</ul>
+<p><strong>Spatial Spillover:</strong></p>
+<ul>
+<li>Does ozone in one county affect CVD in neighboring counties? (GNNs, some advanced spatial statistical models).</li>
+</ul>
+</section>
+</section>
+<section id="data-methodology" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Data &amp; Methodology</h1>
+<section id="data-preprocessing-and-cleaning" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="data-preprocessing-and-cleaning"><span class="header-section-number">8.1</span> Data Preprocessing and Cleaning</h2>
+<p>Initial exploratory data analysis of the daily census-tract ozone prediction data (DS_O3_pred) for the 2001-2005 period revealed a set of anomalously high values, with a maximum approaching 500 ppb. Further investigation, including time series analysis (as shown in <a href="#fig-spike" class="quarto-xref">Figure&nbsp;<span>8.1</span></a>) and spatial visualization (see <a href="#fig-gif" class="quarto-xref">Figure&nbsp;<span>8.2</span></a> for geographical distribution), pinpointed these extreme values to a single day, September 13, 2001, predominantly within census tracts in Missouri (State FIPS ‘29’). While daily mean and median ozone levels for Missouri on this date were elevated, they were substantially lower than these localized maximums, as illustrated in <a href="#fig-spike" class="quarto-xref">Figure&nbsp;<span>8.1</span></a>.</p>
+<p>Given that these peak values were several orders of magnitude higher than the 99th percentile of the broader dataset for that period (83.2 ppb vs.&nbsp;~491 ppb) and their extreme magnitude could disproportionately influence county-level annual average calculations, a data cleaning step was implemented. To mitigate this potential bias while retaining information about a significant, albeit localized, high ozone event, DS_O3_pred values for census tracts in Missouri on September 13, 2001, that exceeded 150 ppb were capped at this threshold. This 150 ppb level was chosen as it still represents a very high ozone concentration (categorized as “Unhealthy” by EPA standards for an 8-hour average) but prevents extreme, potentially unrepresentative modeled outputs from dominating subsequent statistical aggregations. This adjustment affected 45 data points on that specific day. The DS_O3_pred data for the other periods (2006-2010 and 2011-2014), which had maximum observed values around 125-127 ppb, did not exhibit such extreme singular-day outliers and was therefore used after standard quality checks without similar capping.</p>
+<div id="fig-spike" class="quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-spike-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/mo_spike.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-spike-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.1: Anomalous ozone event in Missouri, September-October 2001. The graph shows daily mean, median, and maximum <code>DS_O3_pred</code> values. Note the exceptional spike in maximum predicted ozone on September 13, 2001, which reached values significantly above typical daily maximums observed during this period.
+</figcaption>
+</figure>
+</div>
+<div id="fig-gif" class="quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gif-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/missouri_ozone_animation.gif" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gif-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.2: Geographic Distribution of Extreme Ozone Event in Missouri (2001-09-13)
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="construction-of-the-county-year-analytical-dataset" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="construction-of-the-county-year-analytical-dataset"><span class="header-section-number">8.2</span> Construction of the County-Year Analytical Dataset</h2>
+<p>The final analytical dataset, merged_df_clean, was constructed through a series of preprocessing, standardization, aggregation, and merging steps applied to the source ozone and cardiovascular disease (CVD) mortality data. The daily census-tract level ozone data, originally sourced from three separate files covering 2001-2005, 2006-2010, and 2011-2014, underwent multiple preprocessing stages: For each data segment, state (statefips), county (countyfips), and census tract (ctfips) identifiers were converted to standardized string formats. A consistent 5-digit county identifier (GEOID10) was derived for each record by combining the 2-digit state FIPS and the 3-digit county FIPS (for the 2006-2010 dataset where countyfips represented the 3-digit portion) or by standardizing the existing 5-digit countyfips column (for the 2001-2005 and 2011-2014 datasets). This process ensured comprehensive county coverage, yielding approximately 3,109 unique GEOID10 values per year across all raw ozone data. The date column in each segment was converted to datetime64[ns] format, and a numeric year column (int32) was verified.</p>
+<p>As detailed in the preceding “Data Preprocessing and Cleaning” section, anomalously high DS_O3_pred values (those &gt;150 ppb) occurring on September 13, 2001, in Missouri (State FIPS ‘29’) within the df_ozone_2001_2005 dataset were capped at 150 ppb. This affected 45 data points and resulted in a maximum DS_O3_pred value of 150 ppb in the subsequently combined dataset. Other ozone data periods did not exhibit such extreme singular-day outliers requiring capping. The three processed and cleaned ozone dataframes were concatenated into a single comprehensive dataframe (df_ozone_full) containing 412,812,344 daily census-tract level observations from 2001 to 2014. df_ozone_full was then aggregated by year and GEOID10. For each county-year, multiple summary statistics for DS_O3_pred were calculated: mean (mean_ozone_pred), median (median_ozone_pred), maximum (max_ozone_pred), 95th percentile (p95_ozone_pred), and standard deviation (std_ozone_pred). This resulted in the df_ozone_annual_county dataframe with 43,526 unique county-year observations. The GEOID10 column was then renamed to countyfips for merging.</p>
+<p>The “Rates and Trends in Heart Disease and Stroke Mortality Among US Adults ≥35 by County, Age Group, Race/Ethnicity, and Sex, 2000-2019” dataset (5,770,240 initial rows) was processed as follows:</p>
+<ul>
+<li>Missing Value Handling: Rows with missing Data_Value (indicating suppressed mortality rates) were dropped.</li>
+<li>FIPS Standardization: The LocationID column (int32) was converted to a 5-digit string and renamed to countyfips to serve as the merge key.</li>
+<li>Year Cleaning: The Year column (originally object type, containing single years and year ranges) was processed to extract single numeric years. Records were subsequently filtered to include only years between 2001 and 2014, aligning with the ozone data’s temporal extent.</li>
+</ul>
+<p>The df_ozone_annual_county (containing annual county-level ozone metrics) was merged with the df_cvd_processed (containing annual county-level CVD mortality rates and associated information) using an inner join on year and countyfips.</p>
+<p><strong>Characteristics of the Final Merged Dataset (merged_df_clean)</strong></p>
+<p>The resulting merged_df_clean dataset contains 2,056,590 rows. Each row represents a unique county-year-CVD Topic combination for which both ozone exposure data and CVD mortality data were available.</p>
+<ul>
+<li>Temporal Range: The dataset spans years 2001 through 2014.</li>
+<li>Spatial Coverage: It includes approximately 3,056 to 3,057 unique US counties per year.</li>
+<li>Key Variables for Analysis:
+<ul>
+<li>year (int32): Observation year.</li>
+<li>countyfips (object): 5-digit county FIPS code.</li>
+<li>Ozone Metrics:
+<ul>
+<li>mean_ozone_pred</li>
+<li>median_ozone_pred</li>
+<li>max_ozone_pred</li>
+<li>p95_ozone_pred</li>
+<li>std_ozone_pred</li>
+</ul></li>
+<li>CVD Outcome:
+<ul>
+<li>Data_Value: representing age-standardized, spatiotemporally smoothed mortality rate per 100,000.</li>
+<li>Topic: Specific cardiovascular disease category (‘All heart disease’, ‘All stroke’, ‘Coronary heart disease (CHD)’).</li>
+</ul></li>
+<li>Descriptive CVD columns
+<ul>
+<li>LocationAbbr</li>
+<li>LocationDesc</li>
+<li>GeographicLevel</li>
+<li>DataSource</li>
+<li>Class</li>
+<li>Data_Value_Unit</li>
+<li>Data_Value_Type</li>
+</ul></li>
+<li>CVD Confidence Intervals:
+<ul>
+<li>Confidence_limit_Low</li>
+<li>Confidence_limit_High</li>
+</ul></li>
+<li>Stratification Details:
+<ul>
+<li>StratificationCategory1: Age-specific groups: 35-64 years vs.&nbsp;65+ years</li>
+<li>StratificationCategory2: Sex-specific groups: Men vs.&nbsp;Women</li>
+<li>StratificationCategory3: Race-specific groups: Exploring disparities among different races.</li>
+</ul></li>
+</ul></li>
+<li>Data Quality: All key analytical columns (ozone metrics, Data_Value for CVD rate) in merged_df_clean have no missing values.</li>
+</ul>
+<p><strong>Dataset Summary (in merged data):</strong></p>
+<p>All key analytical columns (ozone metrics, Data_Value for CVD rate) in merged_df_clean have no missing values. The mean_ozone_pred in merged_df_clean has a mean of approximately 39.7 ppb, a standard deviation of 4.2 ppb, a minimum of 20.3 ppb, and a maximum of 54.9 ppb (reflecting annual county averages after outlier capping at the daily tract level). The dataset includes multiple CVD Topics, allowing for analyses focused on specific outcomes. The original stratification columns are retained, offering pathways for future stratified analyses. This meticulously cleaned and merged dataset is designed specifically to support robust spatiotemporal modeling efforts using convolutional neural networks (CNNs) and graph neural networks (GNNs), thereby directly addressing the research question’s methodological and analytical requirements.</p>
+</section>
+<section id="validation-metrics" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="validation-metrics"><span class="header-section-number">8.3</span> Validation Metrics</h2>
+<section id="metrics-for-regression-tasks-predicting-cvd_mortality_rate" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="metrics-for-regression-tasks-predicting-cvd_mortality_rate"><span class="header-section-number">8.3.1</span> Metrics for Regression Tasks (Predicting cvd_mortality_rate)</h3>
+<p>These assess how close the model’s predictions (<span class="math inline">\(\hat{y}_i\)</span>) are to the actual values (<span class="math inline">\(y_i\)</span>).</p>
+<ol type="1">
+<li>Scale-Dependent Errors (in the units of ppb or rate per 100,000):</li>
+</ol>
+<p><strong>Mean Absolute Error (MAE):</strong> Average absolute difference between predicted and actual values. It’s easy to understand and less sensitive to extreme outliers than MSE/RMSE. Formula: <span class="math display">\[
+\text{MAE} = \frac{1}{n}\sum_{i=1}^{n}\left| y_i - \hat{y}_i \right|
+\]</span></p>
+<p>where <span class="math inline">\(n\)</span> is the total number of data points (county-year observations) being evaluated, <span class="math inline">\(i\)</span> is the index for each data point, from 1 to n, representing each specific county-year observation, <span class="math inline">\(y_i\)</span> is the observed value for the <span class="math inline">\(i\)</span>-th data point, specifically cvd mortality rate for a given year and county, <span class="math inline">\(\hat{y}_i\)</span> is the value predicted by the model for the <span class="math inline">\(i\)</span>-th data point for cvd mortality of that same <span class="math inline">\(i\)</span>-th observation (the specific county-year), <span class="math inline">\(\left( y_i - \hat{y}_i \right)\)</span> is the prediction error for the <span class="math inline">\(i\)</span>-th observation and represents the difference between the actual cvd mortality rate and the models predicted cvd mortality, <span class="math inline">\(\left| y_i - \hat{y}_i \right|\)</span> is the absolute <strong>error</strong> between the actual value and the prdicted value for the <span class="math inline">\(i\)</span>-th data point, <span class="math inline">\(\sum_{i=1}^{n}\)</span> is the summation of all the individual absolute errors across all <span class="math inline">\(n\)</span> data points, <span class="math inline">\(\frac{1}{n}\)</span> is the average of the absolute difference,</p>
+<p>The MAE will tell us, on average, how many units (deaths per 100,000 population since thats the unit of cvd_mortality_rate) the models predictions of county-level annual CVD mortality rates are off from the actual rates. A lower MAE indicates the models predictions are, on average, closer to the true values.</p>
+<p><strong>Mean SquaredError (MSE):</strong></p>
+<p>Average of the squared differences. It penalizes larger errors more heavily. Formula: <span class="math display">\[
+\text{MSE} = \frac{1}{n}\sum_{i=1}^{n}\left( y_i - \hat{y}_i \right)^2
+\]</span></p>
+<p><strong>Root Mean Squared Error (RMSE):</strong></p>
+<p>The square root of MSE. Its in the same units as tge outcome variable and is a common metric, penalizing large errors. Formula:</p>
+<p><span class="math display">\[
+\text{RMSE} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}\left( y_i - \hat{y}_i \right)^2}
+\]</span></p>
+<ol start="2" type="1">
+<li>Scale-Independent Errors (Percentage-based):</li>
+</ol>
+<p><strong>Mean Absolute Percentage Error (MAPE):</strong></p>
+<p>Average percentage difference. Useful for comparing across different scales, but can be problematic if actual values (<span class="math inline">\(y_i\)</span>) are zero or very close to zero. Formula:</p>
+<p><span class="math display">\[
+\text{MAPE} = \frac{1}{n}\sum_{i=1}^{n}\left|\frac {y_i - \hat{y}_i}{y_i} \right|\times 100\%
+\]</span></p>
+<ol start="3" type="1">
+<li>Goodness-of-Fit / Correlation:</li>
+</ol>
+<p><strong>R-squared (R² or Coefficient of Determination):</strong></p>
+<p>Indicates the proportion of the variance in the cvd_mortality_rate that is predictable from the model (ozone and other features). Values range from 0 to 1 (higher is better).</p>
+<p><span class="math display">\[
+\text{R}^2 = 1 - \frac{\sum_{i=1}^{n}\left( y_i - \hat{y}_i \right)^2}{\sum_{i=1}^{n}\left( y_i - \bar{y}_i \right)^2}
+\]</span></p>
+<p><strong>Pearson Correlation Coefficient:</strong></p>
+<p>Measures the linear relationship between the model’s predictions and the true mortality rates</p>
+</section>
+</section>
+<section id="preliminary-analysis" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="preliminary-analysis"><span class="header-section-number">8.4</span> Preliminary analysis</h2>
+<section id="preliminary-random-forest-analysis-data-preprocessing" class="level3" data-number="8.4.1">
+<h3 data-number="8.4.1" class="anchored" data-anchor-id="preliminary-random-forest-analysis-data-preprocessing"><span class="header-section-number">8.4.1</span> Preliminary Random Forest Analysis Data-preprocessing</h3>
+<p>Following the merging of ozone, cardiovascular disease (CVD) mortality, and census-derived population data, the resulting analytical dataset (merged_df_clean) contained 2,056,590 county-year observations. Initial examination of the primary outcome variable, the age-standardized and spatiotemporally smoothed CVD mortality rate (per 100,000 population), revealed a pronounced right-skewed distribution. The rates ranged from a minimum of 1.5 to a maximum of 4,139.0 per 100,000, with a mean of approximately 500.2 and a median of 188.9. This distribution exhibited a skewness of 1.56 (as shown in <a href="#fig-log-cvd" class="quarto-xref">Figure&nbsp;<span>8.3</span></a>, left panel), indicating that a direct application of this variable in modeling could be unduly influenced by extreme high values, potentially stemming from counties with smaller populations where rates are less stable. To address this and create a more symmetrically distributed outcome variable suitable for regression modeling, a natural logarithm transformation was applied. The resulting log-transformed CVD mortality rate exhibited a substantially reduced skewness of -0.24, with a mean of approximately 5.13 and a median of 5.24, indicating a much more symmetrical distribution (<a href="#fig-log-cvd" class="quarto-xref">Figure&nbsp;<span>8.3</span></a>, right panel).</p>
+<p>Similarly, the county population estimates within the dataset also demonstrated significant right skewness (11.77), with values ranging from approximately 1,123 to over 10 million, and a mean (~138,602) considerably larger than the median (~35,386). Such a wide and skewed distribution for a predictor variable can also impact model performance and stability. Therefore, a log transformation (specifically log(1+x)) was applied to the county population estimates. This transformation effectively reduced the skewness to 0.52 and resulted in a more symmetrically distributed variable (as depicted in <a href="#fig-log-popestimate" class="quarto-xref">Figure&nbsp;<span>8.4</span></a>), rendering it more suitable for inclusion as a covariate in subsequent modeling efforts. These transformations of the outcome variable and a key covariate were performed prior to selecting the final feature set and splitting the data for model training and evaluation.</p>
+<div id="fig-log-cvd" class="quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-log-cvd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/log_transformed_cvd.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-log-cvd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.3: The log transformation has compressed the very high mortality rates, so they no longer exert such an overwhelming influence on the mean or the scale of the variable. The maximum value is now ~8.33 on the log scale, which is much more manageable than ~4139.
+</figcaption>
+</figure>
+</div>
+<div id="fig-log-popestimate" class="quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-log-popestimate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/pop_estimate_log.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-log-popestimate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.4: The log transformation of popestimate was highly effective in reducing the skewness of the population data, making the distribution of population estimates much more symmetrical. This effectively compressed the range and reduced the disproportionate influence of very large population counties.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="model-performance-and-evaluation" class="level3" data-number="8.4.2">
+<h3 data-number="8.4.2" class="anchored" data-anchor-id="model-performance-and-evaluation"><span class="header-section-number">8.4.2</span> Model Performance and Evaluation</h3>
+<p>Following data preprocessing and feature engineering for the selected age cohort (35-64 years) and the ‘All heart disease’ outcome, a Random Forest regression model was developed to predict log-transformed county-level annual cardiovascular disease (CVD) mortality rates. Hyperparameter tuning via 5-fold cross-validated Randomized Search identified an optimal model configuration (e.g., 450 estimators, no maximum depth, minimum samples per split of 4, minimum samples per leaf of 1, and ‘log2’ for maximum features), achieving a cross-validated Root Mean Squared Error (RMSE) of 0.2706 on the log-transformed scale during training. The tuned Random Forest model demonstrated strong predictive capability, explaining a substantial portion of the variance in the outcome. On the training set, the model achieved an R² of 0.8906 and a Pearson correlation of 0.9619 between predicted and actual log-transformed CVD mortality rates. More critically, on the held-out test set, the model yielded an R² of 0.4699 and a Pearson correlation of 0.6870, with an Out-of-Bag (OOB) R² score of 0.4786, indicating reasonable generalization to unseen data despite some overfitting observed when comparing training and test performance.</p>
+<p>To contextualize these findings, model performance was also evaluated on the original scale of CVD mortality rates (deaths per 100,000 population) by back-transforming the predictions. On the test set, the Random Forest model exhibited a Mean Absolute Error (MAE) of approximately 24.29 deaths per 100,000 and an RMSE of 33.39 deaths per 100,000, corresponding to a Mean Absolute Percentage Error (MAPE) of 21.32%. In comparison, a baseline Linear Regression model trained on the same features achieved a test set R² of 0.1370 (log scale), with an MAE of 31.75, RMSE of 42.39, and MAPE of 28.14% on the original scale. The superior performance of the Random Forest model across all metrics (as visualized in <a href="#fig-model-comparison" class="quarto-xref">Figure&nbsp;<span>8.5</span></a>) suggests its ability to capture complex, non-linear relationships between the ozone exposure metrics, log-transformed population estimates, year, and the age-stratified CVD mortality outcome, which were not adequately addressed by the linear model. The scatter plot of actual versus predicted values on the original scale (<a href="#fig-model-prediction" class="quarto-xref">Figure&nbsp;<span>8.6</span></a>) further illustrates the Random Forest’s comparatively better fit, particularly in the mid-range of mortality rates.</p>
+<div id="fig-model-comparison" class="quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-model-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/model_performance_comparison.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-model-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.5: jg.
+</figcaption>
+</figure>
+</div>
+<div id="fig-model-prediction" class="quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-model-prediction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/actual_vs_prediction.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-model-prediction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.6: jg.
+</figcaption>
+</figure>
+</div>
+<p>Further validation using learning curves (<a href="#fig-learning-curves" class="quarto-xref">Figure&nbsp;<span>8.7</span></a>) provided insights into the model’s bias-variance characteristics and its response to varying training set sizes. The training RMSE remained consistently low, decreasing from approximately 0.135 to 0.124 (on the log-transformed mortality rate scale) as the number of training examples increased from roughly 2,700 to 27,000. The cross-validation RMSE, while higher, also showed improvement, decreasing from approximately 0.298 to 0.271 over the same range of training data. The persistent gap between the training and cross-validation RMSE curves suggests that the model exhibits some degree of variance, fitting the training data more closely than it generalizes to unseen validation folds. However, both curves began to plateau towards the larger training set sizes, indicating that while the model benefited from increased data up to a point, substantial further improvements in validation RMSE with this specific model configuration and feature set might be limited by simply adding more similar training instances. This plateauing, combined with the validation RMSE being close to the final test set RMSE (0.271 vs 0.267), suggests that the model has learned the generalizable patterns from the available data to a reasonable extent, despite the variance.</p>
+<div id="fig-learning-curves" class="quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-learning-curves-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/learning_curves.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-learning-curves-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.7: jg.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="preliminary-results" class="level3" data-number="8.4.3">
+<h3 data-number="8.4.3" class="anchored" data-anchor-id="preliminary-results"><span class="header-section-number">8.4.3</span> Preliminary Results</h3>
+<p><strong>Premutation-Based Feature Importance</strong></p>
+<p>To further assess the contribution of each predictor to the Random Forest model’s performance on unseen data, permutation feature importance was calculated on the test set. This method evaluates the decrease in model score (negative Root Mean Squared Error) when a single feature’s values are randomly shuffled, thereby breaking its relationship with the outcome. The results, averaged over 10 repeats (<a href="#fig-top-perm" class="quarto-xref">Figure&nbsp;<span>8.8</span></a>), indicated that metrics characterizing ozone exposure were the most influential predictors for the log-transformed CVD mortality rate within the modeled age group. Specifically, the annual standard deviation of daily 8-hour maximum ozone concentrations emerged as the top feature (mean importance drop ≈ 0.052), closely followed by the annual 95th percentile of daily ozone (mean importance drop ≈ 0.047), the annual median daily ozone (mean importance drop ≈ 0.043), and the annual mean daily ozone (mean importance drop ≈ 0.042).</p>
+<div id="fig-top-perm" class="quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-top-perm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/top_permutations.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-top-perm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.8: Higher
+</figcaption>
+</figure>
+</div>
+<p>Log-transformed county population estimate also demonstrated substantial predictive importance (mean importance drop ≈ 0.039), ranking among the key ozone metrics. The annual maximum daily ozone concentration followed with a mean importance drop of approximately 0.028. The one-hot encoded year indicators, representing temporal trends, generally showed lower importance values (ranging from approximately 0.001 to 0.006) compared to the primary ozone exposure metrics and population size. These findings suggest that after accounting for broad temporal variations and population size, different aspects of ozone exposure—including its variability, peak levels, and central tendency—are key drivers of the model’s predictive accuracy for CVD mortality within this age cohort.</p>
+<p><strong>SHapley Additive exPlanations</strong></p>
+<p>While permutation importance provides a global ranking of feature influence based on model performance degradation, SHAP (SHapley Additive exPlanations) analysis was subsequently employed to elucidate the contributions and directionality of individual predictors to the Random Forest model’s output for log-transformed cardiovascular disease (CVD) mortality rates. The global feature importance, as depicted in the SHAP summary (beeswarm) plot (<a href="#fig-shap-beeswarm" class="quarto-xref">Figure&nbsp;<span>8.9</span></a>), reveals that log-transformed county population size is the most influential feature, exhibiting the widest distribution of SHAP values. This indicates that variations in county population have the largest average impact on model predictions. This ranking, based on the average magnitude of impact on model output, is further clarified by the SHAP feature importance bar plot (<a href="#fig-shap-barplot" class="quarto-xref">Figure&nbsp;<span>8.10</span></a>), which also positions log-transformed county population size at the top, followed by annual metrics of daily 8-hour maximum ozone concentrations, specifically the 95th percentile, the mean, the standard deviation, the median, and the maximum—demonstrate substantial importance, each showing a significant spread of SHAP values in the beeswarm plot and high mean absolute SHAP values in the bar plot. One-hot encoded year indicators generally exhibit less impact compared to population and the primary ozone metrics.</p>
+<p>The SHAP summary plot further clarifies the directionality of these effects. For log-transformed county population size, higher values (indicating more populous counties, shown as red points) predominantly correspond to negative SHAP values, suggesting that larger populations tend to push the model’s prediction of log-transformed CVD mortality rates lower. Conversely, lower population values (blue points) are associated with positive SHAP values, pushing mortality predictions higher. Regarding the ozone metrics, a general pattern emerges where higher values of these exposure indicators (red points)—such as higher 95th percentile ozone, higher mean ozone, or greater standard deviation of daily ozone—are typically associated with positive SHAP values, indicating they contribute to an increase in predicted log-transformed CVD mortality. Conversely, lower ozone metric values (blue points) tend to have negative SHAP values, pushing predictions lower. The year indicators show varying directional impacts, reflecting year-specific adjustments to the baseline mortality prediction.</p>
+<div id="fig-shap-beeswarm" class="quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-shap-beeswarm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/age35_shap_beeswarm.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-shap-beeswarm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.9: for log_popestimate, high values (red dots) tend to have negative SHAP values (pushing the prediction of log_cvd_mortality_rate lower), while low values (blue dots) tend to have positive SHAP values (pushing the prediction higher). This suggests that, after accounting for other factors, counties with larger populations tend to have lower predicted log CVD mortality rates, and vice-versa. This finding that might relate to urbanicity, access to care, or other factors correlated with population size that aren’t fully captured by other variables. For Ozone metrics, it appears that higher feature values (red dots) generally correspond to positive SHAP values (pushing the prediction of log_cvd_mortality_rate higher), and lower feature values (blue dots) correspond to negative SHAP values. This is the direction we would generally expect if higher ozone is associated with higher CVD mortality. The spread indicates the magnitude of this push. The impact of ‘year’ dummies is more about specific years being associated with higher or lower rates compared to the baseline year (2001). For example, 2010 has many red dots (high value, meaning it is 2010) pushing predictions slightly higher.
+</figcaption>
+</figure>
+</div>
+<div id="fig-shap-barplot" class="quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-shap-barplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/age35_shap_barplot.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-shap-barplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.10: This plot confirms the ranking from the beeswarm plot based on the mean absolute SHAP value (average impact on model output magnitude). log_popestimate is at the top, ozone metrics (p95_ozone_pred, mean_ozone_pred, std_ozone_pred, median_ozone_pred, max_ozone_pred) are the next most important group of features, all showing substantial impact. The year dummies have lower mean absolute SHAP values. log_popestimate is more prominent in SHAP importance here than it was in permutation importance where std_ozone_pred was first. This can happen as they measure importance differently.
+</figcaption>
+</figure>
+</div>
+<p><strong>Population Size and Ozone Interactions</strong></p>
+<p>County population size, after log-transformation, emerged as a highly influential predictor of log-transformed CVD mortality rates, as depicted in its SHAP dependence plot <a href="#fig-ozone-logpop" class="quarto-xref">Figure&nbsp;<span>8.11</span></a>. The plot illustrates a generally negative association: as the log-transformed population estimate increases, indicating more populous counties, the corresponding SHAP values tend to decrease. This suggests that, after accounting for ozone exposure metrics and year, larger county population size contributes to a lower predicted CVD mortality rate within the model. The relationship exhibits non-linearity, with a steeper decrease in SHAP values observed for initial increases in log-population, followed by a flattening or more variable trend at very high population levels. This pattern indicates that while an increase in population size generally has a protective association in the model, the marginal benefit may diminish for the most populous counties.</p>
+<p>The interaction with the annual median of daily 8-hour maximum ozone concentrations (indicated by the color scale) further refines this interpretation. For counties with lower log-transformed population estimates (less populous counties, represented by bluer points on the interaction scale if median ozone is low, or redder if median ozone is high), higher median ozone levels appear to be associated with higher SHAP values for population (pushing the overall mortality prediction higher, or attenuating the protective effect of being a small county if the SHAP values for population are positive for small populations). Conversely, for more populous counties, the interaction with median ozone is less distinct, though the overall trend of larger populations being associated with lower predicted mortality persists. This suggests that the generally observed lower predicted CVD mortality in more populous counties might be less pronounced or even counteracted when median ozone levels are concurrently high, particularly in less populous areas where other unmeasured factors correlated with both rurality and higher median ozone could be at play. Understanding this interaction is crucial, as population size often serves as a proxy for various socioeconomic, environmental, and healthcare access factors that can modify the impact of environmental exposures like ozone.</p>
+<div id="fig-ozone-logpop" class="quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ozone-logpop-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/age35_shape_logpopestimate_ozone.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ozone-logpop-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.11: High values (red dots) tend to have negative SHAP values (pushing the prediction of the log of CVD mortality lower), while low values (blue dots) tend to have positive SHAP values (pushing the prediction higher). This suggests that, after accounting for other factors, counties with larger populations tend to have lower predicted log CVD mortality rates, and vice-versa. This finding that might relate to urbanicity, access to care, or other factors correlated with population size that aren’t fully captured by other variables.
+</figcaption>
+</figure>
+</div>
+<p><strong>Peak Ozone Exposure</strong></p>
+<p>The influence of peak ozone exposures, represented by the annual 95th percentile of daily 8-hour maximum ozone concentrations, on predicted log-transformed cardiovascular disease (CVD) mortality rates was examined using SHAP dependence plots (Figure <a href="#fig-ozone-p95" class="quarto-xref">Figure&nbsp;<span>8.12</span></a>). A generally positive association was observed: as the 95th percentile ozone levels increased from approximately 40 ppb up to around 65-70 ppb, their corresponding SHAP values tended to increase. This indicates that higher peak ozone exposures in this range contribute to higher predicted CVD mortality rates within the age group modeled. Beyond approximately 70-75 ppb, where fewer data points exist, the trend in SHAP values became less distinct and more variable, suggesting a potential plateau or a more complex relationship at very high peak exposure levels.</p>
+<p>The analysis further revealed an interaction between peak ozone exposure and county population size (log-transformed). For counties experiencing lower to moderate levels of peak ozone (50-65 ppb), those with larger populations (indicated by higher log_popestimate values, shown as redder points on the plot) generally exhibited SHAP values for peak ozone that were closer to zero or slightly lower than those for less populous counties (bluer points). This suggests that, for a given level of peak ozone within this range, the model attributes a somewhat attenuated increase in predicted CVD mortality risk if the county is more populous, or a comparatively larger increase if it is less populous. At the highest observed levels of peak ozone ( &gt;70 ppb), while the interaction was less clearly defined, many of the instances where peak ozone had the largest positive impact on predicted mortality (highest SHAP values) were associated with counties of lower to moderate population sizes. This complex interaction implies that the impact of high peak ozone days on CVD mortality risk, as learned by the model, may be modulated by county population size or unmeasured characteristics correlated with it.</p>
+<div id="fig-ozone-p95" class="quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ozone-p95-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/age35_shap_p95_ozone.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ozone-p95-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.12: Higher peak ozone exposures (p95_ozone_pred) are generally associated with an increased predicted risk of CVD mortality. This effect might be somewhat more pronounced or have a higher baseline impact in less populous counties. As p95_ozone_pred increases from around 40 ppb to about 65-70 ppb, there’s a clear positive trend in its SHAP value.
+</figcaption>
+</figure>
+</div>
+<p><strong>Daily Ozone Variability</strong></p>
+<p>Similarly, the variability of daily ozone, represented by the annual standard deviation of daily 8-hour maximum ozone concentrations, demonstrated a notable influence on predicted log-transformed CVD mortality rates (Figure <a href="#fig-ozone-std" class="quarto-xref">Figure&nbsp;<span>8.13</span></a>). Generally, an increase in the standard deviation of daily ozone was associated with higher SHAP values, indicating that greater day-to-day variability in ozone concentrations tends to elevate the predicted CVD mortality risk. This relationship appeared somewhat non-linear, with the impact potentially steepening at lower levels of variability and becoming more dispersed at higher standard deviations.</p>
+<p>An interaction was also observed between ozone variability and the annual mean daily 8-hour maximum ozone concentration. For any given level of ozone variability, instances where the mean ozone concentration was also high (indicated by redder points on the plot) typically corresponded to higher positive SHAP values, signifying a greater push towards increased predicted mortality. Conversely, when mean ozone levels were low (bluer points), the positive impact of ozone variability on predicted mortality was generally attenuated. The largest positive SHAP values for ozone variability (around 0.2) were observed when both the standard deviation of daily ozone and the annual mean ozone concentration were high (standard deviation &gt;17.5 ppb). This suggests that the health risk associated with ozone exposure is not solely dependent on average concentrations but is also amplified by the instability or fluctuation of daily ozone levels, particularly when average levels are already elevated.</p>
+<div id="fig-ozone-std" class="quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ozone-std-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/ag35_shap_std_ozone.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ozone-std-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.13: Higher variability in daily ozone (std_ozone_pred) is associated with increased predicted CVD mortality risk, and this effect appears to be amplified when the average ozone level (mean_ozone_pred) is also high. This suggests that not just the average exposure, but also the fluctuation or instability of ozone levels, is important.
+</figcaption>
+</figure>
+</div>
+<p><strong>Median Ozone Non-linearity</strong></p>
+<p>The relationship between the annual median of daily 8-hour maximum ozone concentrations and predicted log-transformed CVD mortality also exhibited non-linearity and interaction effects ( <a href="#fig-ozone-median" class="quarto-xref">Figure&nbsp;<span>8.14</span></a>). From approximately 20 ppb up to around 40-42 ppb, an increase in median ozone levels generally corresponded to higher SHAP values, indicating a positive association with predicted CVD mortality. However, beyond this range (approximately &gt;42-45 ppb), the trend appeared to reverse or become considerably more scattered, with higher median ozone values sometimes associated with negative SHAP values, suggesting a complex, non-monotonic relationship.</p>
+<p>This pattern was further modulated by the annual 95th percentile of daily ozone (representing peak exposure days). In the range where median ozone showed a positive association with predicted mortality (30-42 ppb), the presence of high peak ozone days (indicated by redder points) tended to amplify this positive impact, resulting in larger SHAP values. Interestingly, in the region where very high median ozone levels (&gt;45 ppb) began to show a less clear or even negative association with predicted mortality, many of these instances also corresponded to high peak ozone days (red or purple points). This complex interplay suggests that while moderate increases in typical (median) ozone levels are associated with increased predicted CVD risk, particularly when extreme peak days are also common, the effect of very high median ozone levels might be saturated or interact differently with other factors when peak exposures are concurrently high.</p>
+<div id="fig-ozone-median" class="quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ozone-median-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/age35_shap_median_ozone.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ozone-median-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.14: Moderate increases in median_ozone_pred are associated with increased predicted CVD mortality risk, especially when peak ozone days (p95_ozone_pred) are also frequent/high. However, the effect of very high median ozone levels is less clear and might even be negative in the model, particularly when peak exposures are also high, suggesting a complex interplay.
+</figcaption>
+</figure>
+</div>
+<p><strong>Annual Maximum Ozone Impacts</strong></p>
+<p>Furthermore, the impact of the annual maximum of daily 8-hour maximum ozone concentrations on predicted log-transformed CVD mortality rates also showed a dependency on county population size (<a href="#fig-ozone-max" class="quarto-xref">Figure&nbsp;<span>8.15</span></a>). A general positive trend was observed where an increase in maximum ozone levels, from approximately 50 ppb up to around 90-100 ppb, corresponded to an increase in SHAP values, thereby pushing predicted CVD mortality higher. Beyond 100 ppb, this relationship became more variable, with the positive impact potentially diminishing, although data points in this higher range were less frequent.</p>
+<p>The interaction with county population size (log-transformed) indicated that counties with larger populations (redder points) generally exhibited SHAP values for maximum ozone that were closer to zero or slightly negative, even at higher maximum ozone levels. In contrast, less populous counties (bluer points) displayed a clearer positive trend between maximum ozone and its SHAP value, suggesting a stronger contribution to increased predicted mortality in these areas. This implies that the model perceives the risk associated with high maximum daily ozone exposures as being more pronounced or apparent in counties with smaller populations, while more populous counties appear to have a dampening effect on this specific risk factor.</p>
+<div id="fig-ozone-max" class="quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ozone-max-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/age35_shap_max_ozone.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ozone-max-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.15: Higher maximum daily ozone exposures are generally associated with increased predicted CVD mortality risk, but this effect appears to be more pronounced in counties with smaller populations.
+</figcaption>
+</figure>
+</div>
+<p><strong>Annual Mean Ozone Concentrations</strong></p>
+<p>The influence of the annual mean of daily 8-hour maximum ozone concentrations on predicted log-transformed CVD mortality rates is central to the primary research question (<a href="#fig-ozone-mean" class="quarto-xref">Figure&nbsp;<span>8.16</span></a>). The SHAP dependence plot reveals a generally positive trend for this variable: as mean ozone levels increase from approximately 25 ppb to around 40 ppb, the corresponding SHAP values tend to rise, indicating that higher average ozone exposures contribute to an increase in the model’s prediction of CVD mortality risk. Beyond approximately 40-45 ppb, this positive relationship becomes less distinct, with SHAP values becoming more scattered and potentially showing a slight decrease or plateau. This suggests a non-linear effect, where the impact of increasing mean ozone on predicted mortality might diminish or become more variable at higher average concentration levels, possibly due to other factors becoming more influential or a saturation in the exposure-response relationship as captured by the model.</p>
+<p>This relationship is further nuanced by interaction with the annual 95th percentile of daily ozone (representing peak exposure days), indicated by the color scale on the plot. Instances where peak ozone days are more frequent or intense (redder points) tend to be associated with higher SHAP values for mean ozone, particularly in the mid-range of mean ozone concentrations (e.g., 35-45 ppb). This observation implies an amplification effect: the adverse impact associated with a given level of mean ozone on predicted CVD mortality appears to be greater when a county also experiences more extreme peak ozone days. This interaction highlights the importance of considering not only average ozone exposure but also the occurrence of high-pollution episodes when assessing CVD risk.</p>
+<div id="fig-ozone-mean" class="quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ozone-mean-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/age35_shap_mean_ozone.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ozone-mean-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.16: From ~25 ppb to ~40 ppb, there’s a general trend of increasing SHAP values, meaning higher mean ozone tends to push the predicted log_cvd_mortality_rate higher. Beyond ~40-45 ppb, the relationship becomes less clear or might even slightly decrease or become more variable. This suggests a potential non-linear effect or that other factors become more dominant at very high mean ozone levels
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="summary-of-preliminary-random-forest-findings" class="level3" data-number="8.4.4">
+<h3 data-number="8.4.4" class="anchored" data-anchor-id="summary-of-preliminary-random-forest-findings"><span class="header-section-number">8.4.4</span> Summary of Preliminary Random Forest Findings</h3>
+<p>This preliminary analysis, employing a Random Forest regressor, aimed to establish a baseline understanding of the relationships between various annual county-level ozone exposure metrics and log-transformed cardiovascular disease (CVD) mortality rates for adults aged 35-64 years, while controlling for county population size (log-transformed) and year. The model demonstrated notable predictive capability, achieving a test set R² of approximately 0.470 and an Out-of-Bag R² of 0.479. On the original scale of mortality rates (deaths per 100,000), this translated to a Mean Absolute Error (MAE) of approximately 24.3 on the test set. Learning curve analysis indicated that while the model effectively learned from the training data (training RMSE ≈ 0.124), its generalization performance (cross-validation RMSE ≈ 0.271) plateaued, suggesting that the current feature set captures a substantial portion of the explainable variance for this model architecture. The Random Forest significantly outperformed a baseline linear regression model (Test R² ≈ 0.137), underscoring the presence of non-linear relationships or interactions among the predictors.</p>
+<p>Feature importance analyses, including both permutation importance and SHAP values, consistently identified metrics of ozone exposure as primary drivers of the model’s predictions within this age-stratified context. Permutation importance highlighted the annual standard deviation of daily maximum ozone concentrations as the most influential feature (mean importance drop ≈ 0.052), followed by the 95th percentile, median, and mean ozone concentrations. SHAP analysis further elucidated these relationships, confirming log-transformed county population size as having the largest average impact on predictions globally, followed closely by the suite of ozone metrics. SHAP dependence plots revealed that higher values across various ozone exposure characterizations (mean, median, 95th percentile, maximum, and standard deviation) generally corresponded to an increased predicted log-transformed CVD mortality rate, often exhibiting non-linear patterns and interactions with population size or other ozone metrics. For instance, the adverse impact associated with mean ozone levels appeared to be amplified in the presence of more frequent high-peak ozone days. Similarly, the impact of peak and maximum ozone exposures on predicted mortality was more pronounced in less populous counties. These preliminary findings establish a statistical association between ozone exposure and CVD mortality and highlight the complex, non-linear nature of these associations, providing a crucial benchmark for the subsequent application of more advanced spatiotemporal deep learning models like CNNs and GNNs, which are hypothesized to better capture these intricate dependencies.</p>
+</section>
+</section>
+</section>
+<section id="limitations-future-directions" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Limitations &amp; Future Directions</h1>
+<p>The preliminary Random Forest analysis described herein, while providing valuable baseline insights into county-level ozone-cardiovascular disease (CVD) associations, is subject to multiple limitations inherent in data and modeling approaches. The ozone exposure metrics were derived from daily census-tract level predictions aggregated to annual county averages, which introduces uncertainty from the initial prediction models and results in a loss of finer temporal granularity that might be crucial for understanding acute or sub-annual health impacts. Similarly, the use of county-level, “spatiotemporally smoothed” CVD mortality rates, while robust for addressing small number instability, limits the ability to detect intra-county variations and carries the potential for ecological fallacy. Although the preliminary models controlled for population size and year, the complex etiology of cardiovascular disease necessitates a wider consideration of potential confounders. The nature of the standard Random Forest also means that spatial autocorrelation and complex spatiotemporal dependencies between counties were not modeled at this initial stage.</p>
+<p>Recognizing these limitations, the subsequent phases of this research, including the planned application of Convolutional Neural Networks (CNNs) and Graph Neural Networks (GNNs), are designed to address some of these issues and explore new analytical dimensions. To enhance confounder control in these more advanced modeling stages, our readily available county-level CDC Social Vulnerability Index (SVI) data for the corresponding years will be integrated. This dataset provides comprehensive metrics on socioeconomic status, household composition, minority status, housing type, and access to transportation, which are critical covariates in environmental health studies. Additionally, data from the National Emissions Inventory (NEI), encompassing information on ozone precursors, is also at our disposal and will be explored to potentially refine exposure characterization, account for regional variations in ozone formation drivers, or serve as additional covariates in the spatiotemporal models. The primary future direction involves leveraging CNNs, which can effectively process rasterized environmental data, and GNNs, which are good at modeling relationships within graph-structured county networks. These advanced models are hypothesized to better capture the intricate spatiotemporal dependencies and non-linear relationships suggested by the preliminary Random Forest analysis.</p>
+<p>Looking further ahead, additional avenues could significantly refine and expand upon this research. For instance, achieving even greater resolution in health outcome analysis could be possible by accessing more granular CVD mortality data, ideally at sub-county levels such as the census tract. While resources like the Surveillance, Epidemiology, and End Results (SEER) Program database, particularly the SEER Research Plus data, offer detailed county-level data and potentially information at finer geographic scales (though census-tract level mortality data is not typically available publicly), access currently requires an eRA Commons account, for which I cannot request access for directly. While this is a logistical hurdle beyond the immediate scope, pursuing such data represents a valuable direction for future, more localized investigations. Other future enhancements could include expanding the temporal scope of the analysis beyond 2014, incorporating a wider array of environmental co-exposures (temperature, PM₂.₅ in multi-pollutant models with advanced interaction terms), exploring additional deep learning interpretability techniques, and extending the geographical focus to assess the generalizability of findings. Addressing these limitations and pursuing these future directions will be crucial for a more comprehensive understanding of the complex interplay between ozone exposure, its spatiotemporal dynamics, and cardiovascular health.</p>
+</section>
+<section id="cnngnn-preperation" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> CNN/GNN Preperation</h1>
+<section id="stratification" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="stratification"><span class="header-section-number">10.1</span> Stratification</h2>
+<ul>
+<li><p>Overall Population (baseline)</p></li>
+<li><p>Age-specific groups: 35-64 years vs.&nbsp;65+ years</p></li>
+<li><p>Sex-specific groups: Men vs.&nbsp;Women</p></li>
+<li><p>Race-specific groups: Exploring disparities among different races.</p></li>
+<li><p>link back to 02-data-collection.qmd.</p></li>
+<li><p>Describe selected data subset.</p></li>
+<li><p>Detailed description of analytical approach (CNN/GNN models, software, computational resources).</p></li>
+</ul>
+</section>
+</section>
+<section id="model-development-training" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Model Development &amp; Training</h1>
+<ul>
+<li><p>Step-by-step overview of CNN/GNN architecture used.</p></li>
+<li><p>Training strategies (cross-validation, hyperparameter tuning).</p></li>
+<li><p>GPU optimization (tensor parallel for computational efficiency).</p></li>
+</ul>
+</section>
+<section id="results" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Results</h1>
+<ul>
+<li><p>Quantitative evaluation (metrics, cross-validation results).</p></li>
+<li><p>Spatial visualizations (heatmaps, predictive maps, hotspot analysis).</p></li>
+</ul>
+</section>
+<section id="interpretation-and-discussion" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> Interpretation and Discussion</h1>
+<ul>
+<li><p>Interpret key findings and link to broader literature.</p></li>
+<li><p>Discuss implications for environmental health policy and practice.</p></li>
+</ul>
+<ol start="4" type="1">
+<li>Metrics for Spatiotemporal Model Evaluation:</li>
+</ol>
+<p><strong>Spatial Distribution of Errors:</strong></p>
+<p><strong>Temporal Performance:</strong></p>
+<p><strong>Moran’s I on Residuals:</strong></p>
+<section id="metrics-for-classification-tasks" class="level3" data-number="13.0.1">
+<h3 data-number="13.0.1" class="anchored" data-anchor-id="metrics-for-classification-tasks"><span class="header-section-number">13.0.1</span> Metrics for Classification Tasks</h3>
+<p>when converting cvd_mortality_rate into classes (“low,” “medium,” “high” risk based on quantiles), then classification metrics would apply:</p>
+<ol type="1">
+<li>Accuracy:</li>
+</ol>
+<p>Overall proportion of correct classifications. Formula:</p>
+<ol start="2" type="1">
+<li>Precision:</li>
+</ol>
+<p>For a given class, what proportion of predictions for that class were correct? Formula for class ‘X’:</p>
+<ol start="3" type="1">
+<li>Recall (Sensitivity):</li>
+</ol>
+<p>For a given class, what proportion of actual instances of that class did your model correctly identify? Formula for class ‘X’:</p>
+<ol start="4" type="1">
+<li>F1-Score:</li>
+</ol>
+<p>The harmonic mean of precision and recall, useful for imbalanced classes. Formula for class ‘X’:</p>
+<ol start="5" type="1">
+<li>Area Under the ROC Curve (AUC-ROC):</li>
+</ol>
+<p>For binary or multiclass (one-vs-rest) classification, evaluates the model’s ability to distinguish between classes.</p>
+<ol start="6" type="1">
+<li>Confusion Matrix:</li>
+</ol>
+<p>A table showing true positives, true negatives, false positives, and false negatives for each class.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./03-literature-review.html" class="pagination-link" aria-label="Literature Review">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Literature Review</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">References</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Written by Alex Godinez</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

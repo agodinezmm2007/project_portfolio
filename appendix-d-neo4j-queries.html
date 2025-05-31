@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Appendix C — Knowledge Graph Queries and Supporting Data – Portfolio</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./appendix-e-db-queries.html" rel="next">
+<link href="./appendix-c-hardware.html" rel="prev">
+<link href="./pic/00/cover.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix-a-etl-rag.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix-d-neo4j-queries.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Knowledge Graph Queries and Supporting Data</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Portfolio</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./update.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Project Update</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-proposal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">AI-Powered ETL &amp; RAG System for Large-Scale Literature Analytics and Methodological Gap Analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-data-collection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Collection</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-literature-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Literature Review</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">References</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-a-etl-rag.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">appendix-a-etl-rag.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-c-hardware.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Appendix C: Computational Hardware</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-d-neo4j-queries.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Knowledge Graph Queries and Supporting Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-e-db-queries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Database Queries</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#initial-data-corpus-characteristics" id="toc-initial-data-corpus-characteristics" class="nav-link active" data-scroll-target="#initial-data-corpus-characteristics"><span class="header-section-number">C.1</span> Initial Data Corpus Characteristics</a>
+  <ul>
+  <li><a href="#source-distribution-of-retrieved-articles" id="toc-source-distribution-of-retrieved-articles" class="nav-link" data-scroll-target="#source-distribution-of-retrieved-articles"><span class="header-section-number">C.1.1</span> Source Distribution of Retrieved Articles</a></li>
+  <li><a href="#overview-of-extracted-study-types-from-439-articles" id="toc-overview-of-extracted-study-types-from-439-articles" class="nav-link" data-scroll-target="#overview-of-extracted-study-types-from-439-articles"><span class="header-section-number">C.1.2</span> Overview of Extracted Study Types (from 439 Articles)</a></li>
+  </ul></li>
+  <li><a href="#queries-for-assessing-data-completeness" id="toc-queries-for-assessing-data-completeness" class="nav-link" data-scroll-target="#queries-for-assessing-data-completeness"><span class="header-section-number">C.2</span> Queries for Assessing Data Completeness</a>
+  <ul>
+  <li><a href="#articles-missing-studytype" id="toc-articles-missing-studytype" class="nav-link" data-scroll-target="#articles-missing-studytype"><span class="header-section-number">C.2.1</span> Articles missing StudyType:</a></li>
+  <li><a href="#articles-missing-pollutantterm" id="toc-articles-missing-pollutantterm" class="nav-link" data-scroll-target="#articles-missing-pollutantterm"><span class="header-section-number">C.2.2</span> Articles missing PollutantTerm:</a></li>
+  <li><a href="#articles-missing-heartdisease" id="toc-articles-missing-heartdisease" class="nav-link" data-scroll-target="#articles-missing-heartdisease"><span class="header-section-number">C.2.3</span> Articles missing HeartDisease:</a></li>
+  <li><a href="#articles-missing-mlmethod" id="toc-articles-missing-mlmethod" class="nav-link" data-scroll-target="#articles-missing-mlmethod"><span class="header-section-number">C.2.4</span> Articles missing MLMethod:</a></li>
+  <li><a href="#combined-overview-of-missing-links" id="toc-combined-overview-of-missing-links" class="nav-link" data-scroll-target="#combined-overview-of-missing-links"><span class="header-section-number">C.2.5</span> Combined Overview of Missing Links:</a></li>
+  <li><a href="#articles-missing-combinations-of-entity-links" id="toc-articles-missing-combinations-of-entity-links" class="nav-link" data-scroll-target="#articles-missing-combinations-of-entity-links"><span class="header-section-number">C.2.6</span> Articles Missing Combinations of Entity Links</a></li>
+  </ul></li>
+  <li><a href="#sec-appendix-d-neo4j-study-select" id="toc-sec-appendix-d-neo4j-study-select" class="nav-link" data-scroll-target="#sec-appendix-d-neo4j-study-select"><span class="header-section-number">C.3</span> Queries for Study Selection and Categorization (PRISMA Flow)</a>
+  <ul>
+  <li><a href="#identifying-overlapping-categories-in-initial-analysis" id="toc-identifying-overlapping-categories-in-initial-analysis" class="nav-link" data-scroll-target="#identifying-overlapping-categories-in-initial-analysis"><span class="header-section-number">C.3.1</span> Identifying Overlapping Categories in Initial Analysis</a></li>
+  <li><a href="#comprehensive-mutually-exclusive-categorization-query" id="toc-comprehensive-mutually-exclusive-categorization-query" class="nav-link" data-scroll-target="#comprehensive-mutually-exclusive-categorization-query"><span class="header-section-number">C.3.2</span> Comprehensive Mutually Exclusive Categorization Query</a></li>
+  </ul></li>
+  <li><a href="#sec-appendix-d-included-studies-char" id="toc-sec-appendix-d-included-studies-char" class="nav-link" data-scroll-target="#sec-appendix-d-included-studies-char"><span class="header-section-number">C.4</span> Characterization of Included Studies (n=34)</a>
+  <ul>
+  <li><a href="#distribution-of-study-types" id="toc-distribution-of-study-types" class="nav-link" data-scroll-target="#distribution-of-study-types"><span class="header-section-number">C.4.1</span> Distribution of Study Types</a></li>
+  <li><a href="#pollutants-investigated" id="toc-pollutants-investigated" class="nav-link" data-scroll-target="#pollutants-investigated"><span class="header-section-number">C.4.2</span> Pollutants Investigated</a></li>
+  <li><a href="#machine-learning-methods-employed" id="toc-machine-learning-methods-employed" class="nav-link" data-scroll-target="#machine-learning-methods-employed"><span class="header-section-number">C.4.3</span> Machine Learning Methods Employed</a></li>
+  <li><a href="#heart-diseases-investigated" id="toc-heart-diseases-investigated" class="nav-link" data-scroll-target="#heart-diseases-investigated"><span class="header-section-number">C.4.4</span> Heart Diseases Investigated</a></li>
+  <li><a href="#other-analytical-tools-utilized" id="toc-other-analytical-tools-utilized" class="nav-link" data-scroll-target="#other-analytical-tools-utilized"><span class="header-section-number">C.4.5</span> Other Analytical Tools Utilized</a></li>
+  <li><a href="#cypher-queries-cheat-sheet" id="toc-cypher-queries-cheat-sheet" class="nav-link" data-scroll-target="#cypher-queries-cheat-sheet"><span class="header-section-number">C.4.6</span> Cypher Queries Cheat Sheet</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix-a-etl-rag.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix-d-neo4j-queries.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Knowledge Graph Queries and Supporting Data</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-appendix-d-neo4j" class="quarto-section-identifier">Appendix C — Knowledge Graph Queries and Supporting Data</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This appendix details the Cypher queries used with the Neo4j knowledge graph to categorize and filter the literature corpus, along with descriptive statistics of the dataset. Our knowledge graph-driven approach facilitated a systematic and reproducible study selection process.</p>
+<section id="initial-data-corpus-characteristics" class="level2" data-number="C.1">
+<h2 data-number="C.1" class="anchored" data-anchor-id="initial-data-corpus-characteristics"><span class="header-section-number">C.1</span> Initial Data Corpus Characteristics</h2>
+<p>Following the initial literature search across Scopus, OpenAlex, and PubMed using a comprehensive set of [mention “over 30” or the exact number if you have it] search query combinations (see Supplementary Appendix A for full search strategy), a total of 1,260 unique records were identified. Full-text PDF articles were successfully retrieved for 439 of these records.</p>
+<section id="source-distribution-of-retrieved-articles" class="level3" data-number="C.1.1">
+<h3 data-number="C.1.1" class="anchored" data-anchor-id="source-distribution-of-retrieved-articles"><span class="header-section-number">C.1.1</span> Source Distribution of Retrieved Articles</h3>
+<p>The 439 retrieved articles originated from the following databases:</p>
+<div id="source-db-count" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>OUTP <span class="op">=</span> <span class="st">"/mnt/c/Users/WSTATION/Desktop/RAG_ETL_RUN/topic_modeled.feather"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df_out<span class="op">=</span>pd.read_feather(OUTP)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>articles_per_source <span class="op">=</span> df_out[<span class="st">'SourceDB'</span>].value_counts()</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(articles_per_source)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="overview-of-extracted-study-types-from-439-articles" class="level3" data-number="C.1.2">
+<h3 data-number="C.1.2" class="anchored" data-anchor-id="overview-of-extracted-study-types-from-439-articles"><span class="header-section-number">C.1.2</span> Overview of Extracted Study Types (from 439 Articles)</h3>
+<p>The initial analysis of the 439 retrieved articles identified a diverse range of study types. The table below summarizes the counts of articles associated with each study type label extracted and unified within our knowledge graph. Note that an article could be associated with multiple study type labels if applicable.</p>
+<pre><code>╒══════════════════════════════════════╤════════════╕
+│StudyType                             │ArticleCount│
+╞══════════════════════════════════════╪════════════╡
+│"air quality monitoring study"        │62          │
+├──────────────────────────────────────┼────────────┤
+│"observational study"                 │27          │
+├──────────────────────────────────────┼────────────┤
+│"review"                              │26          │
+├──────────────────────────────────────┼────────────┤
+│"time series analysis"                │25          │
+├──────────────────────────────────────┼────────────┤
+│"cohort study"                        │23          │
+├──────────────────────────────────────┼────────────┤
+│"systematic review"                   │17          │
+├──────────────────────────────────────┼────────────┤
+│"cross-sectional study"               │15          │
+├──────────────────────────────────────┼────────────┤
+│"case study"                          │14          │
+├──────────────────────────────────────┼────────────┤
+│"research article"                    │11          │
+├──────────────────────────────────────┼────────────┤
+│"environmental epidemiology study"    │10          │
+├──────────────────────────────────────┼────────────┤
+│"meta-analysis"                       │9           │
+├──────────────────────────────────────┼────────────┤
+│"case-control study"                  │8           │
+├──────────────────────────────────────┼────────────┤
+│"biodiversity assessment"             │8           │
+├──────────────────────────────────────┼────────────┤
+│"exposure assessment study"           │7           │
+├──────────────────────────────────────┼────────────┤
+│"remote sensing/GIS study"            │6           │
+├──────────────────────────────────────┼────────────┤
+│"spatial analysis"                    │5           │
+├──────────────────────────────────────┼────────────┤
+│"survey-based research"               │5           │
+├──────────────────────────────────────┼────────────┤
+│"health impact assessment"            │5           │
+├──────────────────────────────────────┼────────────┤
+│"simulation/modeling study"           │4           │
+├──────────────────────────────────────┼────────────┤
+│"expert opinion"                      │3           │
+├──────────────────────────────────────┼────────────┤
+│"scoping review"                      │3           │
+├──────────────────────────────────────┼────────────┤
+│"intervention study"                  │2           │
+├──────────────────────────────────────┼────────────┤
+│"lab-scale experiment"                │2           │
+├──────────────────────────────────────┼────────────┤
+│"randomized controlled trial"         │2           │
+├──────────────────────────────────────┼────────────┤
+│"policy analysis"                     │2           │
+├──────────────────────────────────────┼────────────┤
+│"quasi-experiment"                    │2           │
+├──────────────────────────────────────┼────────────┤
+│"primary research article"            │2           │
+├──────────────────────────────────────┼────────────┤
+│"field monitoring study"              │2           │
+├──────────────────────────────────────┼────────────┤
+│"dissertation/thesis"                 │1           │
+├──────────────────────────────────────┼────────────┤
+│"statistical analysis"                │1           │
+├──────────────────────────────────────┼────────────┤
+│"pilot-scale study"                   │1           │
+├──────────────────────────────────────┼────────────┤
+│"qualitative research study"          │1           │
+├──────────────────────────────────────┼────────────┤
+│"controlled environment chamber study"│1           │
+├──────────────────────────────────────┼────────────┤
+│"scenario analysis"                   │1           │
+├──────────────────────────────────────┼────────────┤
+│"comparative analysis"                │1           │
+├──────────────────────────────────────┼────────────┤
+│"methodological paper"                │1           │
+├──────────────────────────────────────┼────────────┤
+│"theoretical study"                   │1           │
+├──────────────────────────────────────┼────────────┤
+│"carbon footprint assessment"         │1           │
+├──────────────────────────────────────┼────────────┤
+│"risk assessment study"               │1           │
+├──────────────────────────────────────┼────────────┤
+│"short communication"                 │1           │
+├──────────────────────────────────────┼────────────┤
+│"climate modeling study"              │1           │
+├──────────────────────────────────────┼────────────┤
+│"report"                              │1           │
+├──────────────────────────────────────┼────────────┤
+│"socioeconomic impact assessment"     │1           │
+└──────────────────────────────────────┴────────────┘</code></pre>
+<p>Table D.1: Distribution of identified study types across the 439 retrieved articles.</p>
+</section>
+</section>
+<section id="queries-for-assessing-data-completeness" class="level2" data-number="C.2">
+<h2 data-number="C.2" class="anchored" data-anchor-id="queries-for-assessing-data-completeness"><span class="header-section-number">C.2</span> Queries for Assessing Data Completeness</h2>
+<p>To understand the completeness of key data elements within our knowledge graph for the 439 articles, the following Cypher queries were executed.</p>
+<section id="articles-missing-studytype" class="level3" data-number="C.2.1">
+<h3 data-number="C.2.1" class="anchored" data-anchor-id="articles-missing-studytype"><span class="header-section-number">C.2.1</span> Articles missing StudyType:</h3>
+<pre class="{cypher}"><code>MATCH (a:Article)
+WHERE NOT EXISTS((a)-[:STUDY_TYPE]-&gt;(:StudyType))
+RETURN COUNT(DISTINCT a.doi) AS MissingStudyType
+</code></pre>
+<pre><code>╒════════════════╕
+│MissingStudyType│
+╞════════════════╡
+│145             │
+└────────────────┘</code></pre>
+</section>
+<section id="articles-missing-pollutantterm" class="level3" data-number="C.2.2">
+<h3 data-number="C.2.2" class="anchored" data-anchor-id="articles-missing-pollutantterm"><span class="header-section-number">C.2.2</span> Articles missing PollutantTerm:</h3>
+<pre class="{cypher}"><code>MATCH (a:Article)
+WHERE NOT EXISTS((a)-[:RELATED_TO_POLLUTANT]-&gt;(:PollutantTerm))
+RETURN COUNT(DISTINCT a.doi) AS MissingPollutant</code></pre>
+<pre><code>╒════════════════╕
+│MissingPollutant│
+╞════════════════╡
+│22              │
+└────────────────┘</code></pre>
+</section>
+<section id="articles-missing-heartdisease" class="level3" data-number="C.2.3">
+<h3 data-number="C.2.3" class="anchored" data-anchor-id="articles-missing-heartdisease"><span class="header-section-number">C.2.3</span> Articles missing HeartDisease:</h3>
+<pre class="{cypher}"><code>MATCH (a:Article)
+WHERE NOT EXISTS((a)-[:ASSOCIATED_WITH_HEART_DISEASE]-&gt;(:HeartDisease))
+RETURN COUNT(DISTINCT a.doi) AS MissingHeartDisease</code></pre>
+<pre><code>╒═══════════════════╕
+│MissingHeartDisease│
+╞═══════════════════╡
+│187                │
+└───────────────────┘</code></pre>
+</section>
+<section id="articles-missing-mlmethod" class="level3" data-number="C.2.4">
+<h3 data-number="C.2.4" class="anchored" data-anchor-id="articles-missing-mlmethod"><span class="header-section-number">C.2.4</span> Articles missing MLMethod:</h3>
+<pre class="{cypher}"><code>MATCH (a:Article)
+WHERE NOT EXISTS((a)-[:USES_ML_METHOD]-&gt;(:MLMethod))
+RETURN COUNT(DISTINCT a.doi) AS MissingMLMethod</code></pre>
+<pre><code>╒═══════════════╕
+│MissingMLMethod│
+╞═══════════════╡
+│262            │
+└───────────────┘</code></pre>
+</section>
+<section id="combined-overview-of-missing-links" class="level3" data-number="C.2.5">
+<h3 data-number="C.2.5" class="anchored" data-anchor-id="combined-overview-of-missing-links"><span class="header-section-number">C.2.5</span> Combined Overview of Missing Links:</h3>
+<pre class="{cypher}"><code>MATCH (a:Article)
+RETURN 
+  COUNT(a.doi) AS TotalArticles,
+  COUNT(CASE WHEN NOT EXISTS((a)-[:STUDY_TYPE]-&gt;(:StudyType)) THEN 1 END) AS MissingStudyType,
+  COUNT(CASE WHEN NOT EXISTS((a)-[:RELATED_TO_POLLUTANT]-&gt;(:PollutantTerm)) THEN 1 END) AS MissingPollutantTerm,
+  COUNT(CASE WHEN NOT EXISTS((a)-[:ASSOCIATED_WITH_HEART_DISEASE]-&gt;(:HeartDisease)) THEN 1 END) AS MissingHeartDisease,
+  COUNT(CASE WHEN NOT EXISTS((a)-[:USES_ML_METHOD]-&gt;(:MLMethod)) THEN 1 END) AS MissingMLMethod</code></pre>
+<pre><code>╒═════════════╤════════════════╤════════════════════╤═══════════════════╤═══════════════╕
+│TotalArticles│MissingStudyType│MissingPollutantTerm│MissingHeartDisease│MissingMLMethod│
+╞═════════════╪════════════════╪════════════════════╪═══════════════════╪═══════════════╡
+│439          │145             │22                  │187                │262            │
+└─────────────┴────────────────┴────────────────────┴───────────────────┴───────────────┘</code></pre>
+</section>
+<section id="articles-missing-combinations-of-entity-links" class="level3" data-number="C.2.6">
+<h3 data-number="C.2.6" class="anchored" data-anchor-id="articles-missing-combinations-of-entity-links"><span class="header-section-number">C.2.6</span> Articles Missing Combinations of Entity Links</h3>
+<p>These queries identify articles missing specific combinations of links. (Presenting selected key queries for brevity).</p>
+<p>Articles missing all four key nodes (StudyType, PollutantTerm, HeartDisease, MLMethod):</p>
+<pre class="{cypher}"><code>MATCH (a:Article)
+WHERE NOT EXISTS((a)-[:STUDY_TYPE]-&gt;(:StudyType))
+  AND NOT EXISTS((a)-[:RELATED_TO_POLLUTANT]-&gt;(:PollutantTerm))
+  AND NOT EXISTS((a)-[:ASSOCIATED_WITH_HEART_DISEASE]-&gt;(:HeartDisease))
+  AND NOT EXISTS((a)-[:USES_ML_METHOD]-&gt;(:MLMethod))
+RETURN COUNT(DISTINCT a.doi) AS MissingAllFourNodes</code></pre>
+<pre><code>╒═══════════════════╕
+│MissingAllFourNodes│
+╞═══════════════════╡
+│10                 │
+└───────────────────┘</code></pre>
+</section>
+</section>
+<section id="sec-appendix-d-neo4j-study-select" class="level2" data-number="C.3">
+<h2 data-number="C.3" class="anchored" data-anchor-id="sec-appendix-d-neo4j-study-select"><span class="header-section-number">C.3</span> Queries for Study Selection and Categorization (PRISMA Flow)</h2>
+<p>The following queries were instrumental in the study selection process detailed in the PRISMA flow diagram. These queries implement the mutually exclusive categorization of articles.</p>
+<section id="identifying-overlapping-categories-in-initial-analysis" class="level3" data-number="C.3.1">
+<h3 data-number="C.3.1" class="anchored" data-anchor-id="identifying-overlapping-categories-in-initial-analysis"><span class="header-section-number">C.3.1</span> Identifying Overlapping Categories in Initial Analysis</h3>
+<p>An initial step to refine categorization logic involved identifying articles that could be ambiguously classified. The following query identified articles that possessed characteristics of both non-empirical and empirical studies (and lacked ML methods), highlighting the need for a prioritized classification scheme:</p>
+<pre class="{cypher}"><code>MATCH (a:Article)
+// Condition for having at least one Non-Empirical Study Type
+WHERE EXISTS {
+  MATCH (a)-[:STUDY_TYPE]-&gt;(st_ne:StudyType)
+  WHERE toLower(st_ne.name) IN [
+    'review','systematic review','meta-analysis','expert opinion',
+    'scoping review','dissertation/thesis','short communication',
+    'methodological paper','theoretical study','report'
+  ]
+}
+// Condition for having at least one Empirical Study Type
+AND EXISTS {
+  MATCH (a)-[:STUDY_TYPE]-&gt;(st_e:StudyType)
+  WHERE NOT toLower(st_e.name) IN [
+    'review','systematic review','meta-analysis','expert opinion',
+    'scoping review','dissertation/thesis','short communication',
+    'methodological paper','theoretical study','report'
+  ]
+}
+// Condition for being part of EmpiricalWithoutML (Q2)
+AND NOT EXISTS((a)-[:USES_ML_METHOD]-&gt;(:MLMethod))
+RETURN COUNT(DISTINCT a.doi) AS OverlappingArticles_Q1_and_Q2</code></pre>
+<pre><code>╒═════════════════════════════╕
+│OverlappingArticles_Q1_and_Q2│
+╞═════════════════════════════╡
+│3                            │
+└─────────────────────────────┘</code></pre>
+<p>This result indicated that 3 articles were initially classifiable under both non-empirical and empirical (without ML) categories, prompting the development of the comprehensive categorization query below.</p>
+</section>
+<section id="comprehensive-mutually-exclusive-categorization-query" class="level3" data-number="C.3.2">
+<h3 data-number="C.3.2" class="anchored" data-anchor-id="comprehensive-mutually-exclusive-categorization-query"><span class="header-section-number">C.3.2</span> Comprehensive Mutually Exclusive Categorization Query</h3>
+<p>This query assigns each of the 439 articles to a unique category, forming the basis for the PRISMA flow diagram exclusions. Non-empirical classifications are prioritized.</p>
+<pre class="{cypher}"><code>MATCH (a:Article)
+
+// Collect all study type names for each article
+OPTIONAL MATCH (a)-[:STUDY_TYPE]-&gt;(st_all:StudyType)
+WITH a, COLLECT(DISTINCT toLower(st_all.name)) AS studyTypeNames
+
+// Determine if article has any non-empirical or empirical study types based on collected names
+WITH a, studyTypeNames,
+     [sName IN studyTypeNames WHERE sName IN [
+       'review','systematic review','meta-analysis','expert opinion',
+       'scoping review','dissertation/thesis','short communication',
+       'methodological paper','theoretical study','report'
+     ]] AS nonEmpiricalSTList,
+     [sName IN studyTypeNames WHERE sName &lt;&gt; '' AND sName IS NOT NULL AND NOT sName IN [
+       'review','systematic review','meta-analysis','expert opinion',
+       'scoping review','dissertation/thesis','short communication',
+       'methodological paper','theoretical study','report'
+     ]] AS empiricalSTList
+
+// Gather other relevant existence checks
+WITH a, studyTypeNames, nonEmpiricalSTList, empiricalSTList,
+     EXISTS((a)-[:USES_ML_METHOD]-&gt;(:MLMethod)) AS hasML,
+     EXISTS((a)-[:ASSOCIATED_WITH_HEART_DISEASE]-&gt;(:HeartDisease)) AS hasHD,
+     EXISTS { 
+       MATCH (a)-[:RELATED_TO_POLLUTANT]-&gt;(p:PollutantTerm) 
+       WHERE toLower(p.name) CONTAINS 'ozone' 
+     } AS hasOzone
+
+// Assign a single category to each article
+WITH a,
+     CASE
+       WHEN size(studyTypeNames) = 0 OR (size(studyTypeNames)=1 AND studyTypeNames[0] IS NULL) THEN 'A_MissingOrNullStudyType'
+       WHEN size(nonEmpiricalSTList) &gt; 0 THEN 'B_NonEmpirical' // Priority: if any ST is non-empirical
+       WHEN size(empiricalSTList) &gt; 0 THEN // Only if no non-empirical STs, then check for empirical
+         CASE
+           WHEN NOT hasML THEN 'C_EmpiricalWithoutML'
+           ELSE // Empirical AND HasML
+             CASE
+               WHEN hasHD AND hasOzone THEN 'D_EmpiricalML_Eligible_OzoneHD'
+               ELSE 'E_EmpiricalML_NotEligible_OzoneHD'
+             END
+         END
+       ELSE 'F_StudyType_Other_Or_Invalid' // Has study types, but not categorized (e.g., empty names not caught by null check)
+     END AS finalCategory
+RETURN finalCategory, COUNT(DISTINCT a.doi) AS count
+ORDER BY finalCategory</code></pre>
+<p>Results (used for PRISMA exclusions):</p>
+<pre><code>╒═══════════════════════════════════╤═════╕
+│finalCategory                      │count│
+╞═══════════════════════════════════╪═════╡
+│"A_MissingOrNullStudyType"         │145  │
+├───────────────────────────────────┼─────┤
+│"B_NonEmpirical"                   │60   │
+├───────────────────────────────────┼─────┤
+│"C_EmpiricalWithoutML"             │159  │
+├───────────────────────────────────┼─────┤
+│"D_EmpiricalML_Eligible_OzoneHD"   │36   │
+├───────────────────────────────────┼─────┤
+│"E_EmpiricalML_NotEligible_OzoneHD"│39   │
+└───────────────────────────────────┴─────┘</code></pre>
+<p>These counts directly informed the exclusion numbers in the PRISMA diagram:</p>
+<ul>
+<li>Excluded due to missing/null study type (Category A): n=145</li>
+<li>Excluded as non-empirical (Category B): n=60</li>
+<li>Excluded as empirical without ML (Category C): n=159</li>
+<li>Excluded as empirical ML but not eligible (Category E): n=39</li>
+<li>Excluded as commentary or response to commentary articles: n=2</li>
+<li>Included studies (Category D): n=34</li>
+</ul>
+</section>
+</section>
+<section id="sec-appendix-d-included-studies-char" class="level2" data-number="C.4">
+<h2 data-number="C.4" class="anchored" data-anchor-id="sec-appendix-d-included-studies-char"><span class="header-section-number">C.4</span> Characterization of Included Studies (n=34)</h2>
+<p>Following the comprehensive categorization detailed in Section D.3, 36 articles were initially identified as potentially eligible (Category <code>D_EmpiricalML_Eligible_OzoneHD</code>). Upon closer inspection of these 36 articles, a further two were excluded as they were determined to be commentary or reply-to-commentary articles, rather than primary research. This resulted in a final set of <strong>34 unique studies</strong> included in this systematic review.</p>
+<p>The Cypher query used to extract detailed characteristics for these 34 studies (after applying title-based filters for comments/replies) is presented below. The full tabular output of this query, listing each of the 34 studies and their associated attributes, is available in the project’s data repository at <code>data/export.csv</code>.</p>
+<pre class="{cypher}"><code>// Collect all study type names per article
+OPTIONAL MATCH (a)-[:STUDY_TYPE]-&gt;(st:StudyType)
+WITH a, COLLECT(DISTINCT toLower(st.name)) AS studyTypeNames
+
+// Only include articles with at least one empirical StudyType (and no non-empirical types)
+WHERE SIZE(studyTypeNames) &gt; 0
+  AND NONE(stName IN studyTypeNames WHERE stName IN [
+    'review', 'systematic review', 'meta-analysis', 'expert opinion',
+    'scoping review', 'dissertation/thesis', 'short communication',
+    'methodological paper', 'theoretical study', 'report'
+  ])
+
+// Check for ML methods, heart disease, and ozone pollutant explicitly
+AND EXISTS((a)-[:USES_ML_METHOD]-&gt;(:MLMethod))
+AND EXISTS((a)-[:ASSOCIATED_WITH_HEART_DISEASE]-&gt;(:HeartDisease))
+AND EXISTS {
+  MATCH (a)-[:RELATED_TO_POLLUTANT]-&gt;(p:PollutantTerm)
+  WHERE toLower(p.name) CONTAINS 'ozone'
+}
+
+// Exclude comment/reply-type articles explicitly
+AND NOT toLower(a.title) CONTAINS 'comment'
+AND NOT toLower(a.title) CONTAINS 'reply'
+
+// Retrieve related information
+OPTIONAL MATCH (a)-[:RELATED_TO_POLLUTANT]-&gt;(pt:PollutantTerm)
+OPTIONAL MATCH (a)-[:USES_ML_METHOD]-&gt;(ml:MLMethod)
+OPTIONAL MATCH (a)-[:ASSOCIATED_WITH_HEART_DISEASE]-&gt;(hd:HeartDisease)
+OPTIONAL MATCH (a)-[:STUDY_TYPE]-&gt;(stypes:StudyType)
+OPTIONAL MATCH (a)-[:USES_ANALYTICAL_TOOL]-&gt;(at:AnalyticalTool)
+
+WITH DISTINCT a.doi AS DOI,
+              a.title AS Title,
+     COLLECT(DISTINCT stypes.name) AS StudyTypes,
+     COLLECT(DISTINCT pt.name) AS Pollutants,
+     COLLECT(DISTINCT ml.name) AS MLMethods,
+     COLLECT(DISTINCT hd.name) AS HeartDiseases,
+     COLLECT(DISTINCT at.name) AS AnalyticalTools
+
+RETURN DOI,
+       Title,
+       StudyTypes,
+       Pollutants,
+       MLMethods,
+       HeartDiseases,
+       AnalyticalTools
+ORDER BY DOI
+</code></pre>
+<section id="distribution-of-study-types" class="level3" data-number="C.4.1">
+<h3 data-number="C.4.1" class="anchored" data-anchor-id="distribution-of-study-types"><span class="header-section-number">C.4.1</span> Distribution of Study Types</h3>
+<p>The 34 included empirical studies exhibited a range of specific study designs. The frequency of each study type is presented below. (Note: Articles may be associated with multiple study type labels if applicable from the source data, though the KG processing typically unifies these to canonical forms; the table reflects the primary unified types found across the 34 studies).</p>
+<pre class="{cypher}"><code>MATCH (a:Article)
+
+// Collect all study type names per article
+OPTIONAL MATCH (a)-[:STUDY_TYPE]-&gt;(st:StudyType)
+WITH a, COLLECT(DISTINCT toLower(st.name)) AS studyTypeNames
+
+// Only include articles with at least one empirical StudyType (and no non-empirical types)
+WHERE SIZE(studyTypeNames) &gt; 0
+  AND NONE(stName IN studyTypeNames WHERE stName IN [
+    'review', 'systematic review', 'meta-analysis', 'expert opinion',
+    'scoping review', 'dissertation/thesis', 'short communication',
+    'methodological paper', 'theoretical study', 'report'
+  ])
+
+// Check for ML methods, heart disease, and ozone pollutant explicitly
+AND EXISTS((a)-[:USES_ML_METHOD]-&gt;(:MLMethod))
+AND EXISTS((a)-[:ASSOCIATED_WITH_HEART_DISEASE]-&gt;(:HeartDisease))
+AND EXISTS {
+  MATCH (a)-[:RELATED_TO_POLLUTANT]-&gt;(p:PollutantTerm)
+  WHERE toLower(p.name) CONTAINS 'ozone'
+}
+
+// Exclude comment/reply-type articles explicitly
+AND NOT toLower(a.title) CONTAINS 'comment'
+AND NOT toLower(a.title) CONTAINS 'reply'
+
+// Retrieve and unify study types
+MATCH (a)-[:STUDY_TYPE]-&gt;(stypes:StudyType)
+WITH DISTINCT a.doi AS DOI, toLower(stypes.name) AS StudyType
+
+// Count number of articles per StudyType
+RETURN 
+    StudyType AS `Study Type`,
+    COUNT(DISTINCT DOI) AS `Number of Articles`
+ORDER BY `Number of Articles` DESC
+</code></pre>
+<pre><code>╒══════════════════════════════╤══════════════════╕
+│Study Type                    │Number of Articles│
+╞══════════════════════════════╪══════════════════╡
+│"air quality monitoring study"│18                │
+├──────────────────────────────┼──────────────────┤
+│"cohort study"                │5                 │
+├──────────────────────────────┼──────────────────┤
+│"case-control study"          │2                 │
+├──────────────────────────────┼──────────────────┤
+│"research article"            │2                 │
+├──────────────────────────────┼──────────────────┤
+│"observational study"         │2                 │
+├──────────────────────────────┼──────────────────┤
+│"case study"                  │1                 │
+├──────────────────────────────┼──────────────────┤
+│"pilot-scale study"           │1                 │
+├──────────────────────────────┼──────────────────┤
+│"qualitative research study"  │1                 │
+├──────────────────────────────┼──────────────────┤
+│"time series analysis"        │1                 │
+├──────────────────────────────┼──────────────────┤
+│"exposure assessment study"   │1                 │
+└──────────────────────────────┴──────────────────┘</code></pre>
+<p>Table D.X: Distribution of primary study types among the 34 included empirical articles.</p>
+<p>The analysis of the 34 included studies reveals a primary focus on direct environmental assessment and established epidemiological methods. “Air quality monitoring study” is the most prevalent design, constituting over half of the included literature with 18 articles (52.9%). This highlights the foundational role of environmental measurement in studies linking ozone, health outcomes, and advanced analytical techniques.</p>
+<p>Following this, traditional epidemiological designs are represented, with “cohort study” being the second most common (5 articles, 14.7%). Other observational designs include “case-control study” and generic “observational study” (each with 2 articles, 5.9%). The presence of “time series analysis” (1 article, 2.9%) and “exposure assessment study” (1 article, 2.9%) further underscores the application of established methods in this research area.</p>
+<p>The remainder of the included studies consists of a diverse set of designs, each represented by one or two articles, such as “research article” (2), “case study” (1), “pilot-scale study” (1), and “qualitative research study” (1). The sum of articles across these distinct study types equals the 34 unique studies included, indicating that each study was classified under one primary empirical design category for this analysis. This distribution reflects the variety of approaches eligible for inclusion that investigate the intersection of ozone, heart disease, and machine learning.</p>
+</section>
+<section id="pollutants-investigated" class="level3" data-number="C.4.2">
+<h3 data-number="C.4.2" class="anchored" data-anchor-id="pollutants-investigated"><span class="header-section-number">C.4.2</span> Pollutants Investigated</h3>
+<p>All 34 included studies focused on ozone as a key pollutant, per the inclusion criteria. Many studies also investigated co-pollutants, reflecting the complex nature of ambient air pollution. The table below lists other pollutants mentioned alongside ozone in these studies, and their frequency across the 34 articles.</p>
+<pre class="{cypher}"><code>
+MATCH (a:Article)
+
+// Collect study type names per article
+OPTIONAL MATCH (a)-[:STUDY_TYPE]-&gt;(st:StudyType)
+WITH a, COLLECT(DISTINCT toLower(st.name)) AS studyTypeNames
+
+// Filter for empirical studies only (exclude non-empirical types)
+WHERE SIZE(studyTypeNames) &gt; 0
+  AND NONE(stName IN studyTypeNames WHERE stName IN [
+    'review', 'systematic review', 'meta-analysis', 'expert opinion',
+    'scoping review', 'dissertation/thesis', 'short communication',
+    'methodological paper', 'theoretical study', 'report'
+  ])
+
+// Confirm articles explicitly have ozone, ML methods, heart diseases
+AND EXISTS((a)-[:USES_ML_METHOD]-&gt;(:MLMethod))
+AND EXISTS((a)-[:ASSOCIATED_WITH_HEART_DISEASE]-&gt;(:HeartDisease))
+AND EXISTS {
+  MATCH (a)-[:RELATED_TO_POLLUTANT]-&gt;(oz:PollutantTerm)
+  WHERE toLower(oz.name) CONTAINS 'ozone'
+}
+
+// Exclude comment/reply-type articles explicitly
+AND NOT toLower(a.title) CONTAINS 'comment'
+AND NOT toLower(a.title) CONTAINS 'reply'
+
+// Retrieve co-pollutants mentioned alongside ozone
+MATCH (a)-[:RELATED_TO_POLLUTANT]-&gt;(pt:PollutantTerm)
+WHERE toLower(pt.name) &lt;&gt; 'ozone' // Exclude ozone itself from co-pollutant list
+
+// Count distinct articles per co-pollutant
+RETURN 
+    pt.name AS `Co-Pollutant`,
+    COUNT(DISTINCT a.doi) AS `Number of Articles`
+ORDER BY `Number of Articles` DESC
+</code></pre>
+<pre><code>╒══════════════════════╤══════════════════╕
+│Co-Pollutant          │Number of Articles│
+╞══════════════════════╪══════════════════╡
+│"nitrogen dioxide"    │27                │
+├──────────────────────┼──────────────────┤
+│"PM2.5"               │25                │
+├──────────────────────┼──────────────────┤
+│"PM10"                │18                │
+├──────────────────────┼──────────────────┤
+│"carbon monoxide"     │15                │
+├──────────────────────┼──────────────────┤
+│"sulfur dioxide"      │15                │
+├──────────────────────┼──────────────────┤
+│"particulate matter"  │11                │
+├──────────────────────┼──────────────────┤
+│"VOCs"                │7                 │
+├──────────────────────┼──────────────────┤
+│"nitrogen oxides"     │6                 │
+├──────────────────────┼──────────────────┤
+│"carbon tetrachloride"│4                 │
+├──────────────────────┼──────────────────┤
+│"carbon dioxide"      │3                 │
+├──────────────────────┼──────────────────┤
+│"ammonia"             │2                 │
+├──────────────────────┼──────────────────┤
+│"benzene"             │2                 │
+├──────────────────────┼──────────────────┤
+│"nitrates"            │1                 │
+├──────────────────────┼──────────────────┤
+│"nitrous oxide"       │1                 │
+├──────────────────────┼──────────────────┤
+│"sulfur oxides"       │1                 │
+└──────────────────────┴──────────────────┘</code></pre>
+<p>Table D.Y: Frequency of co-pollutants investigated alongside ozone in the 34 included empirical articles.</p>
+<p>While ozone was the primary pollutant of interest for inclusion in this review, the majority of the 34 studies also considered other ambient air pollutants. This reflects the common practice of assessing exposure to pollutant mixtures.</p>
+<p>The most frequently investigated co-pollutants were nitrogen dioxide (NO₂), included in 27 (79.4%) of the studies, and fine particulate matter (PM₂.₅), addressed in 25 (73.5%) studies. Coarser particulate matter, PM₁₀, was also commonly studied alongside ozone in 18 (52.9%) articles. Other criteria pollutants, including carbon monoxide (CO) and sulfur dioxide (SO₂), were each featured in 15 (44.1%) of the included articles.</p>
+<p>More general terms like “particulate matter” (11 articles, 32.4%) and “nitrogen oxides” (6 articles, 17.6%) were also noted. Volatile Organic Compounds (VOCs) were considered in 7 (20.6%) studies. A smaller number of articles investigated other specific compounds such as carbon tetrachloride, carbon dioxide, ammonia, and benzene. This pattern of co-pollutant investigation underscores the understanding that health effects attributed to ozone often occur in the context of exposure to a complex mix of airborne contaminants.</p>
+</section>
+<section id="machine-learning-methods-employed" class="level3" data-number="C.4.3">
+<h3 data-number="C.4.3" class="anchored" data-anchor-id="machine-learning-methods-employed"><span class="header-section-number">C.4.3</span> Machine Learning Methods Employed</h3>
+<p>A variety of machine learning methods were utilized in the included studies. The frequency of each identified ML method is detailed below. A single study could employ multiple ML methods, reflecting the multifaceted analytical approaches in this research domain.</p>
+<pre class="{cypher}"><code>MATCH (a:Article)
+
+// Collect study type names per article
+OPTIONAL MATCH (a)-[:STUDY_TYPE]-&gt;(st:StudyType)
+WITH a, COLLECT(DISTINCT toLower(st.name)) AS studyTypeNames
+
+// Filter for empirical studies only (exclude non-empirical types)
+WHERE SIZE(studyTypeNames) &gt; 0
+  AND NONE(stName IN studyTypeNames WHERE stName IN [
+    'review', 'systematic review', 'meta-analysis', 'expert opinion',
+    'scoping review', 'dissertation/thesis', 'short communication',
+    'methodological paper', 'theoretical study', 'report'
+  ])
+
+// Confirm articles explicitly have ozone, ML methods, and heart disease
+AND EXISTS((a)-[:USES_ML_METHOD]-&gt;(:MLMethod))
+AND EXISTS((a)-[:ASSOCIATED_WITH_HEART_DISEASE]-&gt;(:HeartDisease))
+AND EXISTS {
+  MATCH (a)-[:RELATED_TO_POLLUTANT]-&gt;(oz:PollutantTerm)
+  WHERE toLower(oz.name) CONTAINS 'ozone'
+}
+
+// Exclude comment/reply-type articles explicitly
+AND NOT toLower(a.title) CONTAINS 'comment'
+AND NOT toLower(a.title) CONTAINS 'reply'
+
+// Retrieve ML methods and count their occurrences
+MATCH (a)-[:USES_ML_METHOD]-&gt;(ml:MLMethod)
+RETURN
+    ml.name AS `ML Method`,
+    COUNT(DISTINCT a.doi) AS `Number of Articles`
+ORDER BY `Number of Articles` DESC
+</code></pre>
+<pre><code>╒════════════════════════════════════╤══════════════════╕
+│ML Method                           │Number of Articles│
+╞════════════════════════════════════╪══════════════════╡
+│"Random Forest"                     │20                │
+├────────────────────────────────────┼──────────────────┤
+│"Gradient Boosting Machines"        │14                │
+├────────────────────────────────────┼──────────────────┤
+│"Support Vector Machines"           │13                │
+├────────────────────────────────────┼──────────────────┤
+│"Neural Networks"                   │12                │
+├────────────────────────────────────┼──────────────────┤
+│"K-Means Clustering"                │9                 │
+├────────────────────────────────────┼──────────────────┤
+│"Recurrent Neural Networks"         │7                 │
+├────────────────────────────────────┼──────────────────┤
+│"Deep Neural Networks"              │7                 │
+├────────────────────────────────────┼──────────────────┤
+│"Convolutional Neural Networks"     │5                 │
+├────────────────────────────────────┼──────────────────┤
+│"Geographically Weighted Regression"│3                 │
+├────────────────────────────────────┼──────────────────┤
+│"Long Short-Term Memory Networks"   │2                 │
+├────────────────────────────────────┼──────────────────┤
+│"Hierarchical Clustering"           │2                 │
+├────────────────────────────────────┼──────────────────┤
+│"Markov Chain Monte Carlo"          │2                 │
+├────────────────────────────────────┼──────────────────┤
+│"Autoencoders"                      │2                 │
+├────────────────────────────────────┼──────────────────┤
+│"Prophet"                           │2                 │
+├────────────────────────────────────┼──────────────────┤
+│"Principal Component Analysis"      │1                 │
+├────────────────────────────────────┼──────────────────┤
+│"Extreme Learning Machines"         │1                 │
+├────────────────────────────────────┼──────────────────┤
+│"Named Entity Recognition"          │1                 │
+└────────────────────────────────────┴──────────────────┘</code></pre>
+<p>Table D.Z: Frequency of machine learning methods employed in the 34 included empirical articles.</p>
+<p>Summary of Machine Learning Methods:</p>
+<p>The 34 included studies leveraged a diverse toolkit of 17 distinct machine learning methodologies to explore the associations between ozone, heart disease, and often geospatial factors (Table D.Z). Tree-based ensemble methods emerged as the most popular, with Random Forest being the predominant technique, utilized in 20 articles (58.8% of studies). Gradient Boosting Machines were also frequently applied, appearing in 14 studies (41.2%). Another commonly used method was Support Vector Machines, identified in 13 studies (38.2%).</p>
+<p>Neural network architectures showed considerable diversity and adoption. The general category “Neural Networks” was reported in 12 studies (35.3%), while more specific forms such as “Recurrent Neural Networks” and “Deep Neural Networks” were each used in 7 studies (20.6%), and “Convolutional Neural Networks” in 5 studies (14.7%). Unsupervised learning techniques were also present, most notably K-Means Clustering (9 articles, 26.5%).</p>
+<p>Reflecting the geospatial aspect of some research questions, Geographically Weighted Regression, a spatially explicit modeling technique, was employed in 3 studies (8.8%). The data indicates a strong trend towards applying multiple ML techniques within a single study; collectively, the 34 articles reported 102 instances of ML method applications, averaging approximately three distinct methods per study. This highlights a common practice of either comparing models or using a combination of ML approaches for tasks such as exposure modeling, prediction, or pattern identification in the context of air pollution and health research.</p>
+</section>
+<section id="heart-diseases-investigated" class="level3" data-number="C.4.4">
+<h3 data-number="C.4.4" class="anchored" data-anchor-id="heart-diseases-investigated"><span class="header-section-number">C.4.4</span> Heart Diseases Investigated</h3>
+<p>The included studies addressed various specific heart or cardiovascular diseases in relation to ozone exposure. The table below shows the distribution of these conditions among the 34 empirical articles that met all inclusion criteria.</p>
+<pre class="{cypher}"><code>MATCH (a:Article)
+
+// Collect study type names per article
+OPTIONAL MATCH (a)-[:STUDY_TYPE]-&gt;(st:StudyType)
+WITH a, COLLECT(DISTINCT toLower(st.name)) AS studyTypeNames
+
+// Filter for empirical studies only (exclude non-empirical types)
+WHERE SIZE(studyTypeNames) &gt; 0
+  AND NONE(stName IN studyTypeNames WHERE stName IN [
+    'review', 'systematic review', 'meta-analysis', 'expert opinion',
+    'scoping review', 'dissertation/thesis', 'short communication',
+    'methodological paper', 'theoretical study', 'report'
+  ])
+
+// Ensure explicit presence of ozone, ML methods, and heart disease associations
+AND EXISTS((a)-[:USES_ML_METHOD]-&gt;(:MLMethod))
+AND EXISTS((a)-[:ASSOCIATED_WITH_HEART_DISEASE]-&gt;(:HeartDisease))
+AND EXISTS {
+  MATCH (a)-[:RELATED_TO_POLLUTANT]-&gt;(p:PollutantTerm)
+  WHERE toLower(p.name) CONTAINS 'ozone'
+}
+
+// Exclude comment/reply-type articles explicitly
+AND NOT toLower(a.title) CONTAINS 'comment'
+AND NOT toLower(a.title) CONTAINS 'reply'
+
+// Retrieve Heart Diseases and count occurrences
+MATCH (a)-[:ASSOCIATED_WITH_HEART_DISEASE]-&gt;(hd:HeartDisease)
+RETURN
+    hd.name AS `Heart Disease Category`,
+    COUNT(DISTINCT a.doi) AS `Number of Articles`
+ORDER BY `Number of Articles` DESC
+</code></pre>
+<pre><code>╒════════════════════════════╤══════════════════╕
+│Heart Disease Category      │Number of Articles│
+╞════════════════════════════╪══════════════════╡
+│"coronary artery disease"   │22                │
+├────────────────────────────┼──────────────────┤
+│"hypertensive heart disease"│5                 │
+├────────────────────────────┼──────────────────┤
+│"cardiomyopathy"            │5                 │
+├────────────────────────────┼──────────────────┤
+│"myocardial infarction"     │4                 │
+├────────────────────────────┼──────────────────┤
+│"congestive heart failure"  │4                 │
+├────────────────────────────┼──────────────────┤
+│"arrhythmia"                │1                 │
+└────────────────────────────┴──────────────────┘</code></pre>
+<p>Table D.A: Distribution of specific heart diseases investigated in the 34 included articles.</p>
+<p>Summary of Heart Diseases Investigated:</p>
+<p>The 34 empirical studies included in this review primarily focused on major, well-established cardiovascular conditions when examining the health impacts of ozone exposure (Table D.A). Coronary artery disease (CAD) was the most frequently investigated outcome, appearing in a substantial 22 out of 34 articles (64.7%). This highlights CAD as a central concern in research at the intersection of ozone, cardiovascular health, and machine learning applications.</p>
+<p>Beyond CAD, other significant cardiovascular outcomes were also addressed. Hypertensive heart disease and cardiomyopathy were each examined in 5 studies (14.7% each). Acute ischemic events, specifically myocardial infarction (heart attack), along with chronic conditions like congestive heart failure, were both investigated in 4 studies (11.8% each). A single study (2.9%) focused on arrhythmia.</p>
+<p>The sum of these instances (41 mentions across 34 articles) indicates that some studies explored more than one specific cardiovascular endpoint. The pronounced focus on coronary artery disease, myocardial infarction, and heart failure aligns with the significant public health burden of these conditions and the recognized role of air pollution as a contributing environmental risk factor. The application of machine learning methods in these contexts likely aims to better understand, predict, or model these serious cardiovascular outcomes.</p>
+</section>
+<section id="other-analytical-tools-utilized" class="level3" data-number="C.4.5">
+<h3 data-number="C.4.5" class="anchored" data-anchor-id="other-analytical-tools-utilized"><span class="header-section-number">C.4.5</span> Other Analytical Tools Utilized</h3>
+<p>In addition to machine learning models, some studies reported the use of other distinct analytical tools or techniques. The table below details these tools and their frequency among the 34 included empirical articles.</p>
+<pre class="{cypher}"><code>MATCH (a:Article)
+
+// Collect study type names per article
+OPTIONAL MATCH (a)-[:STUDY_TYPE]-&gt;(st:StudyType)
+WITH a, COLLECT(DISTINCT toLower(st.name)) AS studyTypeNames
+
+// Filter for empirical studies only (exclude non-empirical types)
+WHERE SIZE(studyTypeNames) &gt; 0
+  AND NONE(stName IN studyTypeNames WHERE stName IN [
+    'review', 'systematic review', 'meta-analysis', 'expert opinion',
+    'scoping review', 'dissertation/thesis', 'short communication',
+    'methodological paper', 'theoretical study', 'report'
+  ])
+
+// Explicit presence of ozone, ML methods, and heart disease
+AND EXISTS((a)-[:USES_ML_METHOD]-&gt;(:MLMethod))
+AND EXISTS((a)-[:ASSOCIATED_WITH_HEART_DISEASE]-&gt;(:HeartDisease))
+AND EXISTS {
+  MATCH (a)-[:RELATED_TO_POLLUTANT]-&gt;(p:PollutantTerm)
+  WHERE toLower(p.name) CONTAINS 'ozone'
+}
+
+// Exclude commentary or reply articles explicitly
+AND NOT toLower(a.title) CONTAINS 'comment'
+AND NOT toLower(a.title) CONTAINS 'reply'
+
+// Retrieve Analytical Tools and their occurrence
+MATCH (a)-[:USES_ANALYTICAL_TOOL]-&gt;(at:AnalyticalTool)
+RETURN
+  at.name AS `Analytical Tool`,
+  COUNT(DISTINCT a.doi) AS `Number of Articles`
+ORDER BY `Number of Articles` DESC</code></pre>
+<pre><code>╒═════════════════════════════════════════════════╤══════════════════╕
+│Analytical Tool                                  │Number of Articles│
+╞═════════════════════════════════════════════════╪══════════════════╡
+│"Geographic Information Systems (GIS)"           │6                 │
+├─────────────────────────────────────────────────┼──────────────────┤
+│"Principal Component Analysis (PCA)"             │4                 │
+├─────────────────────────────────────────────────┼──────────────────┤
+│"Environmental Fate Modeling"                    │2                 │
+├─────────────────────────────────────────────────┼──────────────────┤
+│"Liquid Chromatography-Mass Spectrometry (LC-MS)"│1                 │
+├─────────────────────────────────────────────────┼──────────────────┤
+│"Chemometric Methods"                            │1                 │
+└─────────────────────────────────────────────────┴──────────────────┘</code></pre>
+<p>Table D.B: Frequency of other analytical tools utilized in the 34 included empirical articles.</p>
+<p>Summary of Other Analytical Tools Utilized:</p>
+<p>Beyond the primary machine learning algorithms, the 34 included studies reported the use of several other analytical tools and techniques, highlighting the interdisciplinary nature of advanced environmental health research (Table D.B).</p>
+<p>Geographic Information Systems (GIS) were the most frequently mentioned ancillary tool, utilized in 6 (17.6%) of the studies. This is consistent with the geospatial focus of many research questions in this domain, where GIS serves a critical role in managing, analyzing, and visualizing spatial data related to pollutant exposure, environmental factors, and health outcome distributions. The use of GIS often underpins or directly complements geospatial machine learning models (such as Geographically Weighted Regression, noted in Section D.4.3) and is frequently seen in “air quality monitoring studies” and “cohort studies” that assess spatially varying exposures.</p>
+<p>Principal Component Analysis (PCA) was identified in 4 studies (11.8%). PCA is a common statistical technique for dimensionality reduction and feature extraction. Its presence likely indicates its use as a pre-processing step for machine learning models, helping to manage complex datasets with numerous correlated environmental or demographic variables before predictive modeling.</p>
+<p>Other, more specialized tools included Environmental Fate Modeling (2 studies, 5.9%), which would be used to estimate pollutant concentrations and dispersion, thereby informing exposure assessment for subsequent health impact analysis with ML. Techniques related to detailed chemical analysis, such as Liquid Chromatography-Mass Spectrometry (LC-MS) (1 study, 2.9%) and broader Chemometric Methods (1 study, 2.9%), suggest that a subset of studies incorporated fine-grained compositional or biomarker analysis, potentially linking these detailed measurements to health outcomes via machine learning.</p>
+<p>Overall, while the core focus was on machine learning applications, the co-occurrence of tools like GIS and PCA underscores their supportive and often integral role in the broader analytical workflow of these sophisticated environmental epidemiology studies.</p>
+<hr>
+</section>
+<section id="cypher-queries-cheat-sheet" class="level3" data-number="C.4.6">
+<h3 data-number="C.4.6" class="anchored" data-anchor-id="cypher-queries-cheat-sheet"><span class="header-section-number">C.4.6</span> Cypher Queries Cheat Sheet</h3>
+<p>To get a list of metrics from every DOI:</p>
+<pre class="{cypher}"><code>MATCH (a:Article)-[r:REPORTS_METRIC]-&gt;(m:Metric)
+RETURN  a.doi      AS DOI,
+        r.MetricID AS metricid,
+        m.name     AS metric,
+        r.value    AS value,
+        r.unit     AS unit
+ORDER BY DOI, metricid;</code></pre>
+<p>to get metrics associated with any given study type (for example cohort study)</p>
+<pre class="{cypher}"><code>/* Cohort-study articles and any metrics they report */
+MATCH (a:Article)--&gt;(:StudyType {name: "cohort study"})
+OPTIONAL MATCH (a)-[r:REPORTS_METRIC]-&gt;(m:Metric)
+
+RETURN
+  "cohort study"                               AS studyType,
+  a.doi                                        AS DOI,
+  coalesce(r.MetricID , "NO METRICS")          AS metricid,
+  coalesce(m.name     , "NO METRICS")          AS metric,
+  coalesce(r.value    , "NO METRICS")          AS value,
+  coalesce(r.unit     , "NO METRICS")          AS unit
+ORDER BY DOI, metricid;
+</code></pre>
+<p>or if you are interested in life cycle assessment:</p>
+<pre class="{cypher}"><code>MATCH (a:Article)--&gt;(:StudyType {name: "life cycle assessment"})
+OPTIONAL MATCH (a)-[r:REPORTS_METRIC]-&gt;(m:Metric)
+
+RETURN
+  "life cycle assessment"                               AS studyType,
+  a.doi                                        AS DOI,
+  coalesce(r.MetricID , "NO METRICS")          AS metricid,
+  coalesce(m.name     , "NO METRICS")          AS metric,
+  coalesce(r.value    , "NO METRICS")          AS value,
+  coalesce(r.unit     , "NO METRICS")          AS unit
+ORDER BY DOI, metricid;</code></pre>
+<p>to get a list and count of all nodes:</p>
+<pre class="{cypher}"><code>MATCH (n)
+UNWIND labels(n) AS nodeLabel
+RETURN nodeLabel, COUNT(*) AS nodeCount
+ORDER BY nodeCount DESC;</code></pre>
+<p>to get a list and count of all relationships:</p>
+<pre class="{cypher}"><code>MATCH ()-[r]-&gt;()
+RETURN TYPE(r) AS relType, COUNT(*) AS relCount
+ORDER BY relCount DESC;</code></pre>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./appendix-c-hardware.html" class="pagination-link" aria-label="Appendix C: Computational Hardware">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Appendix C: Computational Hardware</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./appendix-e-db-queries.html" class="pagination-link" aria-label="Database Queries">
+        <span class="nav-page-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Database Queries</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Written by Alex Godinez</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
