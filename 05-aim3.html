@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>6&nbsp; Proposed Deep Learning Framework for UOG Site Monitoring (Aim 3) – Portfolio</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./06-technical-report.html" rel="next">
+<link href="./04-prelim-analysis.html" rel="prev">
+<link href="./pic/cover.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-aim3.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Proposed Deep Learning Framework for UOG Site Monitoring (Aim 3)</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Portfolio</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-proposal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Literature Analytics and Methodological Gap Analysis in Geospatial Epidemiology</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-data-collection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Collection</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-literature-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Literature Review</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-prelim-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Preliminary Analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-aim3.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Proposed Deep Learning Framework for UOG Site Monitoring (Aim 3)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-technical-report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Technical Report</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">References</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./update.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Project Update</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-a-etl-rag.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">appendix-a-etl-rag.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-b-lca-rf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Preliminary LCA Cover crop Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-c-hardware.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Appendix C: Computational Hardware</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-d-neo4j-queries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Knowledge Graph Queries and Supporting Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-e-db-queries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Database Queries</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction-and-foundational-acknowledgement" id="toc-introduction-and-foundational-acknowledgement" class="nav-link active" data-scroll-target="#introduction-and-foundational-acknowledgement"><span class="header-section-number">7</span> Introduction and Foundational Acknowledgement</a></li>
+  <li><a href="#rationale-overcoming-the-limitations-of-traditional-analyses" id="toc-rationale-overcoming-the-limitations-of-traditional-analyses" class="nav-link" data-scroll-target="#rationale-overcoming-the-limitations-of-traditional-analyses"><span class="header-section-number">8</span> Rationale: Overcoming the Limitations of Traditional Analyses</a></li>
+  <li><a href="#study-scope-and-future-directions" id="toc-study-scope-and-future-directions" class="nav-link" data-scroll-target="#study-scope-and-future-directions"><span class="header-section-number">9</span> Study Scope and Future Directions</a></li>
+  <li><a href="#potential-risks-and-limitations" id="toc-potential-risks-and-limitations" class="nav-link" data-scroll-target="#potential-risks-and-limitations"><span class="header-section-number">10</span> Potential Risks and Limitations</a></li>
+  <li><a href="#ethical-considerations-and-confidentiality" id="toc-ethical-considerations-and-confidentiality" class="nav-link" data-scroll-target="#ethical-considerations-and-confidentiality"><span class="header-section-number">11</span> Ethical Considerations and Confidentiality</a></li>
+  <li><a href="#model-interpretability-and-transparency" id="toc-model-interpretability-and-transparency" class="nav-link" data-scroll-target="#model-interpretability-and-transparency"><span class="header-section-number">12</span> Model Interpretability and Transparency</a></li>
+  <li><a href="#reproducibility-and-open-science" id="toc-reproducibility-and-open-science" class="nav-link" data-scroll-target="#reproducibility-and-open-science"><span class="header-section-number">13</span> Reproducibility and Open Science</a></li>
+  <li><a href="#phase-1-uog-site-identification-via-cnn-object-detection" id="toc-phase-1-uog-site-identification-via-cnn-object-detection" class="nav-link" data-scroll-target="#phase-1-uog-site-identification-via-cnn-object-detection"><span class="header-section-number">14</span> Phase 1: UOG Site Identification via CNN Object Detection</a>
+  <ul>
+  <li><a href="#software-tools-and-libraries" id="toc-software-tools-and-libraries" class="nav-link" data-scroll-target="#software-tools-and-libraries"><span class="header-section-number">14.1</span> Software Tools and Libraries</a></li>
+  <li><a href="#data-acquisition-and-preprocessing" id="toc-data-acquisition-and-preprocessing" class="nav-link" data-scroll-target="#data-acquisition-and-preprocessing"><span class="header-section-number">14.2</span> Data Acquisition and Preprocessing</a></li>
+  <li><a href="#training-data-creation" id="toc-training-data-creation" class="nav-link" data-scroll-target="#training-data-creation"><span class="header-section-number">14.3</span> Training Data Creation</a></li>
+  <li><a href="#model-architecture-and-training" id="toc-model-architecture-and-training" class="nav-link" data-scroll-target="#model-architecture-and-training"><span class="header-section-number">14.4</span> Model Architecture and Training</a></li>
+  </ul></li>
+  <li><a href="#phase-2-methane-monitoring-with-spatiotemporal-models" id="toc-phase-2-methane-monitoring-with-spatiotemporal-models" class="nav-link" data-scroll-target="#phase-2-methane-monitoring-with-spatiotemporal-models"><span class="header-section-number">15</span> Phase 2: Methane Monitoring with Spatiotemporal Models</a>
+  <ul>
+  <li><a href="#methane-data-acquisition" id="toc-methane-data-acquisition" class="nav-link" data-scroll-target="#methane-data-acquisition"><span class="header-section-number">15.1</span> Methane Data Acquisition</a></li>
+  <li><a href="#spatiotemporal-analysis-with-convlstm" id="toc-spatiotemporal-analysis-with-convlstm" class="nav-link" data-scroll-target="#spatiotemporal-analysis-with-convlstm"><span class="header-section-number">15.2</span> Spatiotemporal Analysis with ConvLSTM</a></li>
+  <li><a href="#leak-detection-and-site-attribution" id="toc-leak-detection-and-site-attribution" class="nav-link" data-scroll-target="#leak-detection-and-site-attribution"><span class="header-section-number">15.3</span> Leak Detection and Site Attribution</a></li>
+  </ul></li>
+  <li><a href="#phase-3-epidemiological-linkage-and-analysis" id="toc-phase-3-epidemiological-linkage-and-analysis" class="nav-link" data-scroll-target="#phase-3-epidemiological-linkage-and-analysis"><span class="header-section-number">16</span> Phase 3: Epidemiological Linkage and Analysis</a>
+  <ul>
+  <li><a href="#health-outcome-data-acquisition-of-restricted-access-microdata" id="toc-health-outcome-data-acquisition-of-restricted-access-microdata" class="nav-link" data-scroll-target="#health-outcome-data-acquisition-of-restricted-access-microdata"><span class="header-section-number">16.1</span> Health Outcome Data: Acquisition of Restricted-Access Microdata</a></li>
+  <li><a href="#analytical-approach-prediction-and-inference" id="toc-analytical-approach-prediction-and-inference" class="nav-link" data-scroll-target="#analytical-approach-prediction-and-inference"><span class="header-section-number">16.2</span> Analytical Approach: Prediction and Inference</a></li>
+  <li><a href="#predictive-modeling-and-pattern-discovery" id="toc-predictive-modeling-and-pattern-discovery" class="nav-link" data-scroll-target="#predictive-modeling-and-pattern-discovery"><span class="header-section-number">16.3</span> Predictive Modeling and Pattern Discovery</a></li>
+  <li><a href="#statistical-modeling-for-inference-and-effect-size-estimation" id="toc-statistical-modeling-for-inference-and-effect-size-estimation" class="nav-link" data-scroll-target="#statistical-modeling-for-inference-and-effect-size-estimation"><span class="header-section-number">16.4</span> Statistical Modeling for Inference and Effect Size Estimation</a>
+  <ul class="collapse">
+  <li><a href="#methodology-negative-binomial-regression" id="toc-methodology-negative-binomial-regression" class="nav-link" data-scroll-target="#methodology-negative-binomial-regression"><span class="header-section-number">16.4.1</span> Methodology: Negative Binomial Regression</a></li>
+  <li><a href="#confounder-control" id="toc-confounder-control" class="nav-link" data-scroll-target="#confounder-control"><span class="header-section-number">16.4.2</span> Confounder Control</a></li>
+  <li><a href="#full-model-specification" id="toc-full-model-specification" class="nav-link" data-scroll-target="#full-model-specification"><span class="header-section-number">16.4.3</span> Full Model Specification</a></li>
+  <li><a href="#key-outputs" id="toc-key-outputs" class="nav-link" data-scroll-target="#key-outputs"><span class="header-section-number">16.4.4</span> Key Outputs</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#model-evaluation-and-validation-metrics" id="toc-model-evaluation-and-validation-metrics" class="nav-link" data-scroll-target="#model-evaluation-and-validation-metrics"><span class="header-section-number">17</span> Model Evaluation and Validation Metrics</a>
+  <ul>
+  <li><a href="#phase-1-cnn-object-detector-quality" id="toc-phase-1-cnn-object-detector-quality" class="nav-link" data-scroll-target="#phase-1-cnn-object-detector-quality"><span class="header-section-number">17.1</span> Phase 1: CNN Object Detector Quality</a></li>
+  <li><a href="#phase-2-methane-model-quality" id="toc-phase-2-methane-model-quality" class="nav-link" data-scroll-target="#phase-2-methane-model-quality"><span class="header-section-number">17.2</span> Phase 2: Methane Model Quality</a></li>
+  <li><a href="#phase-3-epidemiological-model-quality" id="toc-phase-3-epidemiological-model-quality" class="nav-link" data-scroll-target="#phase-3-epidemiological-model-quality"><span class="header-section-number">17.3</span> Phase 3: Epidemiological Model Quality</a></li>
+  </ul></li>
+  <li><a href="#projected-timeline-and-milestones-for-aim-3" id="toc-projected-timeline-and-milestones-for-aim-3" class="nav-link" data-scroll-target="#projected-timeline-and-milestones-for-aim-3"><span class="header-section-number">18</span> Projected Timeline and Milestones for Aim 3</a>
+  <ul>
+  <li><a href="#year-1-focus-on-phase-1---cnn-model-development-and-site-inventory-creation" id="toc-year-1-focus-on-phase-1---cnn-model-development-and-site-inventory-creation" class="nav-link" data-scroll-target="#year-1-focus-on-phase-1---cnn-model-development-and-site-inventory-creation"><span class="header-section-number">18.1</span> Year 1: Focus on Phase 1 - CNN Model Development and Site Inventory Creation</a></li>
+  <li><a href="#year-2-spatiotemporal-analysis-health-data-acquisition-and-epidemiological-linkage" id="toc-year-2-spatiotemporal-analysis-health-data-acquisition-and-epidemiological-linkage" class="nav-link" data-scroll-target="#year-2-spatiotemporal-analysis-health-data-acquisition-and-epidemiological-linkage"><span class="header-section-number">18.2</span> Year 2: Spatiotemporal Analysis, Health Data Acquisition, and Epidemiological Linkage</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span id="sec-aim-three" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Proposed Deep Learning Framework for UOG Site Monitoring (Aim 3)</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction-and-foundational-acknowledgement" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Introduction and Foundational Acknowledgement</h1>
+<p>This chapter outlines the proposed methodology for Specific Aim 3: the development and application of a novel deep learning framework to identify, classify, and monitor unconventional oil and gas (UOG), or “fracking,” sites. The successful completion of the preceding project aims; engineering a sophisticated ETL+RAG pipeline and conducting a baseline machine learning analysis, directly highlighted the critical need for more advanced spatiotemporal models in environmental health. This aim is designed to address that identified gap head-on.</p>
+<p>The conceptualization and design of the methodologies presented here were made possible by the foundational knowledge acquired in the “AI with Geospatial Big Data” (GOG 594) course at the University at Albany. The course, taught not only the theoretical underpinnings of advanced neural networks but also the practical, hands-on skills necessary to apply them to complex, real-world geospatial problems. Its approach to data processing, model implementation, and the use of tools like Quarto for reproducible research provided the essential toolkit for envisioning and structuring this final stage of the dissertation.</p>
+<p>The objective of this aim is twofold. First, to create a high-resolution, actionable dataset of UOG infrastructure and activity by applying state-of-the-art computer vision techniques to satellite imagery. Second, to leverage this dataset to monitor associated environmental indicators, specifically methane emissions, providing a new layer of data for future epidemiological studies. To ensure methodological depth and feasibility within the doctoral timeline, this chapter will develop and validate this entire framework through a case study of UOG development in the Commonwealth of Pennsylvania, a region with a long history of activity and excellent data availability.</p>
+<p>The scientific novelty of this research is threefold. First, it pioneers a multi-modal deep learning framework that moves beyond static well counts to create a dynamic, activity-based UOG exposure inventory from satellite imagery. Second, by linking this high-resolution exposure data to census-tract level health microdata, it directly confronts and mitigates the core methodological challenges of ecological fallacy and exposure misclassification that have limited previous studies. Finally, it integrates these components within a hybrid analytical framework, using AI for predictive discovery and established statistical models for formal inference, providing a comprehensive and robust model for environmental health risk assessment.</p>
+</section>
+<section id="rationale-overcoming-the-limitations-of-traditional-analyses" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Rationale: Overcoming the Limitations of Traditional Analyses</h1>
+<p>The impetus for this aim stems directly from the findings and limitations identified in a <a href="./04-prelim-analysis.html#sec-prelim-analysis">preliminary analysis of environmental exposures and health outcomes</a>. That baseline study, which used a Random Forest model to examine county-level ozone exposure and cardiovascular disease (CVD) mortality, was successful in establishing a statistical association. More importantly, however, it served as a crucial diagnostic, revealing the methodological barriers inherent in using aggregated, publicly available data for environmental health research.</p>
+<p>Specifically, the preliminary work highlighted three challenges that this aim is designed to overcome:</p>
+<ul>
+<li><strong>The Ecological Fallacy:</strong> By operating at the county level, the analysis could only establish that counties with higher average exposures also had higher mortality rates. It was impossible to determine if the individuals who died were the ones most exposed, a fundamental limitation known as the ecological fallacy.</li>
+<li><strong>Exposure Misclassification:</strong> Using county-wide averages for exposure metrics masks the vast differences in exposure that occur within a large geographic area. Residents living next to a source are grouped with those living miles away, leading to significant exposure misclassification that biases results, typically towards finding no effect.</li>
+<li><strong>Artifacts from Smoothed Health Data:</strong> The preliminary analysis relied on publicly available, “spatiotemporally smoothed” mortality rates. This statistical smoothing, while useful for stabilizing rates in small populations, artificially introduces spatial and temporal patterns into the data. Advanced spatiotemporal models, such as the ones proposed here, risk simply “re-discovering” the signature of this smoothing algorithm rather than a true environmental health signal.</li>
+</ul>
+<p>Therefore, Aim 3 is predicated on a foundational principle: to robustly investigate the health impacts of localized environmental exposures like UOG development, one must create a high-resolution exposure dataset and link it to granular, unsmoothed health microdata. This chapter details the creation of the former, while the subsequent phase outlines the plan to acquire and analyze the latter. In doing so, this research presents a significant methodological advancement designed to produce a more accurate and granular understanding of the potential health risks of UOG development.</p>
+</section>
+<section id="study-scope-and-future-directions" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Study Scope and Future Directions</h1>
+<p>The scope of this chapter is to develop, execute, and validate the complete, end-to-end methodology within the defined study area of Pennsylvania. This includes the creation of a UOG inventory for the state and the subsequent epidemiological linkage with Pennsylvania health data.</p>
+<p>This approach allows for a deep analysis, ensuring the development of a well-validated system. The successful completion of this state-level case study will serve as a pilot project and proof-of-concept. The validated models, established data pipelines, and initial findings will form the preliminary data for a future, national-scale research initiative, which would be the subject of a post-doctoral project or a grant proposal.</p>
+</section>
+<section id="potential-risks-and-limitations" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Potential Risks and Limitations</h1>
+<p>Although carefully designed, potential risks are anticipated. Data acquisition delays from satellite imagery providers or health data access could impact project timelines. Annotation workflows may require more time or resources than initially planned, particularly if annotation complexity is higher than expected. Computational constraints, such as GPU bottlenecks during model training, may necessitate additional optimization or hardware adjustments. Contingency plans, such as leveraging alternative imagery sources, adjusting annotation sample sizes, or optimizing GPU usage through batch size tuning, are prepared to mitigate these challenges.</p>
+</section>
+<section id="ethical-considerations-and-confidentiality" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Ethical Considerations and Confidentiality</h1>
+<p>Given the use of restricted-access health microdata, ethical considerations regarding data privacy and confidentiality are paramount. This project will rigorously adhere to NCHS confidentiality requirements, IRB guidelines, and best practices for data security. All sensitive analyses will be conducted in secure environments, ensuring individual privacy and confidentiality through aggregate reporting only.</p>
+</section>
+<section id="model-interpretability-and-transparency" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Model Interpretability and Transparency</h1>
+<p>Model interpretability is essential to validate predictive accuracy and ensure methodological transparency. Techniques such as SHAP (SHapley Additive exPlanations) will be applied to quantify and visualize the contribution of different predictors, as previously demonstrated in the <a href="./04-prelim-analysis.html#sec-prelim-results">preliminary analysis</a>. For CNN and GNN architectures, visual methods such as Grad-CAM or attention maps will be employed to demonstrate model decision-making processes transparently.</p>
+</section>
+<section id="reproducibility-and-open-science" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> Reproducibility and Open Science</h1>
+<p>This research commits to open science and reproducibility principles. All analytical workflows, scripts, and models will be documented thoroughly using reproducible Quarto notebooks and made publicly available through GitHub repositories, facilitating validation, reuse, and future research.</p>
+<hr>
+</section>
+<section id="phase-1-uog-site-identification-via-cnn-object-detection" class="level1" data-number="14">
+<h1 data-number="14"><span class="header-section-number">14</span> Phase 1: UOG Site Identification via CNN Object Detection</h1>
+<div id="fig-well-concept" class="quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-well-concept-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures\contrst.PNG" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-well-concept-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.1: Well pad Concept
+</figcaption>
+</figure>
+</div>
+<section id="software-tools-and-libraries" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="software-tools-and-libraries"><span class="header-section-number">14.1</span> Software Tools and Libraries</h2>
+<p>This project leverages open-source software tools to ensure reproducibility, efficiency, and ease of collaboration:</p>
+<ul>
+<li><strong>PyTorch / PyTorch Lightning:</strong> efficient neural network training and inference</li>
+<li><strong>Ultralytics YOLOv8:</strong> framework for CNN-based object detection</li>
+<li><strong>Hugging Face Model Hub:</strong> Source of pre-trained models, including YOLOv8 checkpoints for transfer learning</li>
+<li><strong>CVAT (Computer Vision Annotation Tool):</strong> software for bounding box annotation and iterative labeling workflows</li>
+<li><strong>GDAL, rasterio, geopandas:</strong> Tools for geospatial data acquisition, preprocessing, and spatial masking workflows</li>
+</ul>
+<p>These tools ensure reproducibility, efficiency, and ease of collaboration, enabling integration of complex components within the proposed methodological framework.</p>
+</section>
+<section id="data-acquisition-and-preprocessing" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="data-acquisition-and-preprocessing"><span class="header-section-number">14.2</span> Data Acquisition and Preprocessing</h2>
+<p><strong>Satellite Imagery:</strong><br>
+We will acquire high-resolution multispectral satellite imagery (from Sentinel-2, Planet Labs, or NAIP) for regions with known UOG development.</p>
+<p><strong>Training Data Scaffolding (Permit-Guided):</strong><br>
+To efficiently generate a dataset for model training, this project will leverage publicly available oil and gas well permit databases from state regulatory agencies. The latitude and longitude coordinates from these official records will be used to programmatically clip thousands of small image “snippets” from the satellite imagery. This approach ensures the manual annotation effort is focused on relevant imagery containing known positive examples, forming the foundation for the training process described in the next section.</p>
+<p><strong>Inference Search Area Definition (Tax Parcel-Guided):</strong><br>
+For the final model deployment phase, where the goal is to discover all sites (both known and unknown), a broad search area will be defined using county tax parcel data. This data will create a “mask” to programmatically exclude areas where UOG development is highly improbable (e.g., dense residential zones, protected lands). Running the model over this large, plausible search area is what enables the discovery of unrecorded or legacy sites.</p>
+</section>
+<section id="training-data-creation" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="training-data-creation"><span class="header-section-number">14.3</span> Training Data Creation</h2>
+<p>Creating a large, accurate, and diverse training dataset is critical, yet manual annotation at a national scale is not possible for a single researcher. Therefore, a modern, “human-in-the-loop” workflow will be employed to make this large-scale labeling task manageable and to produce a highly robust final training set. The process is structured as follows:</p>
+<ul>
+<li><p><strong>Seed Dataset Creation (Manual Annotation):</strong><br>
+A manageable initial subset of image snippets (2,000–5,000) will be labeled by hand in the CVAT annotation tool to create the initial high-quality ground truth.</p></li>
+<li><p><strong>Initial Model Training (V1):</strong><br>
+This seed dataset will be used to train a preliminary version (V1) of the YOLO/EfficientDet object detection model.</p></li>
+<li><p><strong>Semi-Automated Labeling:</strong><br>
+The V1 model will then be deployed on the remaining tens of thousands of unlabeled snippets to generate “pre-labels.” The human annotator’s role then shifts to that of a reviewer, rapidly confirming correct predictions and correcting inaccurate ones.</p></li>
+<li><p><strong>Final “Expert” Model Training:</strong><br>
+The full, high-quality dataset comprising both the manually labeled seed set and the much larger set of human-corrected semi-automated labels will be used to train the final, “expert” version of the model, likely by fine-tuning the V1 model.</p></li>
+</ul>
+<p>This entire iterative process will be used to draw bounding boxes around key features, including:</p>
+<ul>
+<li><strong>Well Pads:</strong> The overall footprint of the development site.</li>
+<li><strong>Storage Tanks:</strong> Identifying individual or clusters of tanks.</li>
+<li><strong>Active Equipment:</strong> Such as drilling rigs or vehicle fleets, which serve as a proxy for site activity.</li>
+<li><strong>Abandoned Sites:</strong> Identifying sites with visible infrastructure but no signs of recent activity.</li>
+</ul>
+<p>To ensure the objectivity and reproducibility of these labels, an <strong>Inter-Annotator Agreement (IAA)</strong> analysis will be performed on a subset of the data. By having a second independent annotator label the same set of images and calculating metrics such as Intersection over Union (IoU) for bounding boxes and Cohen’s Kappa for categorical labels, the reliability of the annotation process will be quantitatively validated.</p>
+<hr>
+</section>
+<section id="model-architecture-and-training" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="model-architecture-and-training"><span class="header-section-number">14.4</span> Model Architecture and Training</h2>
+<p>Detailed information on the specialized computational hardware used for training and inference (multi-GPU workstation with 48GB GPUs) is provided in <a href="./appendix-c-hardware.html#sec-appendix-c-hardware">Appendix C: Computational Hardware</a>. Leveraging these dedicated computational resources, we will employ a transfer learning approach, which is standard practice for complex object detection tasks. Specifically, a state-of-the-art YOLO (You Only Look Once) variant, such as YOLOv8 pre-trained on the COCO dataset, will be fine-tuned on our annotated UOG site dataset. This approach enables the model to leverage its existing knowledge of general shapes and textures, adapting rapidly to the specific task of identifying UOG infrastructure. Utilizing our robust computational setup significantly accelerates training times, facilitates larger batch sizes, and ensures high-quality, generalizable model performance.</p>
+<ul>
+<li><p><strong>Data Curation:</strong><br>
+The training dataset will be constructed using stratified sampling to ensure representation from different regions within Pennsylvania’s Appalachian Basin (the wet gas southwestern region vs.&nbsp;the dry gas northeastern region) and across different seasons (leaf-on vs.&nbsp;leaf-off). This approach ensures the model is robust for the case study area, while the methodology itself is designed to be directly scalable to other basins in future work.</p></li>
+<li><p><strong>Data Augmentation:</strong><br>
+The training data will be programmatically augmented by applying random geometric (flips, rotations) and photometric (brightness, contrast, hue) transformations. This forces the model to learn the fundamental features of UOG infrastructure rather than superficial characteristics tied to a specific region or season.</p></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="phase-2-methane-monitoring-with-spatiotemporal-models" class="level1" data-number="15">
+<h1 data-number="15"><span class="header-section-number">15</span> Phase 2: Methane Monitoring with Spatiotemporal Models</h1>
+<section id="methane-data-acquisition" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="methane-data-acquisition"><span class="header-section-number">15.1</span> Methane Data Acquisition</h2>
+<p>We will acquire publicly available methane concentration data from sources such as the Sentinel-5P TROPOMI instrument or the more recent MethaneSAT. This provides regular, global coverage of atmospheric methane levels.</p>
+</section>
+<section id="spatiotemporal-analysis-with-convlstm" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="spatiotemporal-analysis-with-convlstm"><span class="header-section-number">15.2</span> Spatiotemporal Analysis with ConvLSTM</h2>
+<p>To model the movement and concentration of methane plumes over time, we will use a spatiotemporal deep learning model such as a ConvLSTM (Convolutional Long Short-Term Memory) network. This architecture is ideal for this task because:</p>
+<ul>
+<li>The <strong>Convolutional (CNN)</strong> component analyzes the spatial structure of the methane plume in each individual satellite image.</li>
+<li>The <strong>Recurrent (LSTM)</strong> component analyzes the sequence of these images over time, learning how plumes emerge, move with wind patterns, and dissipate.</li>
+</ul>
+<p>This model will be trained to predict methane concentrations across our study region.</p>
+</section>
+<section id="leak-detection-and-site-attribution" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="leak-detection-and-site-attribution"><span class="header-section-number">15.3</span> Leak Detection and Site Attribution</h2>
+<p>By overlaying the outputs from the ConvLSTM model with the geolocated UOG site inventory from Phase 1, we can systematically:</p>
+<ul>
+<li><strong>Identify Anomalous Methane Plumes:</strong> Detect methane concentrations that are significantly higher than the regional baseline.</li>
+<li><strong>Attribute Emissions:</strong> Correlate these plumes with specific active UOG sites to monitor their emissions.</li>
+<li><strong>Detect Leaks from Abandoned Sites:</strong> Critically, we can also identify significant methane sources originating from sites previously classified as abandoned, providing a powerful tool for environmental monitoring and public health risk assessment.</li>
+</ul>
+<p>The final output of this aim will be a dynamic, spatially explicit dataset linking UOG infrastructure to its real-world methane emissions, creating a novel and valuable resource for the environmental health sciences community.</p>
+<hr>
+</section>
+</section>
+<section id="phase-3-epidemiological-linkage-and-analysis" class="level1" data-number="16">
+<h1 data-number="16"><span class="header-section-number">16</span> Phase 3: Epidemiological Linkage and Analysis</h1>
+<p>The UOG and methane emissions inventory created in Phases 1 and 2 will serve as a high-resolution spatiotemporal exposure dataset. The final phase of this aim is to link this environmental data with health outcome data to investigate potential associations. This requires acquiring restricted-access health microdata and applying appropriate statistical methods to control for confounding variables.</p>
+<hr>
+<section id="health-outcome-data-acquisition-of-restricted-access-microdata" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="health-outcome-data-acquisition-of-restricted-access-microdata"><span class="header-section-number">16.1</span> Health Outcome Data: Acquisition of Restricted-Access Microdata</h2>
+<p>To overcome the limitations of publicly available aggregated data, this research will use individual-level, anonymized health data containing fine-scale geographic identifiers. The target dataset is the National Center for Health Statistics (NCHS) National Vital Statistics System (NVSS) Mortality Data. This dataset contains individual death records, including cause of death and, critically, the census tract of residence.</p>
+<p>Acquiring this data is a formal process that must be conducted through the New York Federal Statistical Research Data Center (NYRDC), of which the University at Albany is a member. The process involves the following key steps:</p>
+<ol type="1">
+<li><p><strong>Proposal Development:</strong><br>
+A detailed research proposal will be submitted to the NYRDC. This proposal will outline the research questions, the specific data variables required (year of death, census tract, cause of death, age, race, sex), the statistical methodology, and a plan for ensuring data confidentiality.</p></li>
+<li><p><strong>Institutional Review Board (IRB) Review:</strong><br>
+The proposal must be approved by the University at Albany’s IRB. This ensures the research is conducted ethically and that all protocols for protecting sensitive human subjects’ data are in place.</p></li>
+<li><p><strong>Execution of a Data Use Agreement (DUA):</strong><br>
+Upon provisional approval, a DUA from NCHS will be processed through the University’s Office of Research and Regulatory Compliance. This legal agreement governs the terms of data use, storage, and security.</p></li>
+<li><p><strong>Secure Data Analysis:</strong><br>
+All analyses using the restricted microdata will be performed within the secure environment of an NYRDC facility to ensure compliance with all federal data protection requirements.</p></li>
+</ol>
+<hr>
+</section>
+<section id="analytical-approach-prediction-and-inference" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="analytical-approach-prediction-and-inference"><span class="header-section-number">16.2</span> Analytical Approach: Prediction and Inference</h2>
+<p>To fully address the research questions, a hybrid analytical framework will be employed, leveraging the distinct strengths of deep learning for prediction and discovery, and established statistical models for inference. This two-pronged strategy allows the project to predict where health risks may be highest and quantify the magnitude of those risks in a more traditional statistically rigorous manner.</p>
+<hr>
+</section>
+<section id="predictive-modeling-and-pattern-discovery" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="predictive-modeling-and-pattern-discovery"><span class="header-section-number">16.3</span> Predictive Modeling and Pattern Discovery</h2>
+<p>The primary objective of this phase is to achieve the highest possible predictive accuracy for health outcomes and to uncover complex, non-linear spatiotemporal patterns that traditional models often miss.</p>
+<ul>
+<li><strong>Methodology:</strong> The high-resolution UOG and methane exposure datasets (from Phases 1 &amp; 2) will be used as inputs for the trained Convolutional Neural Network (CNN) and Graph Neural Network (GNN) architectures. These models are specifically designed to learn from the spatial grid and network structures of the data, capturing localized patterns and inter-county dependencies (i.e., spatial spillover effects).</li>
+<li><strong>Key Outputs:</strong>
+<ul>
+<li><strong>Predictive Risk Maps:</strong> Generation of spatially explicit maps identifying census tracts predicted to have the highest health risk in future time periods.<br>
+</li>
+<li><strong>AI-Driven Feature Importance:</strong> Application of model interpretation techniques (SHAP) to visualize the non-linear effects and complex interactions discovered by the deep learning models.</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="statistical-modeling-for-inference-and-effect-size-estimation" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="statistical-modeling-for-inference-and-effect-size-estimation"><span class="header-section-number">16.4</span> Statistical Modeling for Inference and Effect Size Estimation</h2>
+<p>The objective of this phase is to complement the predictive findings by quantifying the specific, interpretable effect size of UOG exposure on mortality while controlling for a wide range of confounders.</p>
+<section id="methodology-negative-binomial-regression" class="level3" data-number="16.4.1">
+<h3 data-number="16.4.1" class="anchored" data-anchor-id="methodology-negative-binomial-regression"><span class="header-section-number">16.4.1</span> Methodology: Negative Binomial Regression</h3>
+<p>The relationship between UOG exposure and health outcomes (mortality counts) will be analyzed using Negative Binomial regression. This type of Generalized Linear Model (GLM) is standard for analyzing count data that exhibits overdispersion (i.e., where the variance in the data is greater than the mean), which is common in epidemiological data.</p>
+<p>The selection of a Negative Binomial model over more conventional methods like simple Linear Regression or ANOVA is a deliberate choice dictated by the fundamental nature of the outcome data. Linear models, including ANOVA, are inappropriate for this analysis as they assume a continuous, normally distributed outcome with constant variance.</p>
+<p>Applying them to mortality counts which are discrete, non-negative, and exhibit increasing variance with the mean, would violate these core assumptions and could lead to biased estimates and impossible predictions, such as negative death counts. The Negative Binomial framework is purpose-built to overcome these challenges, properly handling count data and its characteristic overdispersion while allowing for the estimation of interpretable risk ratios.</p>
+<p>A Negative Binomial model is defined by two key components:</p>
+<ol type="1">
+<li><p><strong>The Probability Distribution</strong><br>
+The number of deaths <span class="math inline">\((y)\)</span> in a given census tract is assumed to follow a Negative Binomial distribution. This distribution is defined by its mean <span class="math inline">\((\mu)\)</span> and a dispersion parameter <span class="math inline">\((\theta)\)</span> that models the extra variation not captured by a simpler Poisson model. The probability of observing exactly <span class="math inline">\((y)\)</span> deaths is given by the Probability Mass Function (PMF):</p>
+<p><span class="math display">\[
+P(Y=y \mid \mu,\theta) = \frac{\Gamma(y+\theta)}{\Gamma(y+1)\,\Gamma(\theta)} \left(\frac{\theta}{\theta+\mu}\right)^{\theta} \left(\frac{\mu}{\theta+\mu}\right)^{y}
+\]</span></p>
+<p>where <span class="math inline">\(y\)</span> is the observed mortality count, <span class="math inline">\(\mu\)</span> is the expected mean count for an observation, <span class="math inline">\(\theta\)</span> is the dispersion parameter, and <span class="math inline">\(\Gamma()\)</span> is the gamma function.</p></li>
+<li><p><strong>The Link Function and Regression Structure</strong><br>
+The model connects the expected mean count <span class="math inline">\((\mu_i)\)</span> for each census tract <span class="math inline">\((i)\)</span> to a set of predictor variables <span class="math inline">\((X)\)</span> using a natural logarithm link function. This ensures the predicted counts are always positive and that the predictors have a multiplicative effect on the outcome. The general form of the regression equation is:</p>
+<p><span class="math display">\[
+\log(\mu_i) = \beta_0 + \beta_1 X_{i1} + \beta_2 X_{i2} + \dots + \beta_p X_{ip}
+\]</span></p>
+<p>where <span class="math inline">\(\beta_0\)</span> is the intercept and <span class="math inline">\(\beta_1, \dots, \beta_p\)</span> are the regression coefficients representing the change in the log of the mean count for a one-unit change in each predictor.</p></li>
+</ol>
+<p>Insights from the AI model’s SHAP analysis will directly inform the structure of this regression model. For example, identified non-linear exposure-response relationships will be modeled using flexible terms such as restricted cubic splines to ensure the inferential model is as robust and realistic as possible.</p>
+</section>
+<section id="confounder-control" class="level3" data-number="16.4.2">
+<h3 data-number="16.4.2" class="anchored" data-anchor-id="confounder-control"><span class="header-section-number">16.4.2</span> Confounder Control</h3>
+<p>To account for other factors that influence health, census-tract level covariates will be incorporated from the CDC’s Social Vulnerability Index (SVI) (data on poverty, education, income). Individual-level demographic variables available in the restricted health data (age, race, sex) will be included directly in the model.</p>
+</section>
+<section id="full-model-specification" class="level3" data-number="16.4.3">
+<h3 data-number="16.4.3" class="anchored" data-anchor-id="full-model-specification"><span class="header-section-number">16.4.3</span> Full Model Specification</h3>
+<p>To properly analyze mortality <strong>rates</strong> rather than raw counts, the model must account for the population size in each census tract. This is accomplished by including the logarithm of the population as an offset term, which effectively acts as a predictor with a coefficient fixed at 1. The full conceptual model for this analysis is:</p>
+<p><span class="math display">\[
+\log(\mu_i) = \beta_0 + \beta_1\,s(\text{UOG Exposure}_i) + \sum_{j=2}^{p} \beta_j\,X_{ij} \;+\; \text{offset}\!\bigl(\log(\text{Population}_i)\bigr)
+\]</span></p>
+<p>Here, <span class="math inline">\(s(\text{UOG Exposure}_i)\)</span> represents the potentially non-linear term for UOG exposure, and <span class="math inline">\(\sum_{j=2}^{p} \beta_j\,X_{ij}\)</span> represents all other confounders (demographic and socioeconomic). This formulation is equivalent to modeling the mortality rate <span class="math inline">\((\mu_i/\text{Population}_i)\)</span>, and the resulting coefficients <span class="math inline">\((\beta_j)\)</span> are exponentiated <span class="math inline">\((e^{\beta_j})\)</span> to yield interpretable Risk Ratios (RR).</p>
+</section>
+<section id="key-outputs" class="level3" data-number="16.4.4">
+<h3 data-number="16.4.4" class="anchored" data-anchor-id="key-outputs"><span class="header-section-number">16.4.4</span> Key Outputs</h3>
+<ul>
+<li><strong>Risk Ratios (RR):</strong> A quantifiable measure of association (the percent increase in mortality risk for each unit increase in UOG exposure), complete with 95% confidence intervals and p-values for formal hypothesis testing.</li>
+</ul>
+<p>By integrating these two approaches, this research will not only predict where risk is highest but also explain how much risk is attributable to UOG exposure, providing a comprehensive and actionable set of findings.</p>
+<hr>
+</section>
+</section>
+</section>
+<section id="model-evaluation-and-validation-metrics" class="level1" data-number="17">
+<h1 data-number="17"><span class="header-section-number">17</span> Model Evaluation and Validation Metrics</h1>
+<p>An evaluation plan will be employed to quantify the performance of each model component to ensure the reliability of the final results.</p>
+<section id="phase-1-cnn-object-detector-quality" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="phase-1-cnn-object-detector-quality"><span class="header-section-number">17.1</span> Phase 1: CNN Object Detector Quality</h2>
+<p>The quality of the UOG site detector will be assessed using standard computer vision metrics on a held-out test set:</p>
+<ul>
+<li><strong>Intersection over Union (IoU):</strong> Measures the accuracy of predicted bounding boxes against ground-truth boxes.</li>
+<li><strong>Precision &amp; Recall:</strong> Measure the rates of false positives and false negatives, respectively.</li>
+<li><strong>Mean Average Precision (mAP):</strong> The primary, single-number metric that summarizes overall performance across all object classes and detection thresholds.</li>
+</ul>
+</section>
+<section id="phase-2-methane-model-quality" class="level2" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="phase-2-methane-model-quality"><span class="header-section-number">17.2</span> Phase 2: Methane Model Quality</h2>
+<p>The spatiotemporal ConvLSTM model for methane prediction is a regression task and will be evaluated using:</p>
+<ul>
+<li><strong>Root Mean Squared Error (RMSE) &amp; Mean Absolute Error (MAE):</strong> To quantify the average prediction error in parts-per-billion (ppb).</li>
+<li><strong>R-squared (R²):</strong> To measure the proportion of variance in the real methane data explained by the model.</li>
+</ul>
+</section>
+<section id="phase-3-epidemiological-model-quality" class="level2" data-number="17.3">
+<h2 data-number="17.3" class="anchored" data-anchor-id="phase-3-epidemiological-model-quality"><span class="header-section-number">17.3</span> Phase 3: Epidemiological Model Quality</h2>
+<p>The two prongs of the health analysis require different evaluation methods:</p>
+<ul>
+<li><strong>Predictive AI Models (CNN/GNN):</strong> Performance will be measured using RMSE, MAE, R², and Pearson Correlation between the predicted and actual health outcomes on a held-out test set of census tracts/years.</li>
+<li><strong>Inferential Statistical Model (Negative Binomial):</strong> The focus is on model fit and the validity of the conclusions. Quality will be assessed via:
+<ul>
+<li><strong>Goodness-of-Fit Statistics (AIC/BIC):</strong> To compare model variations and select the best-fitting specification.</li>
+<li><strong>Significance and Confidence Intervals:</strong> The p-value and 95% CI for the UOG exposure term will determine the statistical significance and precision of the primary finding.</li>
+<li><strong>Residual Analysis:</strong> To validate the model’s underlying statistical assumptions.</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="projected-timeline-and-milestones-for-aim-3" class="level1" data-number="18">
+<h1 data-number="18"><span class="header-section-number">18</span> Projected Timeline and Milestones for Aim 3</h1>
+<p>While timing may vary, a realistic timeline for this aim, spans two academic years:</p>
+<section id="year-1-focus-on-phase-1---cnn-model-development-and-site-inventory-creation" class="level2" data-number="18.1">
+<h2 data-number="18.1" class="anchored" data-anchor-id="year-1-focus-on-phase-1---cnn-model-development-and-site-inventory-creation"><span class="header-section-number">18.1</span> Year 1: Focus on Phase 1 - CNN Model Development and Site Inventory Creation</h2>
+<ul>
+<li><strong>Months 1–4: Data Acquisition and Preparation.</strong> This period will be dedicated to acquiring high-resolution satellite imagery and the state-level UOG permit databases. The primary milestone will be the programmatic generation of tens of thousands of image snippets centered on permitted well locations.<br>
+</li>
+<li><strong>Months 4–8: Iterative Dataset Annotation</strong> This phase involves the multi-step process of creating the seed dataset, training the V1 model, and performing semi-automated labeling and review to build the full training dataset for the Pennsylvania case study. The IAA analysis will also be conducted.</li>
+<li><strong>Months 8–12: “Expert” Model Training and Large-Scale Deployment.</strong> This final phase involves training the expert model on the full dataset, validating its performance, and deploying it over the tax-parcel-masked search area to generate the final, comprehensive UOG inventory.</li>
+</ul>
+</section>
+<section id="year-2-spatiotemporal-analysis-health-data-acquisition-and-epidemiological-linkage" class="level2" data-number="18.2">
+<h2 data-number="18.2" class="anchored" data-anchor-id="year-2-spatiotemporal-analysis-health-data-acquisition-and-epidemiological-linkage"><span class="header-section-number">18.2</span> Year 2: Spatiotemporal Analysis, Health Data Acquisition, and Epidemiological Linkage</h2>
+<ul>
+<li><p><strong>Months 1–9 (Parallel Track 1): Methane &amp; Exposure Modeling</strong><br>
+Acquiring and processing methane data and integrating it with the UOG inventory from Phase 1 to create the final, dynamic exposure dataset.</p></li>
+<li><p><strong>Months 1–9 (Parallel Track 2): Health Data Acquisition</strong><br>
+the formal application process for the restricted-access NCHS mortality data will be undertaken through the NYRDC. This includes proposal writing, IRB submission, and DUA processing, which can take months.</p></li>
+<li><p><strong>Months 9–12: Final Integration and Analysis.</strong></p>
+<ul>
+<li>Linking the final exposure dataset with the approved NCHS health microdata.<br>
+</li>
+<li>Executing the hybrid analytical plan: running the predictive GNN/CNN models and the inferential Negative Binomial models.<br>
+</li>
+<li>Generating final results, including predictive maps and risk ratios.<br>
+</li>
+<li>Completing the initial draft of the chapter’s findings.</li>
+</ul></li>
+</ul>
+<p>The final output of this aim will culminate in a comprehensive environmental health assessment. This includes both the creation of a novel, high-resolution dataset linking UOG infrastructure to methane emissions and its application in a hybrid analytical framework. By integrating deep learning for predictive risk mapping with rigorous statistical modeling for inferential risk quantification, this research will provide a multi-faceted understanding of the potential public health consequences of UOG development, offering a valuable new resource for researchers, policymakers, and communities.</p>
+<hr>
+<p>As the methodology is developed, this chapter will be updated.</p>
+
+
+<!-- -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./04-prelim-analysis.html" class="pagination-link" aria-label="Preliminary Analysis">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Preliminary Analysis</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./06-technical-report.html" class="pagination-link" aria-label="Technical Report">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Technical Report</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Proposed Deep Learning Framework for UOG Site Monitoring (Aim 3) {#sec-aim-three}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction and Foundational Acknowledgement</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>This chapter outlines the proposed methodology for Specific Aim 3: the development and application of a novel deep learning framework to identify, classify, and monitor unconventional oil and gas (UOG), or "fracking," sites. The successful completion of the preceding project aims; engineering a sophisticated ETL+RAG pipeline and conducting a baseline machine learning analysis, directly highlighted the critical need for more advanced spatiotemporal models in environmental health. This aim is designed to address that identified gap head-on.</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>The conceptualization and design of the methodologies presented here were made possible by the foundational knowledge acquired in the "AI with Geospatial Big Data" (GOG 594) course at the University at Albany. The course, taught not only the theoretical underpinnings of advanced neural networks but also the practical, hands-on skills necessary to apply them to complex, real-world geospatial problems. Its approach to data processing, model implementation, and the use of tools like Quarto for reproducible research provided the essential toolkit for envisioning and structuring this final stage of the dissertation.</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>The objective of this aim is twofold. First, to create a high-resolution, actionable dataset of UOG infrastructure and activity by applying state-of-the-art computer vision techniques to satellite imagery. Second, to leverage this dataset to monitor associated environmental indicators, specifically methane emissions, providing a new layer of data for future epidemiological studies. To ensure methodological depth and feasibility within the doctoral timeline, this chapter will develop and validate this entire framework through a case study of UOG development in the Commonwealth of Pennsylvania, a region with a long history of activity and excellent data availability.</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>The scientific novelty of this research is threefold. First, it pioneers a multi-modal deep learning framework that moves beyond static well counts to create a dynamic, activity-based UOG exposure inventory from satellite imagery. Second, by linking this high-resolution exposure data to census-tract level health microdata, it directly confronts and mitigates the core methodological challenges of ecological fallacy and exposure misclassification that have limited previous studies. Finally, it integrates these components within a hybrid analytical framework, using AI for predictive discovery and established statistical models for formal inference, providing a comprehensive and robust model for environmental health risk assessment.</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu"># Rationale: Overcoming the Limitations of Traditional Analyses</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>The impetus for this aim stems directly from the findings and limitations identified in a <span class="co">[</span><span class="ot">preliminary analysis of environmental exposures and health outcomes</span><span class="co">](04-prelim-analysis.qmd#sec-prelim-analysis)</span>. That baseline study, which used a Random Forest model to examine county-level ozone exposure and cardiovascular disease (CVD) mortality, was successful in establishing a statistical association. More importantly, however, it served as a crucial diagnostic, revealing the methodological barriers inherent in using aggregated, publicly available data for environmental health research.</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>Specifically, the preliminary work highlighted three challenges that this aim is designed to overcome:</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**The Ecological Fallacy:** By operating at the county level, the analysis could only establish that counties with higher average exposures also had higher mortality rates. It was impossible to determine if the individuals who died were the ones most exposed, a fundamental limitation known as the ecological fallacy. </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Exposure Misclassification:** Using county-wide averages for exposure metrics masks the vast differences in exposure that occur within a large geographic area. Residents living next to a source are grouped with those living miles away, leading to significant exposure misclassification that biases results, typically towards finding no effect. </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Artifacts from Smoothed Health Data:** The preliminary analysis relied on publicly available, "spatiotemporally smoothed" mortality rates. This statistical smoothing, while useful for stabilizing rates in small populations, artificially introduces spatial and temporal patterns into the data. Advanced spatiotemporal models, such as the ones proposed here, risk simply "re-discovering" the signature of this smoothing algorithm rather than a true environmental health signal. </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>Therefore, Aim 3 is predicated on a foundational principle: to robustly investigate the health impacts of localized environmental exposures like UOG development, one must create a high-resolution exposure dataset and link it to granular, unsmoothed health microdata. This chapter details the creation of the former, while the subsequent phase outlines the plan to acquire and analyze the latter. In doing so, this research presents a significant methodological advancement designed to produce a more accurate and granular understanding of the potential health risks of UOG development.</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu"># Study Scope and Future Directions</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>The scope of this chapter is to develop, execute, and validate the complete, end-to-end methodology within the defined study area of Pennsylvania. This includes the creation of a UOG inventory for the state and the subsequent epidemiological linkage with Pennsylvania health data.</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>This approach allows for a deep analysis, ensuring the development of a well-validated system. The successful completion of this state-level case study will serve as a pilot project and proof-of-concept. The validated models, established data pipelines, and initial findings will form the preliminary data for a future, national-scale research initiative, which would be the subject of a post-doctoral project or a grant proposal.</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu"># Potential Risks and Limitations</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>Although carefully designed, potential risks are anticipated. Data acquisition delays from satellite imagery providers or health data access could impact project timelines. Annotation workflows may require more time or resources than initially planned, particularly if annotation complexity is higher than expected. Computational constraints, such as GPU bottlenecks during model training, may necessitate additional optimization or hardware adjustments. Contingency plans, such as leveraging alternative imagery sources, adjusting annotation sample sizes, or optimizing GPU usage through batch size tuning, are prepared to mitigate these challenges.</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu"># Ethical Considerations and Confidentiality</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>Given the use of restricted-access health microdata, ethical considerations regarding data privacy and confidentiality are paramount. This project will rigorously adhere to NCHS confidentiality requirements, IRB guidelines, and best practices for data security. All sensitive analyses will be conducted in secure environments, ensuring individual privacy and confidentiality through aggregate reporting only.</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="fu"># Model Interpretability and Transparency</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>Model interpretability is essential to validate predictive accuracy and ensure methodological transparency. Techniques such as SHAP (SHapley Additive exPlanations) will be  applied to quantify and visualize the contribution of different predictors, as previously demonstrated in the <span class="co">[</span><span class="ot">preliminary analysis</span><span class="co">](04-prelim-analysis.qmd#sec-prelim-results)</span>. For CNN and GNN architectures, visual methods such as Grad-CAM or attention maps will be employed to demonstrate model decision-making processes transparently.</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="fu"># Reproducibility and Open Science</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>This research commits to open science and reproducibility principles. All analytical workflows, scripts, and models will be documented thoroughly using reproducible Quarto notebooks and made publicly available through GitHub repositories, facilitating validation, reuse, and future research.</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="fu"># Phase 1: UOG Site Identification via CNN Object Detection</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="al">![Well pad Concept](figures\contrst.PNG)</span>{#fig-well-concept}</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## Software Tools and Libraries</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>This project leverages open-source software tools to ensure reproducibility, efficiency, and ease of collaboration:</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**PyTorch / PyTorch Lightning:** efficient neural network training and inference </span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Ultralytics YOLOv8:** framework for CNN-based object detection </span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Hugging Face Model Hub:** Source of pre-trained models, including YOLOv8 checkpoints for transfer learning </span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**CVAT (Computer Vision Annotation Tool):** software for bounding box annotation and iterative labeling workflows </span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**GDAL, rasterio, geopandas:** Tools for geospatial data acquisition, preprocessing, and spatial masking workflows </span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>These tools ensure reproducibility, efficiency, and ease of collaboration, enabling integration of complex components within the proposed methodological framework.</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Acquisition and Preprocessing</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>**Satellite Imagery:**  </span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>We will acquire high-resolution multispectral satellite imagery (from Sentinel-2, Planet Labs, or NAIP) for regions with known UOG development.</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>**Training Data Scaffolding (Permit-Guided):**  </span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>To efficiently generate a dataset for model training, this project will leverage publicly available oil and gas well permit databases from state regulatory agencies. The latitude and longitude coordinates from these official records will be used to programmatically clip thousands of small image "snippets" from the satellite imagery. This approach ensures the manual annotation effort is focused on relevant imagery containing known positive examples, forming the foundation for the training process described in the next section.</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>**Inference Search Area Definition (Tax Parcel-Guided):**  </span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>For the final model deployment phase, where the goal is to discover all sites (both known and unknown), a broad search area will be defined using county tax parcel data. This data will create a "mask" to programmatically exclude areas where UOG development is highly improbable (e.g., dense residential zones, protected lands). Running the model over this large, plausible search area is what enables the discovery of unrecorded or legacy sites.</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="fu">## Training Data Creation</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>Creating a large, accurate, and diverse training dataset is critical, yet manual annotation at a national scale is not possible for a single researcher. Therefore, a modern, "human-in-the-loop" workflow will be employed to make this large-scale labeling task manageable and to produce a highly robust final training set. The process is structured as follows:</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Seed Dataset Creation (Manual Annotation):**  </span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>  A manageable initial subset of image snippets (2,000–5,000) will be labeled by hand in the CVAT annotation tool to create the initial high-quality ground truth.</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Initial Model Training (V1):**  </span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>  This seed dataset will be used to train a preliminary version (V1) of the YOLO/EfficientDet object detection model.</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Semi-Automated Labeling:**  </span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>  The V1 model will then be deployed on the remaining tens of thousands of unlabeled snippets to generate "pre-labels." The human annotator's role then shifts to that of a reviewer, rapidly confirming correct predictions and correcting inaccurate ones.</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Final "Expert" Model Training:**  </span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>  The full, high-quality dataset comprising both the manually labeled seed set and the much larger set of human-corrected semi-automated labels will be used to train the final, "expert" version of the model, likely by fine-tuning the V1 model.</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>This entire iterative process will be used to draw bounding boxes around key features, including: </span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Well Pads:** The overall footprint of the development site. </span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Storage Tanks:** Identifying individual or clusters of tanks. </span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Active Equipment:** Such as drilling rigs or vehicle fleets, which serve as a proxy for site activity. </span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Abandoned Sites:** Identifying sites with visible infrastructure but no signs of recent activity. </span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>To ensure the objectivity and reproducibility of these labels, an **Inter-Annotator Agreement (IAA)** analysis will be performed on a subset of the data. By having a second independent annotator label the same set of images and calculating metrics such as Intersection over Union (IoU) for bounding boxes and Cohen's Kappa for categorical labels, the reliability of the annotation process will be quantitatively validated.</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="fu">## Model Architecture and Training</span></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>Detailed information on the specialized computational hardware used for training and inference (multi-GPU workstation with 48GB GPUs) is provided in <span class="co">[</span><span class="ot">Appendix C: Computational Hardware</span><span class="co">](appendix-c-hardware.qmd#sec-appendix-c-hardware)</span>. Leveraging these dedicated computational resources, we will employ a transfer learning approach, which is standard practice for complex object detection tasks. Specifically, a state-of-the-art YOLO (You Only Look Once) variant, such as YOLOv8 pre-trained on the COCO dataset, will be fine-tuned on our annotated UOG site dataset. This approach enables the model to leverage its existing knowledge of general shapes and textures, adapting rapidly to the specific task of identifying UOG infrastructure. Utilizing our robust computational setup significantly accelerates training times, facilitates larger batch sizes, and ensures high-quality, generalizable model performance.</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Data Curation:**  </span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>The training dataset will be constructed using stratified sampling to ensure representation from different regions within Pennsylvania's Appalachian Basin (the wet gas southwestern region vs. the dry gas northeastern region) and across different seasons (leaf-on vs. leaf-off). This approach ensures the model is robust for the case study area, while the methodology itself is designed to be directly scalable to other basins in future work.</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Data Augmentation:**  </span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>The training data will be programmatically augmented by applying random geometric (flips, rotations) and photometric (brightness, contrast, hue) transformations. This forces the model to learn the fundamental features of UOG infrastructure rather than superficial characteristics tied to a specific region or season.</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="fu"># Phase 2: Methane Monitoring with Spatiotemporal Models</span></span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="fu">## Methane Data Acquisition</span></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>We will acquire publicly available methane concentration data from sources such as the Sentinel-5P TROPOMI instrument or the more recent MethaneSAT. This provides regular, global coverage of atmospheric methane levels.</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="fu">## Spatiotemporal Analysis with ConvLSTM</span></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>To model the movement and concentration of methane plumes over time, we will use a spatiotemporal deep learning model such as a ConvLSTM (Convolutional Long Short-Term Memory) network. This architecture is ideal for this task because:</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The **Convolutional (CNN)** component analyzes the spatial structure of the methane plume in each individual satellite image. </span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The **Recurrent (LSTM)** component analyzes the sequence of these images over time, learning how plumes emerge, move with wind patterns, and dissipate. </span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>This model will be trained to predict methane concentrations across our study region. </span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="fu">## Leak Detection and Site Attribution</span></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>By overlaying the outputs from the ConvLSTM model with the geolocated UOG site inventory from Phase 1, we can systematically:</span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Identify Anomalous Methane Plumes:** Detect methane concentrations that are significantly higher than the regional baseline. </span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Attribute Emissions:** Correlate these plumes with specific active UOG sites to monitor their emissions. </span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Detect Leaks from Abandoned Sites:** Critically, we can also identify significant methane sources originating from sites previously classified as abandoned, providing a powerful tool for environmental monitoring and public health risk assessment. </span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>The final output of this aim will be a dynamic, spatially explicit dataset linking UOG infrastructure to its real-world methane emissions, creating a novel and valuable resource for the environmental health sciences community.</span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a><span class="fu"># Phase 3: Epidemiological Linkage and Analysis</span></span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a>The UOG and methane emissions inventory created in Phases 1 and 2 will serve as a high-resolution spatiotemporal exposure dataset. The final phase of this aim is to link this environmental data with health outcome data to investigate potential associations. This requires acquiring restricted-access health microdata and applying appropriate statistical methods to control for confounding variables.</span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a><span class="fu">## Health Outcome Data: Acquisition of Restricted-Access Microdata</span></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a>To overcome the limitations of publicly available aggregated data, this research will use individual-level, anonymized health data containing fine-scale geographic identifiers. The target dataset is the National Center for Health Statistics (NCHS) National Vital Statistics System (NVSS) Mortality Data. This dataset contains individual death records, including cause of death and, critically, the census tract of residence.</span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a>Acquiring this data is a formal process that must be conducted through the New York Federal Statistical Research Data Center (NYRDC), of which the University at Albany is a member. The process involves the following key steps:</span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Proposal Development:**  </span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a>   A detailed research proposal will be submitted to the NYRDC. This proposal will outline the research questions, the specific data variables required (year of death, census tract, cause of death, age, race, sex), the statistical methodology, and a plan for ensuring data confidentiality. </span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Institutional Review Board (IRB) Review:**  </span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>   The proposal must be approved by the University at Albany's IRB. This ensures the research is conducted ethically and that all protocols for protecting sensitive human subjects' data are in place.</span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Execution of a Data Use Agreement (DUA):**  </span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a>   Upon provisional approval, a DUA from NCHS will be processed through the University's Office of Research and Regulatory Compliance. This legal agreement governs the terms of data use, storage, and security.</span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Secure Data Analysis:**  </span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>   All analyses using the restricted microdata will be performed within the secure environment of an NYRDC facility to ensure compliance with all federal data protection requirements.</span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a><span class="fu">## Analytical Approach: Prediction and Inference</span></span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a>To fully address the research questions, a hybrid analytical framework will be employed, leveraging the distinct strengths of deep learning for prediction and discovery, and established statistical models for inference. This two-pronged strategy allows the project to predict where health risks may be highest and quantify the magnitude of those risks in a more traditional statistically rigorous manner.</span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a><span class="fu">## Predictive Modeling and Pattern Discovery</span></span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a>The primary objective of this phase is to achieve the highest possible predictive accuracy for health outcomes and to uncover complex, non-linear spatiotemporal patterns that traditional models often miss.</span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Methodology:** The high-resolution UOG and methane exposure datasets (from Phases 1 &amp; 2) will be used as inputs for the trained Convolutional Neural Network (CNN) and Graph Neural Network (GNN) architectures. These models are specifically designed to learn from the spatial grid and network structures of the data, capturing localized patterns and inter-county dependencies (i.e., spatial spillover effects). </span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Key Outputs:**</span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Predictive Risk Maps:** Generation of spatially explicit maps identifying census tracts predicted to have the highest health risk in future time periods.  </span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**AI-Driven Feature Importance:** Application of model interpretation techniques (SHAP) to visualize the non-linear effects and complex interactions discovered by the deep learning models. </span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a><span class="fu">## Statistical Modeling for Inference and Effect Size Estimation</span></span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a>The objective of this phase is to complement the predictive findings by quantifying the specific, interpretable effect size of UOG exposure on mortality while controlling for a wide range of confounders.</span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a><span class="fu">### Methodology: Negative Binomial Regression</span></span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a>The relationship between UOG exposure and health outcomes (mortality counts) will be analyzed using Negative Binomial regression. This type of Generalized Linear Model (GLM) is standard for analyzing count data that exhibits overdispersion (i.e., where the variance in the data is greater than the mean), which is common in epidemiological data.</span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a>The selection of a Negative Binomial model over more conventional methods like simple Linear Regression or ANOVA is a deliberate choice dictated by the fundamental nature of the outcome data. Linear models, including ANOVA, are inappropriate for this analysis as they assume a continuous, normally distributed outcome with constant variance. </span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a>Applying them to mortality counts which are discrete, non-negative, and exhibit increasing variance with the mean, would violate these core assumptions and could lead to biased estimates and impossible predictions, such as negative death counts. The Negative Binomial framework is purpose-built to overcome these challenges, properly handling count data and its characteristic overdispersion while allowing for the estimation of interpretable risk ratios.</span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a>A Negative Binomial model is defined by two key components:</span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**The Probability Distribution**  </span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a>   The number of deaths $(y)$ in a given census tract is assumed to follow a Negative Binomial distribution. This distribution is defined by its mean $(\mu)$ and a dispersion parameter $(\theta)$ that models the extra variation not captured by a simpler Poisson model. The probability of observing exactly $(y)$ deaths is given by the Probability Mass Function (PMF):</span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a>   $$</span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a>   P(Y=y \mid \mu,\theta) = \frac{\Gamma(y+\theta)}{\Gamma(y+1)\,\Gamma(\theta)} \left(\frac{\theta}{\theta+\mu}\right)^{\theta} \left(\frac{\mu}{\theta+\mu}\right)^{y}</span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a>   $$</span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a>   where $y$ is the observed mortality count, $\mu$ is the expected mean count for an observation, $\theta$ is the dispersion parameter, and $\Gamma()$ is the gamma function.</span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**The Link Function and Regression Structure**  </span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a>   The model connects the expected mean count $(\mu_i)$ for each census tract $(i)$ to a set of predictor variables $(X)$ using a natural logarithm link function. This ensures the predicted counts are always positive and that the predictors have a multiplicative effect on the outcome. The general form of the regression equation is:</span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a>   $$</span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a>   \log(\mu_i) = \beta_0 + \beta_1 X_{i1} + \beta_2 X_{i2} + \dots + \beta_p X_{ip}</span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a>   $$</span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a>   where $\beta_0$ is the intercept and $\beta_1, \dots, \beta_p$ are the regression coefficients representing the change in the log of the mean count for a one-unit change in each predictor.</span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a>Insights from the AI model's SHAP analysis will directly inform the structure of this regression model. For example, identified non-linear exposure-response relationships will be modeled using flexible terms such as restricted cubic splines to ensure the inferential model is as robust and realistic as possible.</span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a><span class="fu">### Confounder Control</span></span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a>To account for other factors that influence health, census-tract level covariates will be incorporated from the CDC's Social Vulnerability Index (SVI) (data on poverty, education, income). Individual-level demographic variables available in the restricted health data (age, race, sex) will be included directly in the model.</span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a><span class="fu">### Full Model Specification</span></span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a>To properly analyze mortality **rates** rather than raw counts, the model must account for the population size in each census tract. This is accomplished by including the logarithm of the population as an offset term, which effectively acts as a predictor with a coefficient fixed at 1. The full conceptual model for this analysis is:</span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a>\log(\mu_i) = \beta_0 + \beta_1\,s(\text{UOG Exposure}_i) + \sum_{j=2}^{p} \beta_j\,X_{ij} \;+\; \text{offset}<span class="sc">\!</span>\bigl(\log(\text{Population}_i)\bigr)</span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a>Here, $s(\text{UOG Exposure}_i)$ represents the potentially non-linear term for UOG exposure, and $\sum_{j=2}^{p} \beta_j\,X_{ij}$ represents all other confounders (demographic and socioeconomic). This formulation is equivalent to modeling the mortality rate $(\mu_i/\text{Population}_i)$, and the resulting coefficients $(\beta_j)$ are exponentiated $(e^{\beta_j})$ to yield interpretable Risk Ratios (RR).</span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a><span class="fu">### Key Outputs</span></span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Risk Ratios (RR):** A quantifiable measure of association (the percent increase in mortality risk for each unit increase in UOG exposure), complete with 95% confidence intervals and p-values for formal hypothesis testing.</span>
+<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a>By integrating these two approaches, this research will not only predict where risk is highest but also explain how much risk is attributable to UOG exposure, providing a comprehensive and actionable set of findings.</span>
+<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a><span class="fu"># Model Evaluation and Validation Metrics</span></span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a>An evaluation plan will be employed to quantify the performance of each model component to ensure the reliability of the final results.</span>
+<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a><span class="fu">## Phase 1: CNN Object Detector Quality</span></span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a>The quality of the UOG site detector will be assessed using standard computer vision metrics on a held-out test set:</span>
+<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Intersection over Union (IoU):** Measures the accuracy of predicted bounding boxes against ground-truth boxes. </span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Precision &amp; Recall:** Measure the rates of false positives and false negatives, respectively. </span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Mean Average Precision (mAP):** The primary, single-number metric that summarizes overall performance across all object classes and detection thresholds. </span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a><span class="fu">## Phase 2: Methane Model Quality</span></span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a>The spatiotemporal ConvLSTM model for methane prediction is a regression task and will be evaluated using:</span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Root Mean Squared Error (RMSE) &amp; Mean Absolute Error (MAE):** To quantify the average prediction error in parts-per-billion (ppb). </span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**R-squared (R²):** To measure the proportion of variance in the real methane data explained by the model. </span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a><span class="fu">## Phase 3: Epidemiological Model Quality</span></span>
+<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a>The two prongs of the health analysis require different evaluation methods:</span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Predictive AI Models (CNN/GNN):** Performance will be measured using RMSE, MAE, R², and Pearson Correlation between the predicted and actual health outcomes on a held-out test set of census tracts/years. </span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Inferential Statistical Model (Negative Binomial):** The focus is on model fit and the validity of the conclusions. Quality will be assessed via: </span>
+<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Goodness-of-Fit Statistics (AIC/BIC):** To compare model variations and select the best-fitting specification. </span>
+<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Significance and Confidence Intervals:** The p-value and 95% CI for the UOG exposure term will determine the statistical significance and precision of the primary finding. </span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Residual Analysis:** To validate the model's underlying statistical assumptions. </span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a><span class="fu"># Projected Timeline and Milestones for Aim 3 </span></span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a>While timing may vary, a realistic timeline for this aim, spans two academic years: </span>
+<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a><span class="fu">## Year 1: Focus on Phase 1 - CNN Model Development and Site Inventory Creation </span></span>
+<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Months 1–4: Data Acquisition and Preparation.** This period will be dedicated to acquiring high-resolution satellite imagery and the state-level UOG permit databases. The primary milestone will be the programmatic generation of tens of thousands of image snippets centered on permitted well locations.  </span>
+<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Months 4–8: Iterative Dataset Annotation** This phase involves the multi-step process of creating the seed dataset, training the V1 model, and performing semi-automated labeling and review to build the full training dataset for the Pennsylvania case study. The IAA analysis will also be conducted. </span>
+<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Months 8–12: "Expert" Model Training and Large-Scale Deployment.** This final phase involves training the expert model on the full dataset, validating its performance, and deploying it over the tax-parcel-masked search area to generate the final, comprehensive UOG inventory.</span>
+<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a><span class="fu">## Year 2: Spatiotemporal Analysis, Health Data Acquisition, and Epidemiological Linkage</span></span>
+<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Months 1–9 (Parallel Track 1): Methane &amp; Exposure Modeling**  </span>
+<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a>   Acquiring and processing methane data and integrating it with the UOG inventory from Phase 1 to create the final, dynamic exposure dataset.</span>
+<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Months 1–9 (Parallel Track 2): Health Data Acquisition**  </span>
+<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a>  the formal application process for the restricted-access NCHS mortality data will be undertaken through the NYRDC. This includes proposal writing, IRB submission, and DUA processing, which can take months.</span>
+<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Months 9–12: Final Integration and Analysis.**  </span>
+<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Linking the final exposure dataset with the approved NCHS health microdata.  </span>
+<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Executing the hybrid analytical plan: running the predictive GNN/CNN models and the inferential Negative Binomial models.  </span>
+<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Generating final results, including predictive maps and risk ratios.  </span>
+<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Completing the initial draft of the chapter’s findings.  </span>
+<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a>The final output of this aim will culminate in a comprehensive environmental health assessment. This includes both the creation of a novel, high-resolution dataset linking UOG infrastructure to methane emissions and its application in a hybrid analytical framework. By integrating deep learning for predictive risk mapping with rigorous statistical modeling for inferential risk quantification, this research will provide a multi-faceted understanding of the potential public health consequences of UOG development, offering a valuable new resource for researchers, policymakers, and communities.</span>
+<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a>As the methodology is developed, this chapter will be updated.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Written by Alex Godinez | <a href="https://github.com/agodinezmm2007">GitHub</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
